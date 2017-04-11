@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="io.itmatic.botox.Enter_your_postcodeActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@color/White">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Idemail"
+                    android:padding="10dp"
+                    android:hint="Postcode"
+                    android:background="@color/White"
+                    android:drawablePadding="15dp"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:drawableLeft="@mipmap/email"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Black">
+               <Button
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/Black"
+                   android:text="Next"
+                   android:textColor="@color/White"/>
+            </LinearLayout>
+
+        </LinearLayout>
+               </RelativeLayout>
+</LinearLayout>
