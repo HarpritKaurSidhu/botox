@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="io.itmatic.botox.QualificationsActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/IdCv"
+                        android:padding="10dp"
+                        android:hint="CV"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:textCursorDrawable="@drawable/cursor"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/IdProof"
+                        android:padding="10dp"
+                        android:hint="Proof"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:textCursorDrawable="@drawable/cursor"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/IdPhoto_IN"
+                        android:padding="10dp"
+                        android:hint="Photo IN"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:textCursorDrawable="@drawable/cursor"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@color/White">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/IdCRB_Check"
+                android:padding="10dp"
+                android:hint="CRB Check"
+                android:background="@color/White"
+                android:drawablePadding="10dp"
+                android:textCursorDrawable="@drawable/cursor"
+                />
+        </LinearLayout>
+
+</LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@color/White">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/IdQualification"
+                    android:padding="10dp"
+                    android:hint="Qualification Certificate"
+                    android:background="@color/White"
+                    android:drawablePadding="10dp"
+                    android:textCursorDrawable="@drawable/cursor"
+                    />
+            </LinearLayout>
+</LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@color/White">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Idother"
+                    android:padding="10dp"
+                    android:hint="Other"
+                    android:background="@color/White"
+                    android:drawablePadding="10dp"
+                    android:textCursorDrawable="@drawable/cursor"
+                    />
+            </LinearLayout>
+</LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Black">
+                <Button
+                    android:id="@+id/Idnext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Black"
+                    android:text="Next"
+                    android:textColor="@color/White"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
