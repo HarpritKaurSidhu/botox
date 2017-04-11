@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="io.itmatic.botox.Sign_up_as_doctorActivity">
+    tools:context=".SignUpAsDoctorActivity">
         <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarId"
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/userimage"
                 android:layout_centerInParent="true"
                 >
@@ -56,9 +57,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Idfirstname"
+                    android:id="@+id/edt_first_name"
                     android:padding="10dp"
-                    android:hint="First Name"
+                    android:hint="@string/first_name"
                     android:background="@color/White"
                     android:drawablePadding="10dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -80,9 +81,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Idlastname"
+                    android:id="@+id/edt_lastname"
                     android:padding="10dp"
-                    android:hint="Last name"
+                    android:hint="@string/last_name"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -104,9 +105,10 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Idemail"
+                    android:id="@+id/edt_email"
                     android:padding="10dp"
-                    android:hint="Email"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -130,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/Idpasswrd"
                     android:padding="10dp"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -154,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/Idaddress"
                     android:padding="10dp"
-                    android:hint="Address"
+                    android:hint="@string/address"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -178,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/Idmodel"
                     android:padding="10dp"
-                    android:hint="Model of Transport"
+                    android:hint="@string/model_of_transport"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -199,7 +201,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:text="Driving Licence"
+                   android:text="@string/driving_licence"
                    android:textSize="17sp"/>
                    </LinearLayout>
                <LinearLayout
@@ -230,7 +232,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IdGDCNO"
                     android:padding="10dp"
-                    android:hint="GDCNO"
+                    android:hint="@string/gdcno"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -253,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IdGMCNO"
                     android:padding="10dp"
-                    android:hint="GMCNO"
+                    android:hint="@string/gmcno"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -276,7 +278,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/Black"
-                    android:text="Next"
+                    android:text="@string/next"
                     android:textColor="@color/White"/>
             </LinearLayout>
         </LinearLayout>

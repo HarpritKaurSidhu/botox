@@ -6,7 +6,7 @@
     android:orientation="vertical"
 
     tools:context="io.itmatic.botox.ProviderActivity">
-    tools:context="io.itmatic.botox.Login_as_patientActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -35,13 +35,14 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Idemail"
+                    android:id="@+id/edt_email"
                     android:padding="10dp"
-                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email"
                     android:background="@color/White"
                     android:drawablePadding="10dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/email"
+                    android:drawableLeft="@mipmap/ic_email"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -62,10 +63,11 @@
 
                     android:textCursorDrawable="@drawable/cursor"
                     android:background="@color/White"
-                    android:id="@+id/Idpassword"
-                    android:hint="Password"
+                    android:id="@+id/edt_password"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:padding="10dp"
-                    android:drawableLeft="@mipmap/passwrd"
+                    android:drawableLeft="@mipmap/ic_passwrd"
                     android:drawablePadding="10dp"
 
                     />
@@ -75,7 +77,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgot Password?"
+            android:text="@string/forgot_password"
             android:padding="5dp"
             android:id="@+id/forgetId"
             android:layout_gravity="center"
@@ -92,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:textColor="@android:color/white"
             android:background="@color/Black"
              />

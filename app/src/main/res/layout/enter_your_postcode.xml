@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="io.itmatic.botox.Enter_your_postcodeActivity">
+    tools:context=".PostcodeActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -33,13 +33,14 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Idemail"
+                    android:id="@+id/edt_postcode"
                     android:padding="10dp"
-                    android:hint="Postcode"
+                    android:inputType="text"
+                    android:hint="@string/postcode"
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/email"
+                    android:drawableLeft="@mipmap/ic_email"
                     />
                 </LinearLayout>
             </LinearLayout>
@@ -57,7 +58,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:background="@color/Black"
-                   android:text="Next"
+                   android:text="@string/next"
                    android:textColor="@color/White"/>
             </LinearLayout>
 

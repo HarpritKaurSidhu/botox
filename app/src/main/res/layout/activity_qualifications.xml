@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IdMBBS"
                     android:padding="10dp"
-                    android:hint="MBBS"
+                    android:hint="@string/mbbs"
                     android:background="@color/White"
                     android:drawablePadding="10dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IdBDS"
                     android:padding="10dp"
-                    android:hint="BDS"
+                    android:hint="@string/bds"
                     android:background="@color/White"
                     android:drawablePadding="10dp"
                     android:textCursorDrawable="@drawable/cursor"
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Idother"
                 android:padding="10dp"
-                android:hint="Other"
+                android:hint="@string/other"
                 android:background="@color/White"
                 android:drawablePadding="10dp"
                 android:textCursorDrawable="@drawable/cursor"
@@ -112,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/Black"
-                    android:text="Next"
+                    android:text="@string/next"
                     android:textColor="@color/White"/>
             </LinearLayout>
 

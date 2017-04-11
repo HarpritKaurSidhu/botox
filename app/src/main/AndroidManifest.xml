@@ -9,9 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Splash" />
-        <activity android:name=".Login_as_patientActivity" />
-        <activity android:name=".Forgot_passwordActivity" />
-        <activity android:name=".Botox_AppActivity">
+        <activity android:name=".LoginAsPatientActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".BotoxActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,10 +20,10 @@
         </activity>
         <activity android:name=".ProviderActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".Enter_your_postcodeActivity" />
-        <activity android:name=".Sign_up_as_doctorActivity" />
+        <activity android:name=".PostcodeActivity" />
+        <activity android:name=".SignUpAsDoctorActivity" />
         <activity android:name=".QualificationsActivity" />
-        <activity android:name=".Uploads_DocumentsActivity"></activity>
+        <activity android:name=".UploadsDocumentsActivity"/>
     </application>
 
 </manifest>

@@ -8,34 +8,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class QualificationsActivity extends AppCompatActivity {
+public class SignUpAsDoctorActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     Button button;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qualifications);
-        toolbar = (Toolbar) findViewById(R.id.toolbarId);
-        button = (Button) findViewById(R.id.Idnext);
+        setContentView(R.layout.activity_sign_up_as_doctor);
+        toolbar=(Toolbar)findViewById(R.id.toolbarId);
+        button=(Button)findViewById(R.id.Idbutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QualificationsActivity.this, UploadsDocumentsActivity.class);
+                Intent intent=new Intent(SignUpAsDoctorActivity.this,QualificationsActivity.class);
                 startActivity(intent);
             }
-        });
-        setSupportActionBar(toolbar);
+        });setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getResources().getString(R.string.qualification));
+        getSupportActionBar().setTitle(getResources().getString(R.string.sign_up_as_doctor));
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home: {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+            {
                 onBackPressed();
                 return true;
             }

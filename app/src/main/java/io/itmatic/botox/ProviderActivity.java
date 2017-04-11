@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class ProviderActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    Button loginbtn,registerbtn;
+    Button loginButton,registerButton;
     TextView textView;
 
     @Override
@@ -20,8 +20,8 @@ public class ProviderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        loginbtn=(Button)findViewById(R.id.loginId);
-        loginbtn.setOnClickListener(new View.OnClickListener() {
+        loginButton=(Button)findViewById(R.id.loginId);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ProviderActivity.this,ProfileActivity.class);
@@ -29,11 +29,11 @@ public class ProviderActivity extends AppCompatActivity {
             }
         });
 
-        registerbtn=(Button)findViewById(R.id.registerId);
-        registerbtn.setOnClickListener(new View.OnClickListener() {
+        registerButton=(Button)findViewById(R.id.registerId);
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ProviderActivity.this,Sign_up_as_doctorActivity.class);
+                Intent intent=new Intent(ProviderActivity.this,SignUpAsDoctorActivity.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +41,7 @@ public class ProviderActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ProviderActivity.this,Forgot_passwordActivity.class);
+                Intent intent=new Intent(ProviderActivity.this,ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });

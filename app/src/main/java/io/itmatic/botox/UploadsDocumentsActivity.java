@@ -1,6 +1,5 @@
 package io.itmatic.botox;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,26 +7,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class Sign_up_as_doctorActivity extends AppCompatActivity {
-
+public class UploadsDocumentsActivity extends AppCompatActivity {
     Toolbar toolbar;
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_as_doctor);
+        setContentView(R.layout.activity_uploads_documents);
         toolbar=(Toolbar)findViewById(R.id.toolbarId);
-        button=(Button)findViewById(R.id.Idbutton);
+        button=(Button)findViewById(R.id.Idnext);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Sign_up_as_doctorActivity.this,QualificationsActivity.class);
-                startActivity(intent);
+               // Intent intent=new Intent(Uploads_DocumentsActivity.this)
             }
-        });setSupportActionBar(toolbar);
+        });
+        setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getResources().getString(R.string.sign_up_as_doctor));
+        getSupportActionBar().setTitle(getResources().getString(R.string.uploads_documents));
     }
 
     @Override

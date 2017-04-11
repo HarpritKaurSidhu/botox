@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Botox_AppActivity extends AppCompatActivity {
+public class BotoxActivity extends AppCompatActivity {
 
     TextView provider,login;
     Toolbar toolbar;
@@ -23,14 +23,14 @@ public class Botox_AppActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Botox_AppActivity.this,Enter_your_postcodeActivity.class);
+                Intent intent=new Intent(BotoxActivity.this,PostcodeActivity.class);
                 startActivity(intent);
             }
         });
         provider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Botox_AppActivity.this,ProviderActivity.class);
+                Intent intent=new Intent(BotoxActivity.this,ProviderActivity.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class Botox_AppActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Botox_AppActivity.this,Login_as_patientActivity.class);
+                Intent intent=new Intent(BotoxActivity.this,LoginAsPatientActivity.class);
                 startActivity(intent);
             }
         });
