@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login as patient</string>
+    <string name="app_name">Botox</string>
     <string name="login_as_patient">Login as Patient</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="botox_App">Botox App</string>
@@ -11,6 +11,8 @@
     <string name="document_status">Document status: Check</string>
     <string name="my_appointments">My appointments</string>
     <string name="my_payments">My payments</string>
+    <string name="qualification">Qualifications</string>
+    <string name="uploads_documents">Uploads Documents</string>
     <string name="provider_full_name">Provider Full Name</string>
     <string name="enter_your_postcode">Enter your postcode</string>
     <string name="sign_up_as_doctor">Sign Up as Doctor</string>

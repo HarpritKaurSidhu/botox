@@ -5,21 +5,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="io.itmatic.botox.Sign_up_as_doctorActivity">
-    <android.support.v7.widget.Toolbar
+        <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.Toolbar>
     <ScrollView
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/userimage"
+                android:layout_centerInParent="true"
+                >
+                </ImageView>
+            </RelativeLayout>
+            </RelativeLayout>
+
           <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical">
         <LinearLayout
@@ -89,7 +110,7 @@
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/email"
+                    android:drawableLeft="@drawable/ic_email_blue_grey_300_24dp"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -113,7 +134,7 @@
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/passwrd"
+                    android:drawableLeft="@drawable/ic_lock_blue_grey_300_24dp"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -172,20 +193,20 @@
                <LinearLayout
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
+                   android:layout_gravity="center"
                    android:layout_weight="1"
                    android:orientation="horizontal">
                <TextView
-                   android:gravity="center"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:textSize="17sp"
-                   android:text="Driving Licence" />
+                   android:layout_height="match_parent"
+                   android:text="Driving Licence"
+                   android:textSize="17sp"/>
                    </LinearLayout>
                <LinearLayout
-                   android:gravity="right"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
-                   android:layout_weight="1">
+                   android:layout_weight="1"
+                   android:gravity="right">
                 <ToggleButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,6 +264,7 @@
             android:orientation="vertical"
             android:background="@android:color/darker_gray"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
