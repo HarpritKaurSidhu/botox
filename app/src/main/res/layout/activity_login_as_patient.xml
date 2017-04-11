@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="io.itmatic.botox.Login_as_patientActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@color/White">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Idemail"
+                android:padding="10dp"
+                android:hint="Email"
+                android:background="@color/White"
+                android:drawablePadding="10dp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:drawableLeft="@mipmap/email"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@color/White">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textCursorDrawable="@drawable/cursor"
+                android:background="@color/White"
+                android:id="@+id/Idpassword"
+                android:hint="Password"
+                android:padding="10dp"
+                android:drawableLeft="@mipmap/passwrd"
+                android:drawablePadding="10dp"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:padding="5dp"
+        android:id="@+id/forgetId"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Log in"
+        android:textColor="@android:color/white"
+        android:background="@color/Black"
+        android:shadowColor="@color/Black"
+        />
+    </LinearLayout>
+
+</LinearLayout>
