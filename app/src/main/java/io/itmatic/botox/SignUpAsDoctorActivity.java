@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -35,13 +34,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.CommonClasses.BaseActivity;
 import io.itmatic.botox.CommonClasses.RealPathUtil;
+import io.itmatic.botox.CommonClasses.Resource;
 import io.itmatic.botox.Retrofit.Helper;
 import io.itmatic.botox.model.Provider;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpAsDoctorActivity extends AppCompatActivity {
+public class SignUpAsDoctorActivity extends BaseActivity {
 
 
     @BindView(R.id.edt_first_name)
@@ -60,6 +60,10 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
     EditText gdcno;
     @BindView(R.id.edt_gmcno)
     EditText gmcno;
+    @BindView(R.id.edt_phone)
+    EditText phone;
+    @BindView(R.id.edt_zipcode)
+    EditText zipcode;
     @BindView(R.id.btn_next)
     Button next;
     @BindView(R.id.sw_driving_licence)
@@ -74,13 +78,14 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
     Button selectOk;
     Bitmap croppedBitmap;
     Intent intent;
+    int driverSwitch = 0;
     String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
     int CAMERA_REQUEST = 1337;
     final int GELLARY_REQUEST = 1340;
     String[] GELLARY_PERMS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-    File file;
+    File file = null;
 
 
     @Override
@@ -102,11 +107,15 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.sign_up_as_doctor));
 */
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String result = checkValidity(firstName, lastName, email, phone, zipcode, password, address, modeOfTransport, gdcno, gmcno);
+                if (result.equals("Success")) {
 
-                registerProvider();
+                    registerProvider();
+                }
 
             }
         });
@@ -152,6 +161,7 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
 
             }
         });
+
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -208,11 +218,11 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
-        if ((requestCode == 196615 && resultCode == RESULT_OK) || (requestCode == 65543 && resultCode == RESULT_OK) || (requestCode == 327687 && resultCode == RESULT_OK) || (requestCode == 131079 && resultCode == RESULT_OK)) {
+        if ((requestCode == 7 && resultCode == RESULT_OK) || (requestCode == 65543 && resultCode == RESULT_OK) || (requestCode == 327687 && resultCode == RESULT_OK) || (requestCode == 131079 && resultCode == RESULT_OK)) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-           getImage(bitmap);
+            getImage(bitmap);
 
-        } else if ((requestCode ==6 || requestCode == 65542 || requestCode == 131078 || requestCode == 393222 || requestCode == 393222 || requestCode == 262150) && resultCode == RESULT_OK) {
+        } else if ((requestCode == 6 || requestCode == 65542 || requestCode == 131078 || requestCode == 393222 || requestCode == 393222 || requestCode == 262150) && resultCode == RESULT_OK) {
             String realPath;
             // SDK < API11
             if (Build.VERSION.SDK_INT < 11)
@@ -241,6 +251,19 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public void onBackPressed() {
+
+
+        if (cropImageView.getVisibility() == View.VISIBLE) {
+            cropImageView.setVisibility(View.GONE);
+            selectOk.setVisibility(View.GONE);
+        } else {
+            finish();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -252,21 +275,101 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
         return onOptionsItemSelected(item);
     }
 
-    public String checkValidity(EditText cfname, EditText clname, EditText cemail, EditText cpassword, EditText caddress, EditText cmodeoftransport, EditText cgdcno, EditText cgmcno) {
+    public String checkValidity(EditText cfname, EditText clname, EditText cemail, EditText cphone, EditText czipcode, EditText cpassword, EditText caddress, EditText cmodeoftransport, EditText cgdcno, EditText cgmcno) {
 
 
         if ((cfname.getText().toString() == null) || cfname.getText().toString().equals("")) {
             cfname.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_first_name));
+            return "unsuccess";
         }
+        if ((clname.getText().toString() == null) || clname.getText().toString().equals("")) {
+            clname.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_last_name));
+            return "unsuccess";
+        }
+        if ((cemail.getText().toString() == null) || cemail.getText().toString().equals("")) {
+            cemail.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_email));
+            return "unsuccess";
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(cemail.getText().toString()).matches()) {
+            cemail.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_valid_email));
+            return "unsuccess";
+        }
+        if ((cphone.getText().toString() == null) || cphone.getText().toString().equals("")) {
+            cphone.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_phone_number));
+            return "unsuccess";
+        }
+        if ((cphone.getText().toString().length() != 10)) {
+            cphone.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_valid_phone_number));
+            return "unsuccess";
+        }
+        if ((czipcode.getText().toString() == null) || czipcode.getText().toString().equals("")) {
+            czipcode.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_zipcode));
+            return "unsuccess";
+        }
+        if ((cpassword.getText().toString() == null) || cpassword.getText().toString().equals("")) {
+            cpassword.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_password));
+            return "unsuccess";
+        }
+        if ((caddress.getText().toString() == null) || caddress.getText().toString().equals("")) {
+            caddress.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_address));
+            return "unsuccess";
+        }
+        if ((cmodeoftransport.getText().toString() == null) || cmodeoftransport.getText().toString().equals("")) {
+            cmodeoftransport.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_mode_of_transport));
+            return "unsuccess";
+        }
+        if ((cgdcno.getText().toString() == null) || cgdcno.getText().toString().equals("")) {
+            cgdcno.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.gdcno));
+            return "unsuccess";
+        }
+        if ((cgmcno.getText().toString() == null) || cgmcno.getText().toString().equals("")) {
+            cgmcno.requestFocus();
+            buildDialog(R.style.DialogTheme, getResources().getString(R.string.gmcno));
+            return "unsuccess";
+        }
+        if ((file == null)) {
+            cgmcno.requestFocus();
+            buildDialog(R.style.DialogTheme, "Select Image");
+            return "unsuccess";
+        }
+
 
         return "Success";
     }
 
 
     private void registerProvider() {
-        final ProgressDialog dialog = BaseActivity.ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
+        final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();
-        Call<Provider> call = Helper.getBotoxApiService().registerProvider(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString(), "8950541614", address.getText().toString(), 1, gdcno.getText().toString(), gmcno.getText().toString(), modeOfTransport.getText().toString());
+        String fname = firstName.getText().toString();
+        String lname = lastName.getText().toString();
+        String mail = email.getText().toString();
+        String pass = password.getText().toString();
+        String mobile = phone.getText().toString();
+        String zip = zipcode.getText().toString();
+        String add = address.getText().toString();
+        int licence = 0;
+        if (isDrivingLicence.isChecked()) {
+            licence = 1;
+        } else {
+            licence = 0;
+        }
+        String gd = gdcno.getText().toString();
+        String gm = gmcno.getText().toString();
+        String mode = modeOfTransport.getText().toString();
+        Call<Provider> call = Helper.getBotoxApiService().registerProvider(fname, lname, mail, pass, mobile, add, zip, licence, gd, gm, mode, file);
         call.enqueue(new Callback<Provider>() {
 
 
@@ -277,16 +380,19 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
                 Provider provider = response.body();
 
 
-               /* Resource.TOKEN = user.getAccess_token();
+                Resource.providerToken = provider.getAccess_token();
 
-                addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
+                  addInSharedPrefrences(Resource.providerToken);
 
-                Intent myIntent = new Intent(LoginActivity.this,
-                        MainActivity.class);
-                startActivity(myIntent);
+                Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 finish();
 
-                loading = false;*/
+                // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
+
+
             }
 
             @Override
@@ -305,5 +411,15 @@ public class SignUpAsDoctorActivity extends AppCompatActivity {
         cropImageView.setVisibility(View.VISIBLE);
         cropImageView.setImageBitmap(bitmap);
         selectOk.setVisibility(View.VISIBLE);
+    }
+
+    private void buildDialog(int animationSource, String type) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Error");
+        builder.setMessage(type);
+        builder.setNegativeButton("OK", null);
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().getAttributes().windowAnimations = animationSource;
+        dialog.show();
     }
 }

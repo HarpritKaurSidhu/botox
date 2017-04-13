@@ -28,16 +28,17 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img_user"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
                             android:layout_centerInParent="true"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/userimage"></ImageView>
+                            android:src="@drawable/ic_demmy_user"></ImageView>
 
                         <TextView
                             android:id="@+id/txt_user_image"
@@ -75,12 +76,14 @@
                                 android:background="@color/White"
                                 android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
                                 android:drawablePadding="10dp"
+                                android:inputType="textPersonName"
                                 android:hint="@string/first_name"
                                 android:maxLines="1"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -100,6 +103,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
+                                android:inputType="textPersonName"
                                 android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
                                 android:drawablePadding="15dp"
                                 android:hint="@string/last_name"
@@ -136,6 +140,61 @@
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:background="@color/White">
+
+                            <EditText
+                                android:id="@+id/edt_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/White"
+                                android:maxLength="10"
+                                android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
+                                android:drawablePadding="10dp"
+                                android:hint="@string/phone_number"
+                                android:maxLines="1"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:textCursorDrawable="@drawable/cursor" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:background="@color/White">
+
+                            <EditText
+                                android:id="@+id/edt_zipcode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/White"
+                                android:inputType="text"
+                                android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
+                                android:drawablePadding="10dp"
+                                android:hint="@string/zipcode"
+                                android:maxLines="1"
+                                android:padding="10dp"
+                                android:textCursorDrawable="@drawable/cursor" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -158,6 +217,7 @@
                                 android:drawableLeft="@drawable/ic_lock_blue_grey_300_24dp"
                                 android:drawablePadding="15dp"
                                 android:hint="@string/password"
+                                android:inputType="textPassword"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
@@ -184,6 +244,7 @@
                                 android:drawablePadding="15dp"
                                 android:drawableRight="@drawable/ic_location_on_blue_grey_300_24dp"
                                 android:hint="@string/address"
+                                android:inputType="text"
                                 android:maxLines="1"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
@@ -211,6 +272,7 @@
                                 android:drawablePadding="15dp"
                                 android:hint="@string/model_of_transport"
                                 android:maxLines="1"
+                                android:inputType="text"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
@@ -268,6 +330,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
                                 android:drawablePadding="15dp"
+                                android:inputType="text"
                                 android:hint="@string/gdcno"
                                 android:maxLines="1"
                                 android:padding="10dp"
@@ -296,6 +359,7 @@
                                 android:drawablePadding="15dp"
                                 android:hint="@string/gmcno"
                                 android:maxLines="1"
+                                android:inputType="text"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
@@ -326,31 +390,33 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <com.isseiaoki.simplecropview.CropImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cropImageView"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            <com.isseiaoki.simplecropview.CropImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cropImageView"
 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-            custom:cropMode="ratio_1_1" />
+                android:visibility="gone"
+                custom:cropMode="ratio_1_1" />
 
-        <Button
-            android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/roundblue"
-            android:padding="5dp"
-            android:text="OK"
-            android:textColor="@color/White"
-            android:textSize="18dp"
-            android:visibility="gone" />
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundblue"
+                android:padding="5dp"
+                android:text="OK"
+                android:textColor="@color/White"
+                android:textSize="18dp"
+                android:visibility="gone" />
         </RelativeLayout>
     </RelativeLayout>
     <!-- <android.support.v7.widget.Toolbar
