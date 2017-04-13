@@ -40,7 +40,7 @@
                     android:background="@color/White"
                     android:drawablePadding="15dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/ic_email"
+                    android:drawableLeft="@drawable/ic_email"
                     />
                 </LinearLayout>
             </LinearLayout>

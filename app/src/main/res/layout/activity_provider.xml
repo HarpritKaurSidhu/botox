@@ -42,7 +42,7 @@
                     android:background="@color/White"
                     android:drawablePadding="10dp"
                     android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@mipmap/ic_email"
+                    android:drawableLeft="@drawable/ic_email"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -67,7 +67,7 @@
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:padding="10dp"
-                    android:drawableLeft="@mipmap/ic_passwrd"
+                    android:drawableLeft="@drawable/ic_passwrd"
                     android:drawablePadding="10dp"
 
                     />

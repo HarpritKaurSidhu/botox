@@ -9,6 +9,9 @@
     <string name="schedule">Schedule</string>
     <string name="log_in">Log in</string>
     <string name="mbbs">MBBS</string>
+    <string name="selectimage">Select Image</string>
+    <string name="takepicture">Take Picture</string>
+    <string name="opengallery">Open Gallery</string>
     <string name="bds">BDS</string>
     <string name="other">Other</string>
     <string name="next">Next</string>
@@ -26,9 +29,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
+    <string name="registering">Registering...</string>
     <string name="send">Send</string>
     <string name="password">Password</string>
-    <string name="forgot_password">Forgot Password?</string>
+    <string name="error">Error</string>
     <string name="book_an_appointment">Book an appointment</string>
     <string name="my_appointment">My appointment</string>
     <string name="profile">Profile</string>
