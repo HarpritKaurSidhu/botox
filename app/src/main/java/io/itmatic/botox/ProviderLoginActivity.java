@@ -11,11 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.CommonClasses.BaseActivity;
 import io.itmatic.botox.CommonClasses.Resource;
 import io.itmatic.botox.Retrofit.Helper;
+import io.itmatic.botox.model.Error;
 import io.itmatic.botox.model.Provider;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -119,7 +124,7 @@ public class ProviderLoginActivity extends BaseActivity {
             public void onResponse(Call<Provider> call, Response<Provider> response) {
                 dialog.dismiss();
                 int statusCode = response.code();
-                if (response != null && response.isSuccessful() && response.errorBody() == null) {
+                if (statusCode==200) {
                     Resource.provider = response.body();
 
                     Resource.providerToken = Resource.provider.getAccess_token();
@@ -133,8 +138,15 @@ public class ProviderLoginActivity extends BaseActivity {
                     finish();
 
                 }else {
+                    JSONObject error= null;
+                    String message="";
+                    try {
+                        error = new JSONObject(response.errorBody().toString());
+                        message=error.getString("message");
 
-                    String message=response.message();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
                     showerror(message);
 
