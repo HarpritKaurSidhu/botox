@@ -22,8 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProviderActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProviderLoginActivity" />
+        <activity android:name=".ProviderProfileActivity" />
         <activity android:name=".PostcodeActivity" />
         <activity android:name=".SignUpAsDoctorActivity" />
         <activity android:name=".QualificationsActivity" />

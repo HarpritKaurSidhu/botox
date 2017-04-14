@@ -16,6 +16,8 @@ public class Provider {
     private boolean is_driving_licence;
     private String gdcno;
     private String gmcno;
+    private String full_name;
+    private String image_url;
     private String mode_of_transport;
 
     public String getFirstName() {
@@ -84,6 +86,22 @@ public class Provider {
 
     public String getAccess_token() {
         return access_token;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public void setAccess_token(String access_token) {

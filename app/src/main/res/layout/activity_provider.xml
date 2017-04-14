@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="io.itmatic.botox.ProviderActivity">
+    tools:context="io.itmatic.botox.ProviderLoginActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="@string/forgot_password"
             android:padding="5dp"
-            android:id="@+id/forgetId"
+            android:id="@+id/txt_forget_password"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"/>
         </LinearLayout>
@@ -90,7 +90,7 @@
         android:padding="10dp"
         android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/loginId"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -99,7 +99,7 @@
             android:background="@color/Black"
              />
         <Button
-            android:id="@+id/registerId"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/White"

@@ -30,7 +30,7 @@ public class BotoxActivity extends AppCompatActivity {
         provider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(BotoxActivity.this,ProviderActivity.class);
+                Intent intent=new Intent(BotoxActivity.this,ProviderLoginActivity.class);
                 startActivity(intent);
             }
         });

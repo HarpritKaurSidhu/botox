@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +36,9 @@ import io.itmatic.botox.CommonClasses.RealPathUtil;
 import io.itmatic.botox.CommonClasses.Resource;
 import io.itmatic.botox.Retrofit.Helper;
 import io.itmatic.botox.model.Provider;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -353,23 +355,28 @@ public class SignUpAsDoctorActivity extends BaseActivity {
     private void registerProvider() {
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();
-        String fname = firstName.getText().toString();
-        String lname = lastName.getText().toString();
-        String mail = email.getText().toString();
-        String pass = password.getText().toString();
-        String mobile = phone.getText().toString();
-        String zip = zipcode.getText().toString();
-        String add = address.getText().toString();
+        RequestBody fname = RequestBody.create(MediaType.parse("text/plain"), firstName.getText().toString());
+        RequestBody lname = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
+        RequestBody mail = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
+        RequestBody pass = RequestBody.create(MediaType.parse("text/plain"), password.getText().toString());
+        RequestBody mobile = RequestBody.create(MediaType.parse("text/plain"), phone.getText().toString());
+        RequestBody zip = RequestBody.create(MediaType.parse("text/plain"), zipcode.getText().toString());
+        RequestBody add = RequestBody.create(MediaType.parse("text/plain"), address.getText().toString());
+
         int licence = 0;
         if (isDrivingLicence.isChecked()) {
             licence = 1;
         } else {
             licence = 0;
         }
-        String gd = gdcno.getText().toString();
-        String gm = gmcno.getText().toString();
-        String mode = modeOfTransport.getText().toString();
-        Call<Provider> call = Helper.getBotoxApiService().registerProvider(fname, lname, mail, pass, mobile, add, zip, licence, gd, gm, mode, file);
+        RequestBody lice = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(licence));
+        RequestBody gd = RequestBody.create(MediaType.parse("text/plain"), gdcno.getText().toString());
+        RequestBody gm = RequestBody.create(MediaType.parse("text/plain"), gmcno.getText().toString());
+        RequestBody mode = RequestBody.create(MediaType.parse("text/plain"), modeOfTransport.getText().toString());
+        RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
+
+        Call<Provider> call = Helper.getBotoxApiService().registerProvider(fname, lname, mail, pass, mobile, add, zip, lice, gd, gm, mode, body);
         call.enqueue(new Callback<Provider>() {
 
 
@@ -377,18 +384,28 @@ public class SignUpAsDoctorActivity extends BaseActivity {
             public void onResponse(Call<Provider> call, Response<Provider> response) {
                 dialog.dismiss();
                 int statusCode = response.code();
-                Provider provider = response.body();
+                if (statusCode == 200) {
+                    Provider provider = response.body();
+
+                    Resource.providerToken = provider.getAccess_token();
+
+                    addInSharedPrefrences(Resource.providerToken);
+
+                    Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+
+                } else {
+
+                    String message = response.message();
+
+                    showerror(message);
 
 
-                Resource.providerToken = provider.getAccess_token();
+                }
 
-                  addInSharedPrefrences(Resource.providerToken);
-
-                Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
 
                 // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
 
