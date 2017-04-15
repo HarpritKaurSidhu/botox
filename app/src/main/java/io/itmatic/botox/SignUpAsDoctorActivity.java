@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,12 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.isseiaoki.simplecropview.CropImageView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -42,6 +48,8 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 
 public class SignUpAsDoctorActivity extends BaseActivity {
 
@@ -88,6 +96,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     File file = null;
+    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);;
 
 
     @Override
@@ -97,13 +106,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         ButterKnife.bind(this);
         cropImageView.setCropMode(CropImageView.CropMode.CIRCLE);
         cropImageView.setVisibility(View.GONE);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
-                startActivity(intent);
-            }
-        });
+
    /*     setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -113,12 +116,26 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String result = checkValidity(firstName, lastName, email, phone, zipcode, password, address, modeOfTransport, gdcno, gmcno);
-                if (result.equals("Success")) {
+               checkValidity();
+                if (mAwesomeValidation.validate()) {
 
-                    registerProvider();
+                    if(file==null)
+                    {
+                        buildDialog(R.style.DialogTheme, getResources().getString(R.string.selectimage));
+                    }else
+                    {
+                        registerProvider();
+                    }
+
+
                 }
 
+               /* Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+*/
             }
         });
 
@@ -181,6 +198,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
                             try {
                                 newfile.createNewFile();
                             } catch (IOException e) {
+                                e.toString();
                             }
 
                             Uri outputFileUri = Uri.fromFile(newfile);
@@ -277,78 +295,18 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    public String checkValidity(EditText cfname, EditText clname, EditText cemail, EditText cphone, EditText czipcode, EditText cpassword, EditText caddress, EditText cmodeoftransport, EditText cgdcno, EditText cgmcno) {
+    public void  checkValidity() {
+        mAwesomeValidation.addValidation(this, R.id.edt_first_name, "[a-zA-Z\\s]+", R.string.enter_first_name);
+        mAwesomeValidation.addValidation(this, R.id.edt_last_name, "[a-zA-Z\\s]+", R.string.enter_last_name);
+        mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
+        mAwesomeValidation.addValidation(this, R.id.edt_phone, RegexTemplate.TELEPHONE, R.string.enter_phone_number);
+        mAwesomeValidation.addValidation(this, R.id.edt_zipcode, "\\d+", R.string.enter_zipcode);
+        mAwesomeValidation.addValidation(this, R.id.edt_password, "[0-9a-zA-Z]+",R.string.enter_valid_password);
+        mAwesomeValidation.addValidation(this, R.id.edt_address, "[0-9a-zA-Z #,-]+", R.string.enter_address);
+        mAwesomeValidation.addValidation(this, R.id.edt_mode_of_transport,"[0-9a-zA-Z]+", R.string.enter_mode_of_transport);
+        mAwesomeValidation.addValidation(this, R.id.edt_gdcno, "[0-9a-zA-Z]+", R.string.enter_gdcno);
+        mAwesomeValidation.addValidation(this, R.id.edt_gmcno, "[0-9a-zA-Z]+", R.string.enter_gmcno);
 
-
-        if ((cfname.getText().toString() == null) || cfname.getText().toString().equals("")) {
-            cfname.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_first_name));
-            return "unsuccess";
-        }
-        if ((clname.getText().toString() == null) || clname.getText().toString().equals("")) {
-            clname.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_last_name));
-            return "unsuccess";
-        }
-        if ((cemail.getText().toString() == null) || cemail.getText().toString().equals("")) {
-            cemail.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_email));
-            return "unsuccess";
-        }
-
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(cemail.getText().toString()).matches()) {
-            cemail.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_valid_email));
-            return "unsuccess";
-        }
-        if ((cphone.getText().toString() == null) || cphone.getText().toString().equals("")) {
-            cphone.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_phone_number));
-            return "unsuccess";
-        }
-        if ((cphone.getText().toString().length() != 10)) {
-            cphone.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_valid_phone_number));
-            return "unsuccess";
-        }
-        if ((czipcode.getText().toString() == null) || czipcode.getText().toString().equals("")) {
-            czipcode.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_zipcode));
-            return "unsuccess";
-        }
-        if ((cpassword.getText().toString() == null) || cpassword.getText().toString().equals("")) {
-            cpassword.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_password));
-            return "unsuccess";
-        }
-        if ((caddress.getText().toString() == null) || caddress.getText().toString().equals("")) {
-            caddress.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_address));
-            return "unsuccess";
-        }
-        if ((cmodeoftransport.getText().toString() == null) || cmodeoftransport.getText().toString().equals("")) {
-            cmodeoftransport.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_mode_of_transport));
-            return "unsuccess";
-        }
-        if ((cgdcno.getText().toString() == null) || cgdcno.getText().toString().equals("")) {
-            cgdcno.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.gdcno));
-            return "unsuccess";
-        }
-        if ((cgmcno.getText().toString() == null) || cgmcno.getText().toString().equals("")) {
-            cgmcno.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.gmcno));
-            return "unsuccess";
-        }
-        if ((file == null)) {
-            cgmcno.requestFocus();
-            buildDialog(R.style.DialogTheme, "Select Image");
-            return "unsuccess";
-        }
-
-
-        return "Success";
     }
 
 
@@ -387,9 +345,9 @@ public class SignUpAsDoctorActivity extends BaseActivity {
                 if (statusCode == 200) {
                     Provider provider = response.body();
 
-                    Resource.providerToken = provider.getAccess_token();
+                    Resource.providerToken = provider.getAccessToken();
 
-                    addInSharedPrefrences(Resource.providerToken);
+                    addProviderTokenInSharedPreferences(Resource.providerToken);
 
                     Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -399,15 +357,24 @@ public class SignUpAsDoctorActivity extends BaseActivity {
 
                 } else {
 
-                    String message = response.message();
+                    JSONObject error= null;
+                    String message="";
+                    try {
+                        error = new JSONObject(response.errorBody().string());
+                        message=error.getString("message");
 
-                    showerror(message);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    showError(message);
 
 
                 }
 
 
-                // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
 
 
             }
@@ -430,13 +397,5 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         selectOk.setVisibility(View.VISIBLE);
     }
 
-    private void buildDialog(int animationSource, String type) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Error");
-        builder.setMessage(type);
-        builder.setNegativeButton("OK", null);
-        AlertDialog dialog = builder.create();
-        dialog.getWindow().getAttributes().windowAnimations = animationSource;
-        dialog.show();
-    }
+
 }

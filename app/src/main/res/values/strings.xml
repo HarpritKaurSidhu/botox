@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Botox</string>
     <string name="login_as_patient">Login as Patient</string>
-    <string name="forgot_password">Forgot Password</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="botox_App">Botox App</string>
     <string name="i_am_provider">I\'m provider</string>
     <string name="provider">Provider</string>
@@ -33,6 +33,7 @@
     <string name="enter_last_name">Enter Last Name</string>
     <string name="enter_email">Enter Email</string>
     <string name="enter_valid_email">Enter Valid Email</string>
+    <string name="enter_valid_password">Enter Valid Password</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="enter_valid_phone_number">Enter Valid Phone Number</string>
     <string name="enter_zipcode">Enter Zipcode</string>
@@ -44,6 +45,7 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="registering">Registering...</string>
+    <string name="processing">Processing...</string>
     <string name="sign_in">Sing In....</string>
     <string name="send">Send</string>
     <string name="password">Password</string>

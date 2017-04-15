@@ -75,10 +75,11 @@
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
         android:padding="5dp"
-        android:id="@+id/forgetId"
+        android:id="@+id/txt_forget_password"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
     <Button
+        android:id="@+id/btn_log_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"

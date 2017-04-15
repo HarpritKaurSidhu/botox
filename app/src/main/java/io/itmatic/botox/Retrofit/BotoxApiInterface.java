@@ -3,6 +3,7 @@ package io.itmatic.botox.Retrofit;
 import java.io.File;
 import java.lang.annotation.Annotation;
 
+import io.itmatic.botox.model.Patient;
 import io.itmatic.botox.model.Provider;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -27,4 +28,13 @@ public interface BotoxApiInterface {
     @POST("provider/login.json")
     Call<Provider> loginProvider(@Field("email") String email, @Field("password") String password);
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("user/reset.json")
+    Call<String> resetProviderPassword(@Field("email") String email);
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("user/login.json")
+    Call<Patient> loginPatient(@Field("email") String email, @Field("password") String password);
 }

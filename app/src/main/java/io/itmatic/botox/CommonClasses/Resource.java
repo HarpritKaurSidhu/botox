@@ -1,5 +1,6 @@
 package io.itmatic.botox.CommonClasses;
 
+import io.itmatic.botox.model.Patient;
 import io.itmatic.botox.model.Provider;
 
 /**
@@ -8,5 +9,7 @@ import io.itmatic.botox.model.Provider;
 
 public class Resource {
     public static String providerToken;
+    public static String patientToken;
     public static Provider provider;
+    public static Patient patient;
 }

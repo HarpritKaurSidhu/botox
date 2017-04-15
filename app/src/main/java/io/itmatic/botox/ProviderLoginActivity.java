@@ -2,29 +2,33 @@ package io.itmatic.botox;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.json.JSONArray;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.CommonClasses.BaseActivity;
 import io.itmatic.botox.CommonClasses.Resource;
 import io.itmatic.botox.Retrofit.Helper;
-import io.itmatic.botox.model.Error;
 import io.itmatic.botox.model.Provider;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 
 public class ProviderLoginActivity extends BaseActivity {
 
@@ -40,6 +44,7 @@ public class ProviderLoginActivity extends BaseActivity {
     EditText email;
     @BindView(R.id.edt_password)
     EditText password;
+    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +61,8 @@ public class ProviderLoginActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                String result=checkValidity(email,password);
-                if(result.equals("Success"))
+               checkValidity();
+                if(mAwesomeValidation.validate())
                 {
                       loginProvider();
                 }
@@ -82,31 +87,10 @@ public class ProviderLoginActivity extends BaseActivity {
 
     }
 
-    public String checkValidity(EditText cemail,EditText cpassword) {
+    public void checkValidity() {
+        mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
+        mAwesomeValidation.addValidation(this, R.id.edt_password, "[0-9a-zA-Z]+",R.string.enter_valid_password);
 
-
-
-        if ((cemail.getText().toString() == null) || cemail.getText().toString().equals("")) {
-            cemail.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_email));
-            return "unsuccess";
-        }
-
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(cemail.getText().toString()).matches()) {
-            cemail.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_valid_email));
-            return "unsuccess";
-        }
-
-        if ((cpassword.getText().toString() == null) || cpassword.getText().toString().equals("")) {
-            cpassword.requestFocus();
-            buildDialog(R.style.DialogTheme, getResources().getString(R.string.enter_password));
-            return "unsuccess";
-        }
-
-
-
-        return "Success";
     }
 
     private void loginProvider() {
@@ -127,9 +111,9 @@ public class ProviderLoginActivity extends BaseActivity {
                 if (statusCode==200) {
                     Resource.provider = response.body();
 
-                    Resource.providerToken = Resource.provider.getAccess_token();
+                    Resource.providerToken = Resource.provider.getAccessToken();
 
-                    addInSharedPrefrences(Resource.providerToken);
+                    addProviderTokenInSharedPreferences(Resource.providerToken);
 
                     Intent intent = new Intent(ProviderLoginActivity.this, ProviderProfileActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -141,14 +125,16 @@ public class ProviderLoginActivity extends BaseActivity {
                     JSONObject error= null;
                     String message="";
                     try {
-                        error = new JSONObject(response.errorBody().toString());
+                        error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
 
-                    showerror(message);
+                    showError(message);
 
 
 
@@ -171,15 +157,7 @@ public class ProviderLoginActivity extends BaseActivity {
         });
     }
 
-    private void buildDialog(int animationSource, String type) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Error");
-        builder.setMessage(type);
-        builder.setNegativeButton("OK", null);
-        AlertDialog dialog = builder.create();
-        dialog.getWindow().getAttributes().windowAnimations = animationSource;
-        dialog.show();
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

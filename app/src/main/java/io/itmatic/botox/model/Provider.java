@@ -5,36 +5,22 @@ package io.itmatic.botox.model;
  */
 public class Provider {
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String phone;
     private String address;
-    private String zipcode;
-    private String access_token;
-    private boolean is_driving_licence;
+    private String zipCode;
+    private String accessToken;
+    private boolean isDrivingLicence;
     private String gdcno;
     private String gmcno;
-    private String full_name;
+    private String fullName;
     private String image_url;
-    private String mode_of_transport;
+    private String modeOfTransport;
 
-    public String getFirst_name() {
-        return first_name;
-    }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
 
     public String getEmail() {
         return email;
@@ -68,44 +54,68 @@ public class Provider {
         this.address = address;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public boolean is_driving_licence() {
-        return is_driving_licence;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setIs_driving_licence(boolean is_driving_licence) {
-        this.is_driving_licence = is_driving_licence;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getAccess_token() {
-        return access_token;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public boolean isDrivingLicence() {
+        return isDrivingLicence;
+    }
+
+    public void setDrivingLicence(boolean drivingLicence) {
+        isDrivingLicence = drivingLicence;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getImage_url() {
         return image_url;
     }
 
-    public String getFull_name() {
-        return full_name;
-    }
-
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
-    }
-
     public void setImage_url(String image_url) {
         this.image_url = image_url;
     }
 
-    public void setAccess_token(String access_token) {
-        this.access_token = access_token;
+    public String getModeOfTransport() {
+        return modeOfTransport;
+    }
+
+    public void setModeOfTransport(String modeOfTransport) {
+        this.modeOfTransport = modeOfTransport;
     }
 
     public String getGdcno() {
@@ -124,11 +134,5 @@ public class Provider {
         this.gmcno = gmcno;
     }
 
-    public String getMode_of_transport() {
-        return mode_of_transport;
-    }
 
-    public void setMode_of_transport(String mode_of_transport) {
-        this.mode_of_transport = mode_of_transport;
-    }
 }
