@@ -6,183 +6,211 @@
     android:orientation="vertical"
 
     tools:context="io.itmatic.botox.QualificationsActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
-                android:orientation="vertical"
-                android:background="@android:color/darker_gray"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:background="@color/White">
+
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/IdCv"
-                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
                         android:hint="@string/cv"
-                        android:background="@color/White"
-                        android:drawablePadding="10dp"
-                        android:textCursorDrawable="@drawable/cursor"
-                        />
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
                 </LinearLayout>
 
 
             </LinearLayout>
+
             <LinearLayout
-                android:orientation="vertical"
-                android:background="@android:color/darker_gray"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:background="@color/White">
+
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/IdProof"
-                        android:padding="10dp"
-                        android:hint="@string/proof"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/White"
                         android:drawablePadding="10dp"
-                        android:textCursorDrawable="@drawable/cursor"
-                        />
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
+                        android:hint="@string/proof"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
                 </LinearLayout>
 
 
             </LinearLayout>
+
             <LinearLayout
-                android:orientation="vertical"
-                android:background="@android:color/darker_gray"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:background="@color/White">
+
                     <EditText
+                        android:id="@+id/IdPhoto_IN"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/IdPhoto_IN"
-                        android:padding="10dp"
-                        android:hint="@string/photo_in"
                         android:background="@color/White"
                         android:drawablePadding="10dp"
-                        android:textCursorDrawable="@drawable/cursor"
-                        />
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
+                        android:hint="@string/photo_in"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
                 </LinearLayout>
 
             </LinearLayout>
-        <LinearLayout
-        android:orientation="vertical"
-        android:background="@android:color/darker_gray"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+
+                    <EditText
+                        android:id="@+id/IdCRB_Check"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
+                        android:hint="@string/crb_check"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+
+                    <EditText
+                        android:id="@+id/IdQualification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
+                        android:hint="@string/qualification_certificate"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/White">
+
+                    <EditText
+                        android:id="@+id/Idother"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/ic_add_box_blue_grey_300_36dp"
+                        android:editable="false"
+                        android:hint="@string/other"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/cursor" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:background="@color/White">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/IdCRB_Check"
-                android:padding="10dp"
-                android:hint="@string/crb_check"
-                android:background="@color/White"
-                android:drawablePadding="10dp"
-                android:textCursorDrawable="@drawable/cursor"
-                />
-        </LinearLayout>
-
-</LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="@color/White">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/IdQualification"
-                    android:padding="10dp"
-                    android:hint="@string/qualification_certificate"
-                    android:background="@color/White"
-                    android:drawablePadding="10dp"
-                    android:textCursorDrawable="@drawable/cursor"
-                    />
-            </LinearLayout>
-</LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="@color/White">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Idother"
-                    android:padding="10dp"
-                    android:hint="@string/other"
-                    android:background="@color/White"
-                    android:drawablePadding="10dp"
-                    android:textCursorDrawable="@drawable/cursor"
-                    />
-            </LinearLayout>
-</LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@android:color/black"
-            android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content">
+            android:background="@android:color/black"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/Black">
+
                 <Button
                     android:id="@+id/Idnext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/Black"
                     android:text="@string/next"
-                    android:textColor="@color/White"/>
+                    android:textColor="@color/White" />
             </LinearLayout>
 
         </LinearLayout>

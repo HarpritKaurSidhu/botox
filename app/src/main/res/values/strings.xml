@@ -9,6 +9,7 @@
     <string name="schedule">Schedule</string>
     <string name="log_in">Log in</string>
     <string name="mbbs">MBBS</string>
+    <string name="ok">Ok</string>
     <string name="selectimage">Select Image</string>
     <string name="takepicture">Take Picture</string>
     <string name="opengallery">Open Gallery</string>
@@ -61,4 +62,27 @@
     <string name="provider_full_name">Provider Full Name</string>
     <string name="enter_your_postcode">Enter your postcode</string>
     <string name="sign_up_as_doctor">Sign Up as Doctor</string>
+    <string name="logout">Logout</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="name">Name</string>
+    <string name="katrine">Katrine</string>
+    <string name="address_home">UK,London</string>
+    <string name="phone_no">4444-321</string>
+    <string name="email_address">katrine@gamil.com</string>
+    <string name="password_change">change</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment">Payment</string>
+    <string name="available_to_work">Available to work</string>
+    <string name="weekdays">Weekdays</string>
+    <string name="weekends">Weekends</string>
+    <string name="available_to_call">Available to call</string>
+    <string name="from">From</string>
+    <string name="select_your_qualification">Select Your Qualification</string>
+    <string name="to">To</string>
+    <string name="distance_you_ready_to_cover">Distance you are ready to cover</string>
+    <string name="distance">Distance</string>
+    <string name="confirmation_one">I confirm that I am able to work in the UK</string>
+    <string name="confirmation_two">I confirm that I will be self employed and(our name) is not the employer</string>
+    <string name="confirmation_three">I confirm that the responsibility of the patient lies with me and not(our name)</string>
+
 </resources>

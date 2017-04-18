@@ -27,7 +27,9 @@
         <activity android:name=".PostcodeActivity" />
         <activity android:name=".SignUpAsDoctorActivity" />
         <activity android:name=".QualificationsActivity" />
-        <activity android:name=".UploadsDocumentsActivity"/>
+        <activity android:name=".UploadsDocumentsActivity" />
+        <activity android:name=".MyAppointmentActivity" />
+        <activity android:name=".WorkingConditionsActivity"></activity>
     </application>
 
 </manifest>
