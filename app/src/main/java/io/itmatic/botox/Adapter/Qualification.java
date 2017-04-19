@@ -26,7 +26,7 @@ public class Qualification extends ArrayAdapter<Education> {
         }
 
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
 
             View v = convertView;
@@ -34,7 +34,7 @@ public class Qualification extends ArrayAdapter<Education> {
 
             if (v == null) {
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                v = inflater.inflate(R.layout.qualification_spinner_layout, null);
+                v = inflater.inflate(R.layout.qualification_layout, null);
             }
 
 
@@ -46,8 +46,24 @@ public class Qualification extends ArrayAdapter<Education> {
                 RelativeLayout rBANKLISTITEM=(RelativeLayout) v.findViewById(R.id.routbanklistitem);
 
                 rBANK.setText(ob.getBank_name());*/
-               TextView headrSpinner=(TextView) v.findViewById(R.id.text1);
-                headrSpinner.setText(R.string.select_your_qualification);
+                TextView textViewQualification=(TextView) v.findViewById(R.id.txt_qualification);
+                final CheckBox checkBox=(CheckBox) v.findViewById(R.id.cb_qualification);
+
+                 checkBox.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View view) {
+                         if(checkBox.isChecked())
+                         {
+                             objects.get(position).setSelectCourse(true);
+                         }else {
+                             objects.get(position).setSelectCourse(false);
+                         }
+
+                     }
+                 });
+
+                textViewQualification.setText(ob.getTitle());
+
 
 
 
@@ -59,20 +75,6 @@ public class Qualification extends ArrayAdapter<Education> {
 
         }
 
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        final Education ob = objects.get(position);
-
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.spinner_drop_down, parent, false);
-
-        TextView textViewQualification=(TextView) row.findViewById(R.id.txt_qualification);
-        CheckBox checkBox=(CheckBox) row.findViewById(R.id.cb_qualification);
-
-        textViewQualification.setText(ob.getDisplayName());
-
-
-        return row;
-    }
 
 
     }

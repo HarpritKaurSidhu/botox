@@ -10,7 +10,7 @@ public class Education {
     private int id;
 
     /** The display name. */
-    private String displayName;
+    private String title;
 
     private boolean selectCourse;
 
@@ -30,11 +30,11 @@ public class Education {
         this.id = id;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

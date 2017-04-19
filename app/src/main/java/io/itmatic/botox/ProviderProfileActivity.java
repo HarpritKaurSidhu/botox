@@ -1,9 +1,12 @@
 package io.itmatic.botox;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +25,12 @@ public class ProviderProfileActivity extends BaseActivity {
     ImageView userImage;
     @BindView(R.id.txt_name)
     TextView userName;
+    @BindView(R.id.btn_schedule)
+    Button   buttonSchedule;
+    @BindView(R.id.btn_my_appoinments)
+    Button buttonMyAppointment;
+    @BindView(R.id.btn_my_payments)
+    Button buttonMyPayment;
 
 
 
@@ -37,6 +46,16 @@ public class ProviderProfileActivity extends BaseActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.profile));
          userName.setText(Resource.provider.getFullName());
         Glide.with(this).load(Resource.provider.getImage_url()).placeholder(R.drawable.ic_demmy_user).dontAnimate().into(userImage);
+
+        buttonSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent=new Intent(ProviderProfileActivity.this,ScheduleActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -2,7 +2,10 @@ package io.itmatic.botox.Retrofit;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.List;
 
+import io.itmatic.botox.model.Education;
 import io.itmatic.botox.model.Patient;
 import io.itmatic.botox.model.Provider;
 import okhttp3.MultipartBody;
@@ -11,6 +14,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -37,4 +41,13 @@ public interface BotoxApiInterface {
     @FormUrlEncoded
     @POST("user/login.json")
     Call<Patient> loginPatient(@Field("email") String email, @Field("password") String password);
+
+    @GET("provider/all/qualification/list.json")
+    Call<ArrayList<Education>> qualificationList();
+
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("provider/education.json")
+    Call<Provider> setQualification(@Field("token") String token,@Field("education") String education);
 }

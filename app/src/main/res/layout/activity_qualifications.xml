@@ -31,18 +31,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:background="@android:color/white">
-                <Spinner
-                    android:id="@+id/sp_qualification"
+                <ListView
+                    android:id="@+id/list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:paddingRight="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_marginBottom="1dp"
 
-                    />
+                    android:layout_alignParentTop="true"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -85,7 +79,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/Idother"
+                android:id="@+id/edt_other"
                 android:padding="10dp"
                 android:hint="@string/other"
                 android:background="@color/White"

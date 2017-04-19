@@ -29,7 +29,9 @@
         <activity android:name=".QualificationsActivity" />
         <activity android:name=".UploadsDocumentsActivity" />
         <activity android:name=".MyAppointmentActivity" />
-        <activity android:name=".WorkingConditionsActivity"></activity>
+        <activity android:name=".WorkingConditionsActivity" />
+        <activity android:name=".ScheduleActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

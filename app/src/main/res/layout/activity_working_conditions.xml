@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SignUpAsDoctorActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,12 +15,10 @@
         android:padding="10dp">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
 
 
             <LinearLayout
@@ -56,8 +57,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/White"
-                        android:layout_marginTop="1dp">
+                        android:layout_marginTop="1dp"
+                        android:background="@color/White">
 
                         <TextView
                             android:id="@+id/txt_from"
@@ -66,7 +67,7 @@
                             android:background="@color/White"
                             android:drawablePadding="15dp"
                             android:padding="10dp"
-                            android:text="@string/weekdays"/>
+                            android:text="@string/weekdays" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -79,16 +80,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/White"
-                        android:layout_marginTop="1dp">
+                        android:layout_marginTop="1dp"
+                        android:background="@color/White">
 
                         <TextView
                             android:id="@+id/txt_to"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/White"
-                            android:text="@string/weekends"
-                            android:padding="10dp" />
+                            android:padding="10dp"
+                            android:text="@string/weekends" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -101,8 +102,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/White"
                         android:layout_marginTop="1dp"
+                        android:background="@color/White"
                         android:padding="10dp">
 
                         <TextView
@@ -118,15 +119,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
                     android:background="@android:color/darker_gray"
-                    android:orientation="vertical"
-                    android:layout_marginTop="1dp">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/White"
-                        android:layout_marginTop="1dp">
+                        android:layout_marginTop="1dp"
+                        android:background="@color/White">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -134,7 +135,7 @@
                             android:background="@color/White"
                             android:drawablePadding="15dp"
                             android:padding="10dp"
-                            android:text="@string/from"/>
+                            android:text="@string/from" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -147,41 +148,42 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/White">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/White"
+                            android:padding="10dp"
+                            android:text="@string/to" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:background="@color/White"
-                        android:layout_marginTop="1dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/White"
-                            android:text="@string/to"
-                            android:padding="10dp" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_marginTop="1dp"
                         android:gravity="bottom"
-                        android:background="@color/White">
+                        android:padding="10dp">
 
                         <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/White"
                             android:gravity="bottom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/White"
                             android:text="@string/distance_you_ready_to_cover"
-                            android:textColor="@color/Black"
-                            />
+                            android:textColor="@color/Black" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -191,56 +193,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp"
-                        android:padding="10dp"
-                        android:background="@color/White">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/White"
-                            android:text="@string/distance"
-                            android:drawableRight="@drawable/ic_location_on_blue_grey_300_24dp"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp"
-                        android:background="@color/White">
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/White"
-                            android:text="@string/confirmation_one"></TextView>
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:background="@color/White"
                         android:padding="10dp">
 
@@ -248,11 +202,62 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/White"
-                            android:text="@string/confirmation_two" />
-                        <CheckBox
+                            android:drawableRight="@drawable/ic_location_on_blue_grey_300_24dp"
+                            android:text="@string/distance" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            />
+                            android:background="@color/White"
+                            android:text="@string/confirmation_one" />
+                        <CheckBox
+                            android:id="@+id/cb_confirmation_one"
+                            android:gravity="end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/White"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/White"
+                            android:text="@string/confirmation_two" />
+
+                        <CheckBox
+                            android:id="@+id/cb_confirmation_two"
+                            android:gravity="end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -264,24 +269,28 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/White"
+                        android:orientation="horizontal"
                         android:padding="10dp">
 
                         <TextView
 
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@color/White"
-                            android:text="@string/confirmation_three"/>
+                            android:text="@string/confirmation_three" />
+
                         <CheckBox
+                            android:id="@+id/cb_confirmation_three"
+                            android:gravity="end"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -296,16 +305,15 @@
                     <Button
                         android:id="@+id/btn_next"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/Black"
                         android:text="@string/next"
-                        android:textColor="@color/White"
-                        />
+                        android:textColor="@color/White" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
-
+</ScrollView>
 </LinearLayout>
     <!--  <RelativeLayout
           android:layout_width="match_parent"

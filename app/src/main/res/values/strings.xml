@@ -65,6 +65,7 @@
     <string name="logout">Logout</string>
     <string name="personal_info">Personal Info</string>
     <string name="name">Name</string>
+    <string name="you_did_not_specify">You Did Not Specify Education</string>
     <string name="katrine">Katrine</string>
     <string name="address_home">UK,London</string>
     <string name="phone_no">4444-321</string>
@@ -84,5 +85,14 @@
     <string name="confirmation_one">I confirm that I am able to work in the UK</string>
     <string name="confirmation_two">I confirm that I will be self employed and(our name) is not the employer</string>
     <string name="confirmation_three">I confirm that the responsibility of the patient lies with me and not(our name)</string>
-
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="working_time">Working time</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="notes_to_clinician">Note to clinician</string>
 </resources>

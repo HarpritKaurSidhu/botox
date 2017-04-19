@@ -159,9 +159,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
-                                android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
+                                android:drawableLeft="@drawable/ic_passwrd"
                                 android:drawablePadding="10dp"
-                                android:hint="@string/phone_number"
+                                android:hint="@string/password"
                                 android:inputType="number"
                                 android:maxLength="10"
                                 android:maxLines="1"
@@ -188,9 +188,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
-                                android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
+                                android:drawableLeft="@drawable/ic_date_range_blue_grey_300_24dp"
                                 android:drawablePadding="10dp"
-                                android:hint="@string/zipcode"
+                                android:hint="@string/date_of_birth"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:padding="10dp"
@@ -216,10 +216,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
-                                android:drawableLeft="@drawable/ic_lock_blue_grey_300_24dp"
+                                android:drawableLeft="@drawable/ic_location_on_blue_grey_300_24dp"
                                 android:drawablePadding="15dp"
-                                android:hint="@string/password"
-                                android:inputType="textPassword"
+                                android:hint="@string/address"
+                                android:inputType="text"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
@@ -244,8 +244,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
                                 android:drawablePadding="15dp"
-                                android:drawableRight="@drawable/ic_location_on_blue_grey_300_24dp"
-                                android:hint="@string/address"
+                                android:drawableRight="@drawable/ic_call_blue_grey_300_24dp"
+                                android:hint="@string/phone_no"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:padding="10dp"
@@ -272,96 +272,10 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
                                 android:drawablePadding="15dp"
-                                android:hint="@string/model_of_transport"
+                                android:drawableRight="@drawable/ic_note_blue_grey_300_24dp"
+                                android:hint="@string/notes_to_clinician"
                                 android:inputType="text"
-                                android:maxLines="1"
-                                android:padding="10dp"
-                                android:textCursorDrawable="@drawable/cursor" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/driving_licence"
-                                android:textSize="17sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="right">
-
-                            <Switch
-                                android:id="@+id/sw_driving_licence"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
-
-                            <EditText
-                                android:id="@+id/edt_gdcno"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
-                                android:hint="@string/gdcno"
-                                android:inputType="text"
-                                android:maxLines="1"
-                                android:padding="10dp"
-                                android:textCursorDrawable="@drawable/cursor" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
-
-                            <EditText
-                                android:id="@+id/edt_gmcno"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
-                                android:hint="@string/gmcno"
-                                android:inputType="text"
-                                android:maxLines="1"
+                                android:maxLines="3"
                                 android:padding="10dp"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
@@ -392,39 +306,5 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.isseiaoki.simplecropview.CropImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/cropImageView"
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:visibility="gone"
-                custom:cropMode="ratio_1_1" />
-
-            <Button
-                android:id="@+id/btn_ok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/roundblue"
-                android:padding="5dp"
-                android:text="OK"
-                android:textColor="@color/White"
-                android:textSize="18dp"
-                android:visibility="gone" />
-        </RelativeLayout>
-    </RelativeLayout>
-    <!-- <android.support.v7.widget.Toolbar
-         android:id="@+id/toolbar"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">
-
-     </android.support.v7.widget.Toolbar>-->
-</LinearLayout>
+</RelativeLayout>
+    </LinearLayout>
