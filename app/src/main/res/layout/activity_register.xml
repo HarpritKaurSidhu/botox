@@ -306,5 +306,33 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.isseiaoki.simplecropview.CropImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cropImageView"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:visibility="gone"
+                custom:cropMode="ratio_1_1" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundblue"
+                android:padding="5dp"
+                android:text="OK"
+                android:textColor="@color/White"
+                android:textSize="18dp"
+                android:visibility="gone" />
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>
