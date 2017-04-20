@@ -1,13 +1,15 @@
-package io.itmatic.botox;
+package io.itmatic.botox.Patient;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MyAppointmentActivity extends AppCompatActivity {
+import io.itmatic.botox.R;
+
+public class SignUpAsPatient extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_appointment);
+        setContentView(R.layout.activity_register);
     }
 }

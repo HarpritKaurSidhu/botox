@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.itmatic.botox.R;
-import io.itmatic.botox.model.Education;
+import io.itmatic.botox.Model.Education;
 
 
 public class Qualification extends ArrayAdapter<Education> {

@@ -1,7 +1,6 @@
-package io.itmatic.botox;
+package io.itmatic.botox.Provider;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -14,8 +13,9 @@ import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.itmatic.botox.CommonClasses.BaseActivity;
-import io.itmatic.botox.CommonClasses.Resource;
+import io.itmatic.botox.Common.BaseActivity;
+import io.itmatic.botox.Common.Resource;
+import io.itmatic.botox.R;
 
 public class ProviderProfileActivity extends BaseActivity {
 

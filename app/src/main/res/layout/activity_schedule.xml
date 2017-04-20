@@ -5,7 +5,11 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context=".SignUpAsDoctorActivity">
+    tools:context=".Provider.SignUpAsDoctorActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -51,8 +55,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -82,6 +84,7 @@
                         android:gravity="right">
 
                         <Switch
+                            android:id="@+id/sw_mon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -181,6 +184,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_tue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -280,6 +284,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_wed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -379,6 +384,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_thu"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -478,6 +484,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_fri"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -577,6 +584,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_sat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -676,6 +684,7 @@
                             android:gravity="right">
 
                             <Switch
+                                android:id="@+id/sw_sun"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>

@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import io.itmatic.botox.Patient.LoginAsPatientActivity;
+import io.itmatic.botox.Provider.ProviderLoginActivity;
+
 public class BotoxActivity extends AppCompatActivity {
 
     TextView provider,login;

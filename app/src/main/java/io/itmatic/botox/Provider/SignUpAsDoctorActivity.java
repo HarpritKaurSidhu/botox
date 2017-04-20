@@ -1,4 +1,4 @@
-package io.itmatic.botox;
+package io.itmatic.botox.Provider;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -37,11 +37,12 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.itmatic.botox.CommonClasses.BaseActivity;
-import io.itmatic.botox.CommonClasses.RealPathUtil;
-import io.itmatic.botox.CommonClasses.Resource;
+import io.itmatic.botox.Common.BaseActivity;
+import io.itmatic.botox.Common.RealPathUtil;
+import io.itmatic.botox.Common.Resource;
+import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
-import io.itmatic.botox.model.Provider;
+import io.itmatic.botox.Model.Provider;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

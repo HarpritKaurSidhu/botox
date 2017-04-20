@@ -1,4 +1,4 @@
-package io.itmatic.botox.model;
+package io.itmatic.botox.Model;
 
 /**
  * Created by Manoj on 4/12/2017.

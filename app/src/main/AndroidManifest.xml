@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Splash" />
-        <activity android:name=".LoginAsPatientActivity" />
+        <activity android:name=".Patient.LoginAsPatientActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".BotoxActivity">
             <intent-filter>
@@ -22,16 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProviderLoginActivity" />
-        <activity android:name=".ProviderProfileActivity" />
+        <activity android:name=".Provider.ProviderLoginActivity" />
+        <activity android:name=".Provider.ProviderProfileActivity" />
         <activity android:name=".PostcodeActivity" />
-        <activity android:name=".SignUpAsDoctorActivity" />
-        <activity android:name=".QualificationsActivity" />
-        <activity android:name=".UploadsDocumentsActivity" />
-        <activity android:name=".MyAppointmentActivity" />
-        <activity android:name=".WorkingConditionsActivity" />
-        <activity android:name=".ScheduleActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".Provider.SignUpAsDoctorActivity" />
+        <activity android:name=".Provider.QualificationsActivity" />
+        <activity android:name=".Provider.UploadsDocumentsActivity" />
+        <activity android:name=".Provider.MyAppointmentActivity" />
+        <activity android:name=".Provider.WorkingConditionsActivity" />
+        <activity android:name=".Provider.ScheduleActivity" />
+        <activity android:name=".Patient.SignUpAsPatient"></activity>
     </application>
 
 </manifest>

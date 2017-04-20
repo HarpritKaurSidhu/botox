@@ -1,4 +1,4 @@
-package io.itmatic.botox.CommonClasses;
+package io.itmatic.botox.Common;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

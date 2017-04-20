@@ -1,4 +1,4 @@
-package io.itmatic.botox;
+package io.itmatic.botox.Provider;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.R;
 
 public class UploadsDocumentsActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)

@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.itmatic.botox.CommonClasses.BaseActivity;
+import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Retrofit.Helper;
 import retrofit2.Call;
 import retrofit2.Callback;

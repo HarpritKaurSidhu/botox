@@ -1,7 +1,7 @@
-package io.itmatic.botox.CommonClasses;
+package io.itmatic.botox.Common;
 
-import io.itmatic.botox.model.Patient;
-import io.itmatic.botox.model.Provider;
+import io.itmatic.botox.Model.Patient;
+import io.itmatic.botox.Model.Provider;
 
 /**
  * Created by Manoj on 4/13/2017.

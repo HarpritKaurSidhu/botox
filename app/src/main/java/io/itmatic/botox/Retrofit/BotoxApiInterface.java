@@ -1,17 +1,13 @@
 package io.itmatic.botox.Retrofit;
 
-import java.io.File;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.List;
 
-import io.itmatic.botox.model.Education;
-import io.itmatic.botox.model.Patient;
-import io.itmatic.botox.model.Provider;
+import io.itmatic.botox.Model.Education;
+import io.itmatic.botox.Model.Patient;
+import io.itmatic.botox.Model.Provider;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;

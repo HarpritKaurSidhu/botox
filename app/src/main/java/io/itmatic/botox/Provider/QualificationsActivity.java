@@ -1,4 +1,4 @@
-package io.itmatic.botox;
+package io.itmatic.botox.Provider;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Adapter.Qualification;
-import io.itmatic.botox.CommonClasses.BaseActivity;
-import io.itmatic.botox.CommonClasses.Resource;
+import io.itmatic.botox.Common.BaseActivity;
+import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
-import io.itmatic.botox.model.Education;
-import io.itmatic.botox.model.Provider;
+import io.itmatic.botox.Model.Education;
+import io.itmatic.botox.Model.Provider;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
