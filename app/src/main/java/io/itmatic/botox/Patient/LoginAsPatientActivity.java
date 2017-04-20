@@ -20,6 +20,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.Resource;
 import io.itmatic.botox.ForgotPasswordActivity;
@@ -108,12 +109,9 @@ public class LoginAsPatientActivity extends BaseActivity {
                 dialog.dismiss();
                 int statusCode = response.code();
                 if (statusCode == 200) {
-                    Resource.patient = response.body();
+                    ((BotoxApplication)getApplication()).setPatient(response.body());
 
-                    Resource.patientToken = Resource.patient.getAccessToken();
-
-                    addPatientTokenInSharedPreferences(Resource.patientToken);
-
+                    addPatientTokenInSharedPreferences(((BotoxApplication)getApplication()).getPatientToken());
 
                 } else {
                     JSONObject error = null;
