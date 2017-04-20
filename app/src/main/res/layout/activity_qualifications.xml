@@ -31,12 +31,16 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:background="@android:color/white">
-                <ListView
-                    android:id="@+id/list"
+                <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:layout_alignParentTop="true"/>
+                    android:layout_margin="10dp"
+
+                    android:id="@+id/recycle_view">
+
+                </android.support.v7.widget.RecyclerView>
+
             </LinearLayout>
         </LinearLayout>
 

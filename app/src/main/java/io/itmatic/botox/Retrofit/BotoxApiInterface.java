@@ -46,4 +46,20 @@ public interface BotoxApiInterface {
     @FormUrlEncoded
     @POST("provider/education.json")
     Call<Provider> setQualification(@Field("token") String token,@Field("education") String education);
+
+    @Headers("Accept: application/json")
+    @Multipart
+    @POST("provider/document/uploads.json")
+    Call<Provider> uploadProviderDocument(@Part("type") RequestBody type,@Part MultipartBody.Part file );
+
+
+    @Headers("Accept: application/json")
+    @Multipart
+    @POST("user/register.json")
+    Call<Patient> registerPatient(@Part("firstName") RequestBody firstName, @Part("lastName") RequestBody lastName, @Part("email") RequestBody email, @Part("password") RequestBody password,@Part("dob") RequestBody dob, @Part("address") RequestBody  address, @Part("phone") RequestBody phone, @Part("notes") RequestBody  notes,@Part MultipartBody.Part image );
+
+
+
+
+
 }

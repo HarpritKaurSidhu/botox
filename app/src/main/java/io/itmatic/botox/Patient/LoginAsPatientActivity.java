@@ -74,7 +74,7 @@ public class LoginAsPatientActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(LoginAsPatientActivity.this,ForgotPasswordActivity.class);
+                Intent intent=new Intent(LoginAsPatientActivity.this,SignUpAsPatient.class);
                 startActivity(intent);
 
             }

@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,10 +23,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Adapter.Qualification;
 import io.itmatic.botox.Common.BaseActivity;
-import io.itmatic.botox.R;
-import io.itmatic.botox.Retrofit.Helper;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Provider;
+import io.itmatic.botox.R;
+import io.itmatic.botox.Retrofit.Helper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,8 +37,8 @@ public class QualificationsActivity extends BaseActivity {
     Toolbar toolbar;
     @BindView(R.id.btn_next)
     Button button;
-    @BindView(R.id.list)
-    ListView listQuailification;
+    @BindView(R.id.recycle_view)
+    RecyclerView listQuailification;
     @BindView(R.id.edt_other)
     EditText other;
     ArrayList<Education> educations = new ArrayList<>();
@@ -126,8 +127,10 @@ public class QualificationsActivity extends BaseActivity {
 
                     educations = response.body();
 
-                    Qualification qualificationAdapter = new Qualification(QualificationsActivity.this, R.layout.qualification_layout, educations);
-                    //qualificationAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+                    Qualification qualificationAdapter = new Qualification(educations);
+                    GridLayoutManager mLayoutManager = new GridLayoutManager(QualificationsActivity.this, 1);
+                    mLayoutManager.getPaddingLeft();
+                    listQuailification.setLayoutManager(mLayoutManager);
                     listQuailification.setAdapter(qualificationAdapter);
 
 

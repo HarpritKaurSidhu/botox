@@ -155,7 +155,7 @@
                             android:background="@color/White">
 
                             <EditText
-                                android:id="@+id/edt_phone"
+                                android:id="@+id/edt_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
@@ -184,7 +184,7 @@
                             android:background="@color/White">
 
                             <EditText
-                                android:id="@+id/edt_zipcode"
+                                android:id="@+id/edt_date_of_birth"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
@@ -212,7 +212,7 @@
                             android:background="@color/White">
 
                             <EditText
-                                android:id="@+id/edt_password"
+                                android:id="@+id/edt_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
@@ -239,7 +239,7 @@
                             android:background="@color/White">
 
                             <EditText
-                                android:id="@+id/edt_address"
+                                android:id="@+id/edt_phone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
@@ -267,12 +267,12 @@
                             android:background="@color/White">
 
                             <EditText
-                                android:id="@+id/edt_mode_of_transport"
+                                android:id="@+id/edt_note"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
                                 android:drawablePadding="15dp"
-                                android:drawableRight="@drawable/ic_note_blue_grey_300_24dp"
+                                android:drawableLeft="@drawable/ic_note_blue_grey_300_24dp"
                                 android:hint="@string/notes_to_clinician"
                                 android:inputType="text"
                                 android:maxLines="3"
@@ -306,5 +306,5 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-</RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
