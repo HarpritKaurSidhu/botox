@@ -88,6 +88,7 @@
     <string name="confirmation_two">I confirm that I will be self employed and(our name) is not the employer</string>
     <string name="confirmation_three">I confirm that the responsibility of the patient lies with me and not(our name)</string>
     <string name="monday">Monday</string>
+    <string name="working_condition">Working condition</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
     <string name="thursday">Thursday</string>
@@ -99,4 +100,10 @@
     <string name="notes_to_clinician">Note to clinician</string>
     <string name="set_time">Set time</string>
     <string name="change_time">Change Time</string>
+    <string name="submit">Submit</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="appointment_date">Appointmnet date</string>
+    <string name="new_appointment">New Appointment</string>
+    <string name="old_appointment">Old Appointment</string>
+    <string name="choose_area">What do you want to treat?</string>
 </resources>

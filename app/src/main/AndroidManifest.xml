@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application android:name=".BotoxApplication"
+    <application
+        android:name=".BotoxApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,11 +28,12 @@
         <activity android:name=".PostcodeActivity" />
         <activity android:name=".Provider.SignUpAsDoctorActivity" />
         <activity android:name=".Provider.QualificationsActivity" />
-        <activity android:name=".Provider.UploadsDocumentsActivity" />
+        <activity android:name=".Provider.UploadDocumentFirstActivity" />
         <activity android:name=".Provider.MyAppointmentActivity" />
         <activity android:name=".Provider.WorkingConditionsActivity" />
         <activity android:name=".Provider.ScheduleActivity" />
-        <activity android:name=".Patient.SignUpAsPatient"></activity>
+        <activity android:name=".Patient.SignUpAsPatient" />
+        <activity android:name=".Provider.UploadDocumentSecondActivity"></activity>
     </application>
 
 </manifest>

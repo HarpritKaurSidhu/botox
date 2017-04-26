@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Adapter.Qualification;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Provider;
@@ -60,7 +61,7 @@ public class QualificationsActivity extends BaseActivity {
 
                 boolean check = false;
                 String courses = "";
-
+                ((BotoxApplication)getApplication()).setEducations(educations);
                 for (int i = 0; i < educations.size(); i++) {
                     if (educations.get(i).isSelectCourse() != true) {
 
@@ -90,7 +91,7 @@ public class QualificationsActivity extends BaseActivity {
                 }
 
 
-              /*  Intent intent = new Intent(QualificationsActivity.this, UploadsDocumentsActivity.class);
+             /* Intent intent = new Intent(QualificationsActivity.this, UploadDocumentFirstActivity.class);
                 startActivity(intent);*/
             }
         });
@@ -172,7 +173,7 @@ public class QualificationsActivity extends BaseActivity {
 
 
         SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        String token = preferences.getString("token", "");
+        String token = preferences.getString("provider_token", "");
         Call<Provider> call = Helper.getBotoxApiService().setQualification(token, cousers);
         call.enqueue(new Callback<Provider>() {
 
@@ -184,7 +185,7 @@ public class QualificationsActivity extends BaseActivity {
                 if (statusCode == 200) {
 
 
-                    Intent intent = new Intent(QualificationsActivity.this, UploadsDocumentsActivity.class);
+                    Intent intent = new Intent(QualificationsActivity.this, UploadDocumentFirstActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

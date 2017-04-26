@@ -50,7 +50,7 @@ public interface BotoxApiInterface {
     @Headers("Accept: application/json")
     @Multipart
     @POST("provider/document/uploads.json")
-    Call<Provider> uploadProviderDocument(@Part("type") RequestBody type,@Part MultipartBody.Part file );
+    Call<Provider> uploadProviderDocument(@Part("token") RequestBody token,@Part("type") RequestBody type,@Part MultipartBody.Part file );
 
 
     @Headers("Accept: application/json")

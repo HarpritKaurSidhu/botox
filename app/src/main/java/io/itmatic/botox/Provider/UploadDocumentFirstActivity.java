@@ -1,29 +1,34 @@
 package io.itmatic.botox.Provider;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.RealPathUtil;
-import io.itmatic.botox.Common.Resource;
+import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Provider;
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
@@ -34,12 +39,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UploadsDocumentsActivity extends BaseActivity {
+public class UploadDocumentFirstActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.btn_next)
     Button buttonNext;
-    @BindView(R.id.edt_cv)
+    @BindView(R.id.lout_qualification)
+    LinearLayout loutQualification;
+  /*  @BindView(R.id.edt_cv)
     EditText cv;
     @BindView(R.id.edt_proof)
     EditText proof;
@@ -48,12 +55,14 @@ public class UploadsDocumentsActivity extends BaseActivity {
     @BindView(R.id.edt_qualification_certificate)
     EditText qualificationCertificate;
     @BindView(R.id.edt_other)
-    EditText other;
+    EditText other;*/
     int REQUEST_CODE_CV=1;
+    int REQUEST_CODE_CERTIFICAT=0;
+  //  TextView[] textViews;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uploads_documents);
+        setContentView(R.layout.activity_uploads_documents_first);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
@@ -64,23 +73,68 @@ public class UploadsDocumentsActivity extends BaseActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(UploadsDocumentsActivity.this,WorkingConditionsActivity.class);
+                Intent intent=new Intent(UploadDocumentFirstActivity.this,WorkingConditionsActivity.class);
                 startActivity(intent);
             }
         });
-        cv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("*/*");
-                String[] mimetypes = {"application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"};
-                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
-                startActivityForResult(intent,REQUEST_CODE_CV);
 
+        loutQualification.setOrientation(LinearLayout.VERTICAL);
+        final ArrayList<Education> educations=((BotoxApplication)getApplication()).getEducations();
+        ArrayList<Education> selectedEducations= new ArrayList<>();
+
+        for(int i=0;i<educations.size();i++)
+        {
+            if (educations.get(i).isSelectCourse()) {
+                selectedEducations.add(educations.get(i));
             }
-        });
+        }
+      //  textViews=new TextView[selectedEducations.size()];
+        for(int i = 0; i <  selectedEducations.size(); i++ ) {
+
+                LinearLayout layout=new LinearLayout(this);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                layoutParams.setMargins(0, 20, 0, 0);
+                layout.setLayoutParams(layoutParams);
+                layout.setBackgroundColor(getResources().getColor(R.color.gray));
+                layout.setOrientation(LinearLayout.VERTICAL);
+            TextView textView=new TextView(this);
+            textView.setId(2000+i);
+            textView.setText(selectedEducations.get(i).getTitle());
+
+            textView.setBackgroundColor(getResources().getColor(R.color.White));
+            textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_add_box_blue_grey_300_36dp, 0);
+                TableLayout.LayoutParams params = new TableLayout.LayoutParams();
+                params.setMargins(2, 2, 2, 2);
+            textView.setLayoutParams(params);
+            textView.setGravity(Gravity.CENTER_VERTICAL);
+            textView.setPadding(10,0,0,0);
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        REQUEST_CODE_CERTIFICAT=view.getId();
+
+                        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                        intent.addCategory(Intent.CATEGORY_OPENABLE);
+                        intent.setType("*/*");
+                        String[] mimetypes = {"application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"};
+                        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
+                        startActivityForResult(intent,REQUEST_CODE_CERTIFICAT);
+
+
+                    }
+                });
+                layout.addView(textView);
+                loutQualification.addView(layout);
+            }
+
+
+
+
+
     }
 
 
@@ -88,7 +142,7 @@ public class UploadsDocumentsActivity extends BaseActivity {
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
-        if ((requestCode == 1 || requestCode == 65542 || requestCode == 131078 || requestCode == 393222 || requestCode == 393222 || requestCode == 262150) && resultCode == RESULT_OK) {
+        if ((requestCode == REQUEST_CODE_CERTIFICAT || requestCode == 65542 || requestCode == 131078 || requestCode == 393222 || requestCode == 393222 || requestCode == 262150) && resultCode == RESULT_OK) {
             String realPath;
             // SDK < API11
             if (Build.VERSION.SDK_INT < 11)
@@ -109,7 +163,7 @@ public class UploadsDocumentsActivity extends BaseActivity {
             if (file.exists()) {
 
 
-               uploadProviderDocument(REQUEST_CODE_CV,"CV",file);
+               uploadProviderDocument(REQUEST_CODE_CERTIFICAT,"Education",file);
 
 
             }
@@ -131,15 +185,17 @@ public class UploadsDocumentsActivity extends BaseActivity {
     }
 
 
-    private void uploadProviderDocument(int requestCode,String type,File file) {
+    private void uploadProviderDocument(int requestCode, String type, final File file) {
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();
 
         RequestBody fileType = RequestBody.create(MediaType.parse("text/plain"),type);
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
-
-        Call<Provider> call = Helper.getBotoxApiService().uploadProviderDocument(fileType, body);
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        String providerToken = preferences.getString("provider_token", "");
+        RequestBody token = RequestBody.create(MediaType.parse("text/plain"),providerToken);
+        Call<Provider> call = Helper.getBotoxApiService().uploadProviderDocument(token,fileType, body);
         call.enqueue(new Callback<Provider>() {
 
 
@@ -149,7 +205,10 @@ public class UploadsDocumentsActivity extends BaseActivity {
                 int statusCode = response.code();
                 if (statusCode == 200) {
                     Provider provider = response.body();
-
+                    provider.getAccessToken();
+                 TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICAT);
+                    textView.setText(file.getName());
+                    textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_clear_teal_300_36dp, 0);
 
 
                 } else {

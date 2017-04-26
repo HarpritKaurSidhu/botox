@@ -57,7 +57,7 @@ public class BaseActivity extends ActionBarActivity {
     public void addProviderTokenInSharedPreferences(String token) {
         SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE).edit();
         editor.putString("provider_token", token);
-        editor.apply();
+        editor.commit();
     }
 
     public void addPatientTokenInSharedPreferences(String token) {

@@ -1,17 +1,25 @@
 package io.itmatic.botox.Patient;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -24,8 +32,14 @@ import com.isseiaoki.simplecropview.CropImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
@@ -58,14 +72,12 @@ public class SignUpAsPatient extends BaseActivity {
     EditText email;
     @BindView(R.id.edt_password)
     EditText password;
-    @BindView(R.id.edt_date_of_birth)
-    EditText dateOfBirth;
+    @BindView(R.id.txt_date_of_birth)
+    TextView dateOfBirth;
     @BindView(R.id.edt_address)
     EditText address;
-
     @BindView(R.id.edt_phone)
     EditText phone;
-
     @BindView(R.id.edt_note)
     EditText note;
     @BindView(R.id.btn_next)
@@ -80,6 +92,8 @@ public class SignUpAsPatient extends BaseActivity {
     Button selectOk;
     Bitmap croppedBitmap;
     Intent intent;
+    private DatePickerDialog.OnDateSetListener datePickerListener;
+    DatePickerDialog datePicker;
 
     String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
     int CAMERA_REQUEST = 1337;
@@ -104,7 +118,7 @@ public class SignUpAsPatient extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-
+                    checkValidity();
                     if (mAwesomeValidation.validate()) {
 
                     if(file==null)
@@ -120,6 +134,130 @@ public class SignUpAsPatient extends BaseActivity {
             }
         });
 
+        dateOfBirth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calender = Calendar.getInstance(TimeZone.getDefault());
+
+                datePicker = new DatePickerDialog(SignUpAsPatient.this,datePickerListener,
+
+                        calender.get(Calendar.YEAR),
+                        calender.get(Calendar.MONTH),
+                        calender.get(Calendar.DAY_OF_MONTH)
+                );
+                datePicker.show();
+            }
+        });
+
+        datePickerListener = new DatePickerDialog.OnDateSetListener() {
+
+            // when dialog box is closed, below method will be called.
+            public void onDateSet(DatePicker view, int selectedYear,
+                                  int selectedMonth, int selectedDay) {
+                String year1 = String.valueOf(selectedYear);
+                String month1 = String.valueOf(selectedMonth + 1);
+                String day1 = String.valueOf(selectedDay);
+                Date selectdate=new Date(selectedYear,selectedMonth,selectedDay);
+                if(selectdate.after(new Date())) {
+                    dateOfBirth.setText(day1 + "-" + month1 + "-" + year1);
+                }
+
+            }
+        };
+
+        selectOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                croppedBitmap = (cropImageView.getCroppedBitmap());
+
+                file = new File(getCacheDir(), "temp");
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+//Convert bitmap to byte array
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                croppedBitmap.compress(Bitmap.CompressFormat.PNG, 0, bos);
+                byte[] bitmapdata = bos.toByteArray();
+
+//write the bytes in file
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    fos.write(bitmapdata);
+                    fos.flush();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                userImage.setImageBitmap(croppedBitmap);
+                cropImageView.setVisibility(View.GONE);
+                selectOk.setVisibility(View.GONE);
+
+            }
+        });
+
+        uploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder getImageFrom = new AlertDialog.Builder(SignUpAsPatient.this);
+                getImageFrom.setTitle(getResources().getString(R.string.selectimage));
+                final CharSequence[] opsChars = {getResources().getString(R.string.takepicture), getResources().getString(R.string.opengallery)};
+                getImageFrom.setItems(opsChars, new android.content.DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+
+                            String file = System.currentTimeMillis() + ".jpg";
+                            File newfile = new File(file);
+                            try {
+                                newfile.createNewFile();
+                            } catch (IOException e) {
+                                e.toString();
+                            }
+
+                            Uri outputFileUri = Uri.fromFile(newfile);
+                            if (ContextCompat.checkSelfPermission(SignUpAsPatient.this, Manifest.permission.CAMERA) ==
+                                    PackageManager.PERMISSION_GRANTED) {
+                                intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                                startActivityForResult(intent, 7);
+                            } else {
+                                ActivityCompat.requestPermissions(SignUpAsPatient.this, CAMERA_PERMS, CAMERA_REQUEST);
+                            }
+
+
+                        } else if (which == 1) {
+                            if (ContextCompat.checkSelfPermission(SignUpAsPatient.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                                    PackageManager.PERMISSION_GRANTED) {
+                                Intent intent = new Intent();
+                                intent.setType("image/*");
+                                intent.setAction(Intent.ACTION_GET_CONTENT);
+                                intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                                startActivityForResult(Intent.createChooser(intent, "Open Gallery"), 6);
+                            } else {
+                                ActivityCompat.requestPermissions(SignUpAsPatient.this, GELLARY_PERMS, GELLARY_REQUEST);
+                            }
+                        }
+
+                    }
+                });
+
+                getImageFrom.show();
+
+
+            }
+        });
 
 
 
@@ -194,11 +332,10 @@ public class SignUpAsPatient extends BaseActivity {
         mAwesomeValidation.addValidation(this, R.id.edt_first_name, "[a-zA-Z\\s]+", R.string.enter_first_name);
         mAwesomeValidation.addValidation(this, R.id.edt_last_name, "[a-zA-Z\\s]+", R.string.enter_last_name);
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
-        mAwesomeValidation.addValidation(this, R.id.edt_phone, RegexTemplate.TELEPHONE, R.string.enter_phone_number);
-
         mAwesomeValidation.addValidation(this, R.id.edt_password, "[0-9a-zA-Z]+",R.string.enter_valid_password);
-        mAwesomeValidation.addValidation(this, R.id.edt_date_of_birth,RegexTemplate.NOT_EMPTY, R.string.enter_date_of_birth);
+        mAwesomeValidation.addValidation(this, R.id.txt_date_of_birth,RegexTemplate.NOT_EMPTY, R.string.enter_date_of_birth);
         mAwesomeValidation.addValidation(this, R.id.edt_address, "[0-9a-zA-Z #,-]+", R.string.enter_address);
+        mAwesomeValidation.addValidation(this, R.id.edt_phone, RegexTemplate.TELEPHONE, R.string.enter_phone_number);
         mAwesomeValidation.addValidation(this, R.id.edt_note,RegexTemplate.NOT_EMPTY, R.string.enter_note);
     }
 
@@ -210,9 +347,9 @@ public class SignUpAsPatient extends BaseActivity {
         RequestBody lname = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
         RequestBody mail = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
         RequestBody pass = RequestBody.create(MediaType.parse("text/plain"), password.getText().toString());
-        RequestBody mobile = RequestBody.create(MediaType.parse("text/plain"), phone.getText().toString());
         RequestBody dob = RequestBody.create(MediaType.parse("text/plain"), dateOfBirth.getText().toString());
         RequestBody add = RequestBody.create(MediaType.parse("text/plain"), address.getText().toString());
+        RequestBody mobile = RequestBody.create(MediaType.parse("text/plain"), phone.getText().toString());
         RequestBody notes = RequestBody.create(MediaType.parse("text/plain"), note.getText().toString());
 
 

@@ -60,6 +60,30 @@ public class ScheduleActivity extends AppCompatActivity {
     TextView textViewSettimeFromMon;
     @BindView(R.id.txt_set_time_to_mon)
     TextView getTextViewSettimeToMon;
+    @BindView(R.id.txt_set_time_from_tue)
+    TextView textViewSettimeFromTue;
+    @BindView(R.id.txt_set_time_to_tue)
+    TextView getTextViewSettimeToTue;
+    @BindView(R.id.txt_set_time_from_wed)
+    TextView textViewSettimeFromWed;
+    @BindView(R.id.txt_set_time_to_wed)
+    TextView getTextViewSettimeToWed;
+    @BindView(R.id.txt_set_time_from_thu)
+    TextView textViewSettimeFromThu;
+    @BindView(R.id.txt_set_time_to_thu)
+    TextView getTextViewSettimeToThu;
+    @BindView(R.id.txt_set_time_from_fri)
+    TextView textViewSettimeFromFri;
+    @BindView(R.id.txt_set_time_to_fri)
+    TextView getTextViewSettimeToFri;
+    @BindView(R.id.txt_set_time_from_sat)
+    TextView textViewSettimeFromSat;
+    @BindView(R.id.txt_set_time_to_sat)
+    TextView getTextViewSettimeToSat;
+    @BindView(R.id.txt_set_time_from_sun)
+    TextView textViewSettimeFromSun;
+    @BindView(R.id.txt_set_time_to_sun)
+    TextView getTextViewSettimeToSun;
 
 
 
@@ -105,8 +129,15 @@ public class ScheduleActivity extends AppCompatActivity {
 
                 setTime(textViewSettimeFromMon);
 
+
+            }
+        }); getTextViewSettimeToMon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToMon);
             }
         });
+
 
         switchTue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
@@ -120,6 +151,22 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromTue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromTue);
+
+            }
+        }); getTextViewSettimeToTue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToTue);
+            }
+        });
+
+
         switchWed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
         {
@@ -132,6 +179,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromWed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromWed);
+
+            }
+        });
+        getTextViewSettimeToWed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToWed);
+            }
+        });
+
+
 
         switchThu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
@@ -145,6 +209,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromThu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromThu);
+
+            }
+        });
+        getTextViewSettimeToThu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToThu);
+            }
+        });
+
+
 
         switchFri.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
@@ -158,6 +239,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromFri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromFri);
+
+            }
+        });
+        getTextViewSettimeToFri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToFri);
+            }
+        });
+
+
 
         switchSat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
@@ -171,6 +269,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromSat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromSat);
+
+            }
+        });
+        getTextViewSettimeToSat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToSat);
+            }
+        });
+
+
         switchSun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
         {
@@ -183,6 +298,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
+        textViewSettimeFromSun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                setTime(textViewSettimeFromSun);
+
+            }
+        });
+        getTextViewSettimeToSun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTime(getTextViewSettimeToSun);
+            }
+        });
+
+
 
 
     }

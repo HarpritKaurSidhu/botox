@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,11 +10,38 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:id="@+id/lout_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Black">
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Black"
+
+                android:text="@string/submit"
+                android:textColor="@color/White" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/lout_submit"
         android:background="@color/White">
 
         <RelativeLayout
@@ -25,7 +52,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/White"
                 android:orientation="vertical">
 
@@ -251,6 +278,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/from" />
                                 <TextView
+                                    android:id="@+id/txt_set_time_from_tue"
                                     android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -278,6 +306,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/to" />
                                 <TextView
+                                    android:id="@+id/txt_set_time_to_tue"
                                     android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -366,6 +395,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/from" />
                                 <TextView
+                                    android:id="@+id/txt_set_time_from_wed"
                                     android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -393,6 +423,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/to" />
                                 <TextView
+                                    android:id="@+id/txt_set_time_to_wed"
                                     android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -479,8 +510,9 @@
                                         android:layout_weight="1"
                                         android:text="@string/from" />
                                     <TextView
+
                                         android:gravity="end"
-                                        android:id="@+id/txt_settime_from"
+                                        android:id="@+id/txt_set_time_from_thu"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -508,7 +540,7 @@
                                         android:text="@string/to" />
                                     <TextView
                                         android:gravity="end"
-                                        android:id="@+id/txt_settime_to"
+                                        android:id="@+id/txt_set_time_to_thu"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -597,6 +629,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/from" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_from_fri"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -624,6 +657,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/to" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_to_fri"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -713,6 +747,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/from" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_from_sat"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -740,6 +775,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/to" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_to_sat"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -760,7 +796,6 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
                             android:layout_marginTop="1dp"
                             android:background="@color/White"
                             android:padding="10dp">
@@ -822,6 +857,7 @@
                                     android:background="@color/White">
 
                                     <TextView
+
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:background="@color/White"
@@ -829,6 +865,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/from" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_from_sun"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -856,6 +893,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/to" />
                                     <TextView
+                                        android:id="@+id/txt_set_time_to_sun"
                                         android:gravity="end"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -863,11 +901,21 @@
                                         android:text="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
-                        </LinearLayout>
 
+                        </LinearLayout>
                     </LinearLayout>
+
                 </LinearLayout>
+
+
+
+
             </LinearLayout>
         </RelativeLayout>
+
+
+
     </ScrollView>
-</LinearLayout>
+
+
+</RelativeLayout>
