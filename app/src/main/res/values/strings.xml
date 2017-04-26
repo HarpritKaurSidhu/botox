@@ -60,8 +60,10 @@
     <string name="my_appointments">My appointments</string>
     <string name="my_payments">My payments</string>
     <string name="qualification">Qualifications</string>
-    <string name="uploads_documents">Uploads Documents</string>
+    <string name="uploads_documents">Uploads Education Documents</string>
+    <string name="uploads_proof_documents">Uploads Documents</string>
     <string name="provider_full_name">Provider Full Name</string>
+    <string name="select_your_document">Select Your Document</string>
     <string name="enter_your_postcode">Enter your postcode</string>
     <string name="sign_up_as_doctor">Sign Up as Doctor</string>
     <string name="logout">Logout</string>

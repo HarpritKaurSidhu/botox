@@ -15,12 +15,12 @@ import io.itmatic.botox.R;
 
 
 
-public class Qualification extends RecyclerView.Adapter<Qualification.ContactViewHolder> { // recycledapter is a type of adapter  it also include recycle
+public class QualificationAdapter extends RecyclerView.Adapter<QualificationAdapter.ContactViewHolder> { // recycledapter is a type of adapter  it also include recycle
 
         private List<Education> education_list;
 
 
-        public Qualification(List<Education> contactList) {
+        public QualificationAdapter(List<Education> contactList) {
             this.education_list = contactList;
         }
 

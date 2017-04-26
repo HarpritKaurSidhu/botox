@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.itmatic.botox.Adapter.Qualification;
+import io.itmatic.botox.Adapter.QualificationAdapter;
 import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Model.Education;
@@ -43,6 +43,7 @@ public class QualificationsActivity extends BaseActivity {
     @BindView(R.id.edt_other)
     EditText other;
     ArrayList<Education> educations = new ArrayList<>();
+    Education otherEducation=new Education();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,9 @@ public class QualificationsActivity extends BaseActivity {
                         courses = other.getText().toString();
                         uploadQualification(courses);
                     }
+                    otherEducation.setTitle(other.getText().toString());
+                    otherEducation.setSelectCourse(true);
+                    educations.add(otherEducation);
                 } else {
                     if (check) {
                         uploadQualification(courses);
@@ -128,7 +132,7 @@ public class QualificationsActivity extends BaseActivity {
 
                     educations = response.body();
 
-                    Qualification qualificationAdapter = new Qualification(educations);
+                    QualificationAdapter qualificationAdapter = new QualificationAdapter(educations);
                     GridLayoutManager mLayoutManager = new GridLayoutManager(QualificationsActivity.this, 1);
                     mLayoutManager.getPaddingLeft();
                     listQuailification.setLayoutManager(mLayoutManager);
