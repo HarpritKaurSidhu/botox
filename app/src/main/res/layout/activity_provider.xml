@@ -23,7 +23,7 @@
         android:orientation="vertical">
         <LinearLayout
             android:orientation="vertical"
-            android:background="@android:color/darker_gray"
+            android:background="@color/gray"
             android:layout_width="match_parent"
             android:layout_marginTop="30dp"
             android:layout_height="wrap_content">
@@ -48,7 +48,7 @@
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
-            android:background="@android:color/darker_gray"
+            android:background="@color/gray"
             android:layout_width="match_parent"
             android:layout_marginTop="30dp"
             android:layout_height="wrap_content">
@@ -67,7 +67,7 @@
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:padding="10dp"
-                    android:drawableLeft="@drawable/ic_passwrd"
+                    android:drawableLeft="@drawable/ic_password"
                     android:drawablePadding="10dp"
 
                     />
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:text="@string/log_in"
-            android:textColor="@android:color/white"
+            android:textColor="@color/White"
             android:background="@color/Black"
              />
         <Button

@@ -1,11 +1,19 @@
 package io.itmatic.botox.Provider;
 
+import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -20,10 +28,20 @@ public class WorkingConditionsActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.btn_next)
+    Button buttonSubmit;
     @BindView(R.id.txt_set_time_from)
     TextView textViewFrom;
     @BindView(R.id.txt_set_time_to)
     TextView textViewTo;
+    @BindView(R.id.edt_distance)
+    EditText editTextDistance;
+    @BindView(R.id.cb_confirmation_one)
+    CheckBox cbWorkInUk;
+    @BindView(R.id.cb_confirmation_two)
+    CheckBox cbSelfEmployee;
+    @BindView(R.id.cb_confirmation_three)
+    CheckBox cbResponsible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +67,59 @@ public class WorkingConditionsActivity extends BaseActivity {
                 setTime(textViewTo);
             }
         });
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                final Dialog dialog = new Dialog(WorkingConditionsActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                dialog.setContentView(R.layout.confirm_layout);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                dialog.getWindow().setAttributes(lp);
+                Button Ok = (Button) dialog.findViewById(R.id.btn_close);
+
+                Ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+
+                        Intent intent = new Intent(WorkingConditionsActivity.this, ProviderProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
+                dialog.show();
+
+
+
+
+
+            }
+        });
+
+        textViewFrom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setTime(textViewFrom);
+
+            }
+        });
+        textViewTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setTime(textViewTo);
+            }
+        });
+
 
 
 
@@ -66,11 +137,11 @@ public class WorkingConditionsActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    public void setTime(final TextView textView) {
+    private void setTime(final TextView textView) {
 
-        Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
+        Calendar currentTime = Calendar.getInstance();
+        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = currentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker = new TimePickerDialog(WorkingConditionsActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {

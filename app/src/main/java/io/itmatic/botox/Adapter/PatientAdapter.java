@@ -16,10 +16,10 @@ import io.itmatic.botox.Model.Patient;
 import io.itmatic.botox.R;
 
 
-public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactViewHolder> { // recycledapter is a type of adapter  it also include recycle
+public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactViewHolder> {
 
         private List<Patient> patient_list;
-        Context context;
+        private Context context;
 
 
         public PatientAdapter(Context context, List<Patient> contactList) {
@@ -57,7 +57,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactV
 
             contactViewHolder.textViewPatientName.setText(patient.getFullName());
             contactViewHolder.textViewDate.setText(patient.getDob());
-            Glide.with(context).load(patient.getImageUrl()).placeholder(R.drawable.ic_demmy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
+            Glide.with(context).load(patient.getImageUrl()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
 
 
            /* contactViewHolder.textViewQualification.setText(.getTitle());

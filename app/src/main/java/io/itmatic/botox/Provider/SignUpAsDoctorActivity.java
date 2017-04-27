@@ -87,17 +87,17 @@ public class SignUpAsDoctorActivity extends BaseActivity {
     CropImageView cropImageView;
     @BindView(R.id.btn_ok)
     Button selectOk;
-    Bitmap croppedBitmap;
-    Intent intent;
+   private Bitmap croppedBitmap;
+   private Intent intent;
     int driverSwitch = 0;
-    String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
-    int CAMERA_REQUEST = 1337;
-    final int GELLARY_REQUEST = 1340;
-    String[] GELLARY_PERMS = {
+   private String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
+    private int CAMERA_REQUEST = 1337;
+   private final int GELLARY_REQUEST = 1340;
+   private String[] GELLARY_PERMS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-    File file = null;
-    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);;
+   private File file = null;
+    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
 
 
     @Override
@@ -118,23 +118,23 @@ public class SignUpAsDoctorActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                checkValidity();
-            /*    if (mAwesomeValidation.validate()) {
+               if (mAwesomeValidation.validate()) {
 
                     if(file==null)
                     {
-                        buildDialog(R.style.DialogTheme, getResources().getString(R.string.selectimage));
+                        buildDialog(R.style.DialogTheme, getResources().getString(R.string.select_image));
                     }else
                     {
                         registerProvider();
                     }
 
 
-                }*/
-               Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
+                }
+              /* Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
 
@@ -156,7 +156,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 croppedBitmap.compress(Bitmap.CompressFormat.PNG, 0, bos);
-                byte[] bitmapdata = bos.toByteArray();
+                byte[] bitmapData = bos.toByteArray();
 
 //write the bytes in file
                 FileOutputStream fos = null;
@@ -166,7 +166,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
                     e.printStackTrace();
                 }
                 try {
-                    fos.write(bitmapdata);
+                    fos.write(bitmapData);
                     fos.flush();
                     fos.close();
                 } catch (IOException e) {
@@ -185,7 +185,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
             public void onClick(View view) {
 
                 AlertDialog.Builder getImageFrom = new AlertDialog.Builder(SignUpAsDoctorActivity.this);
-                getImageFrom.setTitle(getResources().getString(R.string.selectimage));
+                getImageFrom.setTitle(getResources().getString(R.string.select_image));
                 final CharSequence[] opsChars = {getResources().getString(R.string.takepicture), getResources().getString(R.string.opengallery)};
                 getImageFrom.setItems(opsChars, new android.content.DialogInterface.OnClickListener() {
                     @Override
@@ -193,14 +193,14 @@ public class SignUpAsDoctorActivity extends BaseActivity {
                         if (which == 0) {
 
                             String file = System.currentTimeMillis() + ".jpg";
-                            File newfile = new File(file);
+                            File newFile = new File(file);
                             try {
-                                newfile.createNewFile();
+                                newFile.createNewFile();
                             } catch (IOException e) {
                                 e.toString();
                             }
 
-                            Uri outputFileUri = Uri.fromFile(newfile);
+
                             if (ContextCompat.checkSelfPermission(SignUpAsDoctorActivity.this, Manifest.permission.CAMERA) ==
                                     PackageManager.PERMISSION_GRANTED) {
                                 intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -294,7 +294,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    public void  checkValidity() {
+    private void  checkValidity() {
         mAwesomeValidation.addValidation(this, R.id.edt_first_name, "[a-zA-Z\\s]+", R.string.enter_first_name);
         mAwesomeValidation.addValidation(this, R.id.edt_last_name, "[a-zA-Z\\s]+", R.string.enter_last_name);
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
@@ -312,15 +312,15 @@ public class SignUpAsDoctorActivity extends BaseActivity {
     private void registerProvider() {
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();
-        RequestBody fname = RequestBody.create(MediaType.parse("text/plain"), firstName.getText().toString());
-        RequestBody lname = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
+        RequestBody fName = RequestBody.create(MediaType.parse("text/plain"), firstName.getText().toString());
+        RequestBody lName = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
         RequestBody mail = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
         RequestBody pass = RequestBody.create(MediaType.parse("text/plain"), password.getText().toString());
         RequestBody mobile = RequestBody.create(MediaType.parse("text/plain"), phone.getText().toString());
         RequestBody zip = RequestBody.create(MediaType.parse("text/plain"), zipcode.getText().toString());
         RequestBody add = RequestBody.create(MediaType.parse("text/plain"), address.getText().toString());
 
-        int licence = 0;
+        int licence;
         if (isDrivingLicence.isChecked()) {
             licence = 1;
         } else {
@@ -333,7 +333,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
 
-        Call<Provider> call = Helper.getBotoxApiService().registerProvider(fname, lname, mail, pass, mobile, add, zip, lice, gd, gm, mode, body);
+        Call<Provider> call = Helper.getBotoxApiService().registerProvider(fName, lName, mail, pass, mobile, add, zip, lice, gd, gm, mode, body);
         call.enqueue(new Callback<Provider>() {
 
 
@@ -356,15 +356,13 @@ public class SignUpAsDoctorActivity extends BaseActivity {
 
                 } else {
 
-                    JSONObject error= null;
+                    JSONObject error;
                     String message="";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -380,7 +378,7 @@ public class SignUpAsDoctorActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<Provider> call, Throwable t) {
-                t.toString();
+
                 dialog.dismiss();
             }
 

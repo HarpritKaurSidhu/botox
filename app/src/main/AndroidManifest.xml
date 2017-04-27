@@ -33,7 +33,7 @@
         <activity android:name=".Provider.WorkingConditionsActivity" />
         <activity android:name=".Provider.ScheduleActivity" />
         <activity android:name=".Patient.SignUpAsPatient" />
-        <activity android:name=".Provider.UploadDocumentSecondActivity"></activity>
+        <activity android:name=".Provider.UploadDocumentSecondActivity" />
     </application>
 
 </manifest>

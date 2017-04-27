@@ -46,7 +46,7 @@ public class ProviderLoginActivity extends BaseActivity {
     EditText email;
     @BindView(R.id.edt_password)
     EditText password;
-    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);;
+    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +89,7 @@ public class ProviderLoginActivity extends BaseActivity {
 
     }
 
-    public void checkValidity() {
+    private void checkValidity() {
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
         mAwesomeValidation.addValidation(this, R.id.edt_password, "[0-9a-zA-Z]+",R.string.enter_valid_password);
 
@@ -124,15 +124,13 @@ public class ProviderLoginActivity extends BaseActivity {
                     finish();
 
                 }else {
-                    JSONObject error= null;
+                    JSONObject error;
                     String message="";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -144,14 +142,13 @@ public class ProviderLoginActivity extends BaseActivity {
 
 
 
-                // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
+
 
 
             }
 
             @Override
             public void onFailure(Call<Provider> call, Throwable t) {
-                t.toString();
                 dialog.dismiss();
             }
 

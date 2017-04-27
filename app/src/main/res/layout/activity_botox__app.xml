@@ -7,7 +7,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbarBotox"/>
+        android:id="@+id/toolbar"/>
     <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:padding="20dp"
            >
         <Button
-            android:id="@+id/bookanappointmentId"
+            android:id="@+id/btn_book_an_appointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/Black"
@@ -31,7 +31,7 @@
             android:padding="5dp"
             />
             <Button
-                android:id="@+id/MyappointmentId"
+                android:id="@+id/btn_my_appointment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -72,7 +72,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                    android:text="@string/i_am_provider"
-                    android:id="@+id/providerId"
+                    android:id="@+id/txt_provider"
                 android:textSize="15dp"
                     android:padding="17sp"
                 android:textColor="@color/Black"/>
@@ -90,7 +90,7 @@
                         android:orientation="vertical"
                         android:layout_weight="0.95">
                    <TextView
-                       android:id="@+id/loginId"
+                       android:id="@+id/txt_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                     android:textSize="15dp"

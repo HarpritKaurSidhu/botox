@@ -38,7 +38,7 @@
                             android:layout_height="150dp"
                             android:layout_centerInParent="true"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/ic_demmy_user"></ImageView>
+                            android:src="@drawable/ic_dummy_user" />
 
                         <TextView
                             android:id="@+id/txt_user_image"
@@ -60,7 +60,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -89,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -117,7 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -145,7 +145,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -159,7 +159,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/White"
-                                android:drawableLeft="@drawable/ic_passwrd"
+                                android:drawableLeft="@drawable/ic_password"
                                 android:drawablePadding="10dp"
                                 android:hint="@string/password"
                                  android:inputType="textPassword"
@@ -174,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -203,7 +203,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -230,7 +230,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -258,7 +258,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -286,7 +286,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -328,7 +328,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/roundblue"
+                android:background="@drawable/round_blue"
                 android:padding="5dp"
                 android:text="OK"
                 android:textColor="@color/White"

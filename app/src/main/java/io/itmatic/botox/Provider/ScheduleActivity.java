@@ -2,17 +2,15 @@ package io.itmatic.botox.Provider;
 
 import android.app.TimePickerDialog;
 
-import android.os.Build;
+
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.format.DateFormat;
+
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -28,19 +26,19 @@ public class ScheduleActivity extends AppCompatActivity {
     Calendar calendar;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.linearlayout_tue)
+    @BindView(R.id.lout_tue)
     LinearLayout linearLayoutTue;
-    @BindView(R.id.linearlayout_mon)
+    @BindView(R.id.lout_mon)
     LinearLayout linearLayoutMon;
-    @BindView(R.id.linearlayout_wed)
+    @BindView(R.id.lout_wed)
     LinearLayout linearLayoutWed;
-    @BindView(R.id.linearlayout_thu)
+    @BindView(R.id.lout_thu)
     LinearLayout linearLayoutThu;
-    @BindView(R.id.linearlayout_fri)
+    @BindView(R.id.lout_fri)
     LinearLayout linearLayoutFri;
-    @BindView(R.id.linearlayout_sat)
+    @BindView(R.id.lout_sat)
     LinearLayout linearLayoutSat;
-    @BindView(R.id.linearlayout_sun)
+    @BindView(R.id.lout_sun)
     LinearLayout linearLayoutSun;
     @BindView(R.id.sw_mon)
     Switch switchMon;
@@ -57,33 +55,33 @@ public class ScheduleActivity extends AppCompatActivity {
     @BindView(R.id.sw_sun)
     Switch switchSun;
     @BindView(R.id.txt_set_time_from_mon)
-    TextView textViewSettimeFromMon;
+    TextView textViewSetTimeFromMon;
     @BindView(R.id.txt_set_time_to_mon)
-    TextView getTextViewSettimeToMon;
+    TextView getTextViewSetTimeToMon;
     @BindView(R.id.txt_set_time_from_tue)
-    TextView textViewSettimeFromTue;
+    TextView textViewSetTimeFromTue;
     @BindView(R.id.txt_set_time_to_tue)
-    TextView getTextViewSettimeToTue;
+    TextView getTextViewSetTimeToTue;
     @BindView(R.id.txt_set_time_from_wed)
-    TextView textViewSettimeFromWed;
+    TextView textViewSetTimeFromWed;
     @BindView(R.id.txt_set_time_to_wed)
-    TextView getTextViewSettimeToWed;
+    TextView getTextViewSetTimeToWed;
     @BindView(R.id.txt_set_time_from_thu)
-    TextView textViewSettimeFromThu;
+    TextView textViewSetTimeFromThu;
     @BindView(R.id.txt_set_time_to_thu)
-    TextView getTextViewSettimeToThu;
+    TextView getTextViewSetTimeToThu;
     @BindView(R.id.txt_set_time_from_fri)
-    TextView textViewSettimeFromFri;
+    TextView textViewSetTimeFromFri;
     @BindView(R.id.txt_set_time_to_fri)
-    TextView getTextViewSettimeToFri;
+    TextView getTextViewSetTimeToFri;
     @BindView(R.id.txt_set_time_from_sat)
-    TextView textViewSettimeFromSat;
+    TextView textViewSetTimeFromSat;
     @BindView(R.id.txt_set_time_to_sat)
-    TextView getTextViewSettimeToSat;
+    TextView getTextViewSetTimeToSat;
     @BindView(R.id.txt_set_time_from_sun)
-    TextView textViewSettimeFromSun;
+    TextView textViewSetTimeFromSun;
     @BindView(R.id.txt_set_time_to_sun)
-    TextView getTextViewSettimeToSun;
+    TextView getTextViewSetTimeToSun;
 
 
 
@@ -122,19 +120,19 @@ public class ScheduleActivity extends AppCompatActivity {
             }
         });
 
-        textViewSettimeFromMon.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromMon);
+                setTime(textViewSetTimeFromMon);
 
 
             }
-        }); getTextViewSettimeToMon.setOnClickListener(new View.OnClickListener() {
+        }); getTextViewSetTimeToMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToMon);
+                setTime(getTextViewSetTimeToMon);
             }
         });
 
@@ -151,18 +149,18 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromTue.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromTue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromTue);
+                setTime(textViewSetTimeFromTue);
 
             }
-        }); getTextViewSettimeToTue.setOnClickListener(new View.OnClickListener() {
+        }); getTextViewSetTimeToTue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToTue);
+                setTime(getTextViewSetTimeToTue);
             }
         });
 
@@ -179,19 +177,19 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromWed.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromWed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromWed);
+                setTime(textViewSetTimeFromWed);
 
             }
         });
-        getTextViewSettimeToWed.setOnClickListener(new View.OnClickListener() {
+        getTextViewSetTimeToWed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToWed);
+                setTime(getTextViewSetTimeToWed);
             }
         });
 
@@ -209,19 +207,19 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromThu.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromThu);
+                setTime(textViewSetTimeFromThu);
 
             }
         });
-        getTextViewSettimeToThu.setOnClickListener(new View.OnClickListener() {
+        getTextViewSetTimeToThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToThu);
+                setTime(getTextViewSetTimeToThu);
             }
         });
 
@@ -239,19 +237,19 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromFri.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromFri);
+                setTime(textViewSetTimeFromFri);
 
             }
         });
-        getTextViewSettimeToFri.setOnClickListener(new View.OnClickListener() {
+        getTextViewSetTimeToFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToFri);
+                setTime(getTextViewSetTimeToFri);
             }
         });
 
@@ -269,19 +267,19 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromSat.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromSat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromSat);
+                setTime(textViewSetTimeFromSat);
 
             }
         });
-        getTextViewSettimeToSat.setOnClickListener(new View.OnClickListener() {
+        getTextViewSetTimeToSat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToSat);
+                setTime(getTextViewSetTimeToSat);
             }
         });
 
@@ -298,19 +296,19 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             }
         });
-        textViewSettimeFromSun.setOnClickListener(new View.OnClickListener() {
+        textViewSetTimeFromSun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSettimeFromSun);
+                setTime(textViewSetTimeFromSun);
 
             }
         });
-        getTextViewSettimeToSun.setOnClickListener(new View.OnClickListener() {
+        getTextViewSetTimeToSun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSettimeToSun);
+                setTime(getTextViewSetTimeToSun);
             }
         });
 
@@ -330,11 +328,11 @@ public class ScheduleActivity extends AppCompatActivity {
         return onOptionsItemSelected(item);
     }
 
-    public void setTime(final TextView textView) {
+    private void setTime(final TextView textView) {
 
-        Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
+        Calendar currentTime = Calendar.getInstance();
+        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = currentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker = new TimePickerDialog(ScheduleActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {

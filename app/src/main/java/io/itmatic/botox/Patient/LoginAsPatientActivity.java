@@ -22,8 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
-import io.itmatic.botox.Common.Resource;
-import io.itmatic.botox.ForgotPasswordActivity;
+
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
 import io.itmatic.botox.Model.Patient;
@@ -45,7 +44,7 @@ public class LoginAsPatientActivity extends BaseActivity {
     Button loginButton;
     @BindView(R.id.txt_forget_password)
     TextView forgetPassword;
-    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
+    private  AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
 
 
     @Override
@@ -114,15 +113,13 @@ public class LoginAsPatientActivity extends BaseActivity {
                     addPatientTokenInSharedPreferences(((BotoxApplication)getApplication()).getPatientToken());
 
                 } else {
-                    JSONObject error = null;
+                    JSONObject error;
                     String message = "";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message = error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -132,14 +129,13 @@ public class LoginAsPatientActivity extends BaseActivity {
                 }
 
 
-                // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
+
 
 
             }
 
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
-                t.toString();
                 dialog.dismiss();
             }
 
@@ -147,7 +143,7 @@ public class LoginAsPatientActivity extends BaseActivity {
         });
     }
 
-    public void checkValidity() {
+    private void checkValidity() {
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
         mAwesomeValidation.addValidation(this, R.id.edt_password, "[0-9a-zA-Z]+",R.string.enter_valid_password);
 

@@ -9,14 +9,12 @@ import android.support.v7.app.AlertDialog;
 
 public class BaseActivity extends ActionBarActivity {
 
-    public static ProgressDialog ShowConstantProgressNOTCAN(Context context, String Title, String Message) {
+    protected static ProgressDialog ShowConstantProgressNOTCAN(Context context, String Title, String Message) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMax(100);
         dialog.setIndeterminate(false);
-        if (Title.equals(null) || Title.equals("")) {
-
-        } else {
+        if (!Title.equals(null) || !Title.equals("")) {
             dialog.setTitle(Title);
         }
         dialog.setMessage(Message);
@@ -25,7 +23,7 @@ public class BaseActivity extends ActionBarActivity {
     }
 
 
-    public void showError(String error) {
+    protected void showError(String error) {
         new AlertDialog.Builder(this)
                 .setTitle("Error")
                 .setMessage(error)
@@ -39,7 +37,7 @@ public class BaseActivity extends ActionBarActivity {
                 .show();
     }
 
-    public void showMessage(String msg) {
+    protected void showMessage(String msg) {
         new AlertDialog.Builder(this)
                 .setTitle("Message")
                 .setMessage(msg)
@@ -54,18 +52,18 @@ public class BaseActivity extends ActionBarActivity {
     }
 
 
-    public void addProviderTokenInSharedPreferences(String token) {
+    protected void addProviderTokenInSharedPreferences(String token) {
         SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE).edit();
         editor.putString("provider_token", token);
         editor.commit();
     }
 
-    public void addPatientTokenInSharedPreferences(String token) {
+    protected void addPatientTokenInSharedPreferences(String token) {
         SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE).edit();
         editor.putString("patient_token", token);
         editor.apply();
     }
-    public void buildDialog(int animationSource, String type) {
+    protected void buildDialog(int animationSource, String type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Error");
         builder.setMessage(type);

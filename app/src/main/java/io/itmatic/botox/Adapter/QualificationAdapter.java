@@ -15,7 +15,7 @@ import io.itmatic.botox.R;
 
 
 
-public class QualificationAdapter extends RecyclerView.Adapter<QualificationAdapter.ContactViewHolder> { // recycledapter is a type of adapter  it also include recycle
+public class QualificationAdapter extends RecyclerView.Adapter<QualificationAdapter.ContactViewHolder> {
 
         private List<Education> education_list;
 
@@ -71,7 +71,6 @@ public class QualificationAdapter extends RecyclerView.Adapter<QualificationAdap
 
 
 
-            //set a category name on largeplayer
 
 
 

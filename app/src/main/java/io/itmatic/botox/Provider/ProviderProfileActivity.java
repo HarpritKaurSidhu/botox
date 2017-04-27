@@ -45,7 +45,7 @@ public class ProviderProfileActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.profile));
         userName.setText(Resource.provider.getFullName());
-        Glide.with(this).load(Resource.provider.getImage_url()).placeholder(R.drawable.ic_demmy_user).dontAnimate().into(userImage);
+        Glide.with(this).load(Resource.provider.getImage_url()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(userImage);
 
         buttonSchedule.setOnClickListener(new View.OnClickListener() {
             @Override

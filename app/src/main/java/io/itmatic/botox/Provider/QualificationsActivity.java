@@ -42,8 +42,8 @@ public class QualificationsActivity extends BaseActivity {
     RecyclerView listQuailification;
     @BindView(R.id.edt_other)
     EditText other;
-    ArrayList<Education> educations = new ArrayList<>();
-    Education otherEducation=new Education();
+    private ArrayList<Education> educations = new ArrayList<>();
+    private Education otherEducation=new Education();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,6 @@ public class QualificationsActivity extends BaseActivity {
         ButterKnife.bind(this);
         getQualification();
 
-        /*ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice,conts_list);
-        my_contacts_list.setAdapter(adapter);*/
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +62,7 @@ public class QualificationsActivity extends BaseActivity {
                 String courses = "";
                 ((BotoxApplication)getApplication()).setEducations(educations);
                 for (int i = 0; i < educations.size(); i++) {
-                    if (educations.get(i).isSelectCourse() != true) {
-
-                    } else {
+                    if (educations.get(i).isSelectCourse()) {
                         check = true;
                         courses = courses + educations.get(i).getTitle() + ",";
                     }
@@ -116,7 +112,7 @@ public class QualificationsActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    protected void getQualification() {
+    private void getQualification() {
 
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
         dialog.show();
@@ -140,15 +136,13 @@ public class QualificationsActivity extends BaseActivity {
 
 
                 } else {
-                    JSONObject error = null;
+                    JSONObject error;
                     String message = "";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message = error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -162,7 +156,7 @@ public class QualificationsActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<ArrayList<Education>> call, Throwable t) {
-                t.toString();
+
                 dialog.dismiss();
             }
 
@@ -171,14 +165,14 @@ public class QualificationsActivity extends BaseActivity {
     }
 
 
-    private void uploadQualification(String cousers) {
+    private void uploadQualification(String courses) {
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
         dialog.show();
 
 
         SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         String token = preferences.getString("provider_token", "");
-        Call<Provider> call = Helper.getBotoxApiService().setQualification(token, cousers);
+        Call<Provider> call = Helper.getBotoxApiService().setQualification(token, courses);
         call.enqueue(new Callback<Provider>() {
 
 
@@ -196,15 +190,13 @@ public class QualificationsActivity extends BaseActivity {
                     finish();
 
                 } else {
-                    JSONObject error = null;
+                    JSONObject error;
                     String message = "";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message = error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -217,7 +209,6 @@ public class QualificationsActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<Provider> call, Throwable t) {
-                t.toString();
                 dialog.dismiss();
             }
 

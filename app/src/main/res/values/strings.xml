@@ -10,7 +10,10 @@
     <string name="log_in">Log in</string>
     <string name="mbbs">MBBS</string>
     <string name="ok">Ok</string>
-    <string name="selectimage">Select Image</string>
+    <string name="close">Close</string>
+    <string name="thank_you">Thank You</string>
+    <string name="thank_message">Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut pretium pretium tempor.</string>
+    <string name="select_image">Select Image</string>
     <string name="takepicture">Take Picture</string>
     <string name="opengallery">Open Gallery</string>
     <string name="bds">BDS</string>
@@ -84,8 +87,9 @@
     <string name="from">From</string>
     <string name="select_your_qualification">Select Your Qualification</string>
     <string name="to">To</string>
+    <string name="set_distance">Set Distance</string>
     <string name="distance_you_ready_to_cover">Distance you are ready to cover</string>
-    <string name="distance">Distance</string>
+    <string name="distance">Distance In Km</string>
     <string name="confirmation_one">I confirm that I am able to work in the UK</string>
     <string name="confirmation_two">I confirm that I will be self employed and(our name) is not the employer</string>
     <string name="confirmation_three">I confirm that the responsibility of the patient lies with me and not(our name)</string>

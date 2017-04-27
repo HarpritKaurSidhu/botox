@@ -14,15 +14,16 @@ import io.itmatic.botox.Provider.ProviderLoginActivity;
 
 public class BotoxActivity extends AppCompatActivity {
 
-    TextView provider,login;
-    Toolbar toolbar;
-    Button button;
+    private TextView provider;
+    private TextView login;
+    private Toolbar toolbar;
+    private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_botox__app);
-        provider=(TextView)findViewById(R.id.providerId);
-        button=(Button)findViewById(R.id.bookanappointmentId);
+        provider=(TextView)findViewById(R.id.txt_provider);
+        button=(Button)findViewById(R.id.btn_book_an_appointment);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,8 +38,8 @@ public class BotoxActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        toolbar=(Toolbar)findViewById(R.id.toolbarBotox) ;
-        login=(TextView)findViewById(R.id.loginId);
+        toolbar=(Toolbar)findViewById(R.id.toolbar) ;
+        login=(TextView)findViewById(R.id.txt_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

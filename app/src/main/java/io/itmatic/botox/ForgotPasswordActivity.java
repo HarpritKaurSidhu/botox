@@ -33,7 +33,7 @@ public class ForgotPasswordActivity extends BaseActivity {
     EditText email;
     @BindView(R.id.btn_send)
     Button send;
-    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
+    private  AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,6 @@ public class ForgotPasswordActivity extends BaseActivity {
                 checkValidity();
                 if (mAwesomeValidation.validate()) {
                     resetPassword();
-                } else {
-
                 }
             }
         });
@@ -71,7 +69,7 @@ public class ForgotPasswordActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    public void checkValidity() {
+    private void checkValidity() {
 
 
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
@@ -81,7 +79,7 @@ public class ForgotPasswordActivity extends BaseActivity {
     }
 
 
-    public void resetPassword() {
+    private void resetPassword() {
 
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
         dialog.show();
@@ -103,15 +101,13 @@ public class ForgotPasswordActivity extends BaseActivity {
 
                 } else {
 
-                    JSONObject error= null;
+                    JSONObject error;
                     String message="";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -121,14 +117,13 @@ public class ForgotPasswordActivity extends BaseActivity {
                 }
 
 
-                // addInSharedPrefrences(user.getAccess_token(), user.getName(), user.getEmail(), user.getDp(), user.getCover());
+
 
 
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                t.toString();
                 dialog.dismiss();
             }
 

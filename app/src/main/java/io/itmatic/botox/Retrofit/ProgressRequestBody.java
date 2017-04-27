@@ -15,7 +15,7 @@ import okio.BufferedSink;
 
 public class ProgressRequestBody extends RequestBody {
     private File mFile;
-    private String mPath;
+
     private UploadCallbacks mListener;
 
     private int requestCodeId;
@@ -38,7 +38,7 @@ public class ProgressRequestBody extends RequestBody {
         requestCodeId = requestCode;
     }
 
-    public int getRequestCodeId() {
+    private int getRequestCodeId() {
         return requestCodeId;
     }
 

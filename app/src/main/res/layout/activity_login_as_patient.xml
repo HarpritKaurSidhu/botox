@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:background="@color/gray"
     tools:context=".Patient.LoginAsPatientActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -19,7 +19,7 @@
         android:orientation="vertical">
     <LinearLayout
         android:orientation="vertical"
-        android:background="@android:color/darker_gray"
+
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content">
@@ -44,7 +44,7 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:background="@android:color/darker_gray"
+        android:background="@color/gray"
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content">
@@ -63,7 +63,7 @@
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 android:padding="10dp"
-                android:drawableLeft="@drawable/ic_passwrd"
+                android:drawableLeft="@drawable/ic_password"
                 android:drawablePadding="10dp"
 
                 />
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/log_in"
-        android:textColor="@android:color/white"
+
         android:background="@color/Black"
         android:shadowColor="@color/Black"
         />

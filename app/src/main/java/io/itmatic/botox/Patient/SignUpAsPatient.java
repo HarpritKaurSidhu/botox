@@ -13,7 +13,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.MenuItem;
@@ -22,7 +22,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
+
 import android.widget.TextView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -40,7 +40,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-import java.util.regex.Pattern;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,9 +48,7 @@ import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.RealPathUtil;
 import io.itmatic.botox.Common.Resource;
 import io.itmatic.botox.Model.Patient;
-import io.itmatic.botox.Model.Provider;
-import io.itmatic.botox.Provider.QualificationsActivity;
-import io.itmatic.botox.Provider.SignUpAsDoctorActivity;
+
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
 import okhttp3.MediaType;
@@ -90,19 +88,19 @@ public class SignUpAsPatient extends BaseActivity {
     CropImageView cropImageView;
     @BindView(R.id.btn_ok)
     Button selectOk;
-    Bitmap croppedBitmap;
-    Intent intent;
+    private Bitmap croppedBitmap;
+    private Intent intent;
     private DatePickerDialog.OnDateSetListener datePickerListener;
-    DatePickerDialog datePicker;
+   private DatePickerDialog datePicker;
 
-    String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
-    int CAMERA_REQUEST = 1337;
-    final int GELLARY_REQUEST = 1340;
-    String[] GELLARY_PERMS = {
+    private String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
+    private int CAMERA_REQUEST = 1337;
+    private final int GELLARY_REQUEST = 1340;
+    private String[] GELLARY_PERMS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-    File file = null;
-    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);;
+    private File file = null;
+    private AwesomeValidation mAwesomeValidation=new AwesomeValidation(BASIC);
 
 
     @Override
@@ -123,7 +121,7 @@ public class SignUpAsPatient extends BaseActivity {
 
                     if(file==null)
                     {
-                        buildDialog(R.style.DialogTheme, getResources().getString(R.string.selectimage));
+                        buildDialog(R.style.DialogTheme, getResources().getString(R.string.select_image));
                     }else
                     {
                         registerPatient();
@@ -157,8 +155,8 @@ public class SignUpAsPatient extends BaseActivity {
                 String year1 = String.valueOf(selectedYear);
                 String month1 = String.valueOf(selectedMonth + 1);
                 String day1 = String.valueOf(selectedDay);
-                Date selectdate=new Date(selectedYear,selectedMonth,selectedDay);
-                if(selectdate.after(new Date())) {
+                Date selectDate=new Date(selectedYear,selectedMonth,selectedDay);
+                if(selectDate.after(new Date())) {
                     dateOfBirth.setText(day1 + "-" + month1 + "-" + year1);
                 }
 
@@ -183,7 +181,7 @@ public class SignUpAsPatient extends BaseActivity {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 croppedBitmap.compress(Bitmap.CompressFormat.PNG, 0, bos);
-                byte[] bitmapdata = bos.toByteArray();
+                byte[] bitmapData = bos.toByteArray();
 
 //write the bytes in file
                 FileOutputStream fos = null;
@@ -193,7 +191,7 @@ public class SignUpAsPatient extends BaseActivity {
                     e.printStackTrace();
                 }
                 try {
-                    fos.write(bitmapdata);
+                    fos.write(bitmapData);
                     fos.flush();
                     fos.close();
                 } catch (IOException e) {
@@ -212,7 +210,7 @@ public class SignUpAsPatient extends BaseActivity {
             public void onClick(View view) {
 
                 AlertDialog.Builder getImageFrom = new AlertDialog.Builder(SignUpAsPatient.this);
-                getImageFrom.setTitle(getResources().getString(R.string.selectimage));
+                getImageFrom.setTitle(getResources().getString(R.string.select_image));
                 final CharSequence[] opsChars = {getResources().getString(R.string.takepicture), getResources().getString(R.string.opengallery)};
                 getImageFrom.setItems(opsChars, new android.content.DialogInterface.OnClickListener() {
                     @Override
@@ -220,14 +218,14 @@ public class SignUpAsPatient extends BaseActivity {
                         if (which == 0) {
 
                             String file = System.currentTimeMillis() + ".jpg";
-                            File newfile = new File(file);
+                            File newFile = new File(file);
                             try {
-                                newfile.createNewFile();
+                                newFile.createNewFile();
                             } catch (IOException e) {
                                 e.toString();
                             }
 
-                            Uri outputFileUri = Uri.fromFile(newfile);
+
                             if (ContextCompat.checkSelfPermission(SignUpAsPatient.this, Manifest.permission.CAMERA) ==
                                     PackageManager.PERMISSION_GRANTED) {
                                 intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -328,7 +326,7 @@ public class SignUpAsPatient extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    public void  checkValidity() {
+    private void  checkValidity() {
         mAwesomeValidation.addValidation(this, R.id.edt_first_name, "[a-zA-Z\\s]+", R.string.enter_first_name);
         mAwesomeValidation.addValidation(this, R.id.edt_last_name, "[a-zA-Z\\s]+", R.string.enter_last_name);
         mAwesomeValidation.addValidation(this, R.id.edt_email, Patterns.EMAIL_ADDRESS, R.string.enter_valid_email);
@@ -343,8 +341,8 @@ public class SignUpAsPatient extends BaseActivity {
     private void registerPatient() {
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();
-        RequestBody fname = RequestBody.create(MediaType.parse("text/plain"), firstName.getText().toString());
-        RequestBody lname = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
+        RequestBody fName = RequestBody.create(MediaType.parse("text/plain"), firstName.getText().toString());
+        RequestBody lName = RequestBody.create(MediaType.parse("text/plain"), lastName.getText().toString());
         RequestBody mail = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
         RequestBody pass = RequestBody.create(MediaType.parse("text/plain"), password.getText().toString());
         RequestBody dob = RequestBody.create(MediaType.parse("text/plain"), dateOfBirth.getText().toString());
@@ -357,7 +355,7 @@ public class SignUpAsPatient extends BaseActivity {
         RequestBody reqFile = RequestBody.create(MediaType.parse("*//*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
 
-        Call<Patient> call = Helper.getBotoxApiService().registerPatient(fname, lname, mail, pass,dob,add,mobile,notes,body);
+        Call<Patient> call = Helper.getBotoxApiService().registerPatient(fName, lName, mail, pass,dob,add,mobile,notes,body);
         call.enqueue(new Callback<Patient>() {
 
 
@@ -380,15 +378,13 @@ public class SignUpAsPatient extends BaseActivity {
 
                 } else {
 
-                    JSONObject error= null;
+                    JSONObject error;
                     String message="";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 

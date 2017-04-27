@@ -15,7 +15,7 @@ public class BotoxApplication extends Application {
     private Patient patient;
     private ArrayList<Education> educations=new ArrayList<>();
 
-    public Patient getPatient() {
+    private Patient getPatient() {
         return patient;
     }
 

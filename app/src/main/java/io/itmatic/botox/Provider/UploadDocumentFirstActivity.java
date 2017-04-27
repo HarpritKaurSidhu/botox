@@ -1,7 +1,7 @@
 package io.itmatic.botox.Provider;
 
 import android.Manifest;
-import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -69,18 +69,18 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
     @BindView(R.id.edt_other)
     EditText other;*/
     int REQUEST_CODE_CV=1;
-    int REQUEST_CODE_CERTIFICAT=0;
-    Intent intent;
+   private int REQUEST_CODE_CERTIFICATE=0;
+    private Intent intent;
     int driverSwitch = 0;
-    String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
-    int CAMERA_REQUEST = 1337;
-    final int GELLARY_REQUEST = 1340;
-    String[] GELLARY_PERMS = {
+    private String[] CAMERA_PERMS = {Manifest.permission.CAMERA};
+   private int CAMERA_REQUEST = 1337;
+   private final int GELLARY_REQUEST = 1340;
+   private String[] GELLARY_PERMS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
-    HashMap<Integer,Call>uploadRequests = new HashMap<>();
-    ArrayList<Education> selectedEducations= new ArrayList<>();
+   private HashMap<Integer,Call>uploadRequests = new HashMap<>();
+   private ArrayList<Education> selectedEducations= new ArrayList<>();
 
 
   //  TextView[] textViews;
@@ -98,17 +98,17 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if(selectedEducations.size()==uploadRequests.size()) {
+                if(selectedEducations.size()==uploadRequests.size()) {
                     Intent intent = new Intent(UploadDocumentFirstActivity.this, UploadDocumentSecondActivity.class);
                     startActivity(intent);
                 }else
                 {
                     buildDialog(R.style.DialogTheme,getResources().getString(R.string.select_your_document));
-                }*/
+                }
 
 
-                Intent intent = new Intent(UploadDocumentFirstActivity.this, UploadDocumentSecondActivity.class);
-                startActivity(intent);
+            /*    Intent intent = new Intent(UploadDocumentFirstActivity.this, UploadDocumentSecondActivity.class);
+                startActivity(intent);*/
             }
         });
 
@@ -149,28 +149,28 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
             textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        REQUEST_CODE_CERTIFICAT=view.getId();
-                        if(uploadRequests.containsKey(REQUEST_CODE_CERTIFICAT))
+                        REQUEST_CODE_CERTIFICATE=view.getId();
+                        if(uploadRequests.containsKey(REQUEST_CODE_CERTIFICATE))
                         {
-                            Call call=uploadRequests.get(REQUEST_CODE_CERTIFICAT);
+                            Call call=uploadRequests.get(REQUEST_CODE_CERTIFICATE);
                             if(call.isExecuted())
                             {
-                                uploadRequests.remove(REQUEST_CODE_CERTIFICAT);
-                                TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICAT);
+                                uploadRequests.remove(REQUEST_CODE_CERTIFICATE);
+                                TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICATE);
                                 textView.setText("");
                                 textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_add_box_blue_grey_300_36dp, 0);
                              }else
                             {
-                                uploadRequests.get(REQUEST_CODE_CERTIFICAT).cancel();
-                                uploadRequests.remove(REQUEST_CODE_CERTIFICAT);
-                                TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICAT);
+                                uploadRequests.get(REQUEST_CODE_CERTIFICATE).cancel();
+                                uploadRequests.remove(REQUEST_CODE_CERTIFICATE);
+                                TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICATE);
                                 textView.setText("");
                                 textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_add_box_blue_grey_300_36dp, 0);
                             }
 
                         }else {
                             AlertDialog.Builder getImageFrom = new AlertDialog.Builder(UploadDocumentFirstActivity.this);
-                            getImageFrom.setTitle(getResources().getString(R.string.selectimage));
+                            getImageFrom.setTitle(getResources().getString(R.string.select_image));
                             final CharSequence[] opsChars = {getResources().getString(R.string.takepicture), getResources().getString(R.string.opengallery)};
                             getImageFrom.setItems(opsChars, new android.content.DialogInterface.OnClickListener() {
                                 @Override
@@ -178,14 +178,14 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
                                     if (which == 0) {
 
                                         String file = System.currentTimeMillis() + ".jpg";
-                                        File newfile = new File(file);
+                                        File newFile = new File(file);
                                         try {
-                                            newfile.createNewFile();
+                                            newFile.createNewFile();
                                         } catch (IOException e) {
                                             e.toString();
                                         }
 
-                                        Uri outputFileUri = Uri.fromFile(newfile);
+
                                         if (ContextCompat.checkSelfPermission(UploadDocumentFirstActivity.this, Manifest.permission.CAMERA) ==
                                                 PackageManager.PERMISSION_GRANTED) {
                                             intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -245,19 +245,19 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
 
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
-            byte[] bitmapdata = bos.toByteArray();
+            byte[] bitmapData = bos.toByteArray();
 
 //write the bytes in file
             FileOutputStream fos = new FileOutputStream(f);
 
-                fos.write(bitmapdata);
+                fos.write(bitmapData);
 
             fos.flush();
             fos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            uploadProviderDocument(REQUEST_CODE_CERTIFICAT, "Education", f);
+            uploadProviderDocument( "Education", f);
 
         }else if ((requestCode == 6 || requestCode == 65542 || requestCode == 131078 || requestCode == 393222 || requestCode == 393222 || requestCode == 262150) && resultCode == RESULT_OK) {
             String realPath;
@@ -280,7 +280,7 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
             if (file.exists()) {
 
 
-                    uploadProviderDocument(REQUEST_CODE_CERTIFICAT, "Education", file);
+                    uploadProviderDocument("Education", file);
 
 
             }
@@ -302,19 +302,19 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
     }
 
 
-    private void uploadProviderDocument(int requestCode, String type, final File file) {
+    private void uploadProviderDocument( String type, final File file) {
       /*  final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.registering));
         dialog.show();*/
 
         RequestBody fileType = RequestBody.create(MediaType.parse("text/plain"),type);
-        ProgressRequestBody fileBody = new ProgressRequestBody(file, this,REQUEST_CODE_CERTIFICAT);
+        ProgressRequestBody fileBody = new ProgressRequestBody(file, this,REQUEST_CODE_CERTIFICATE);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), fileBody);
         SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         String providerToken = preferences.getString("provider_token", "");
         RequestBody token = RequestBody.create(MediaType.parse("text/plain"),providerToken);
         Call<Provider> call = Helper.getBotoxApiService().uploadProviderDocument(token,fileType, body);
 
-        uploadRequests.put(REQUEST_CODE_CERTIFICAT,call);
+        uploadRequests.put(REQUEST_CODE_CERTIFICATE,call);
 
 
         call.enqueue(new Callback<Provider>() {
@@ -327,22 +327,20 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
                 if (statusCode == 200) {
                     Provider provider = response.body();
                     provider.getAccessToken();
-                 TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICAT);
+                 TextView textView=(TextView) findViewById(REQUEST_CODE_CERTIFICATE);
                     textView.setText(file.getName());
                     textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_clear_teal_300_36dp, 0);
 
 
                 } else {
 
-                    JSONObject error= null;
+                    JSONObject error;
                     String message="";
                     try {
                         error = new JSONObject(response.errorBody().string());
                         message=error.getString("message");
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
 
@@ -374,11 +372,11 @@ public class UploadDocumentFirstActivity extends BaseActivity implements Progres
 
     @Override
     public void onError() {
-
+     System.out.print("error");
     }
 
     @Override
     public void onFinish() {
-
+        System.out.print("error");
     }
 }
