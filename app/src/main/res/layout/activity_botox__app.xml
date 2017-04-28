@@ -31,7 +31,7 @@
             android:padding="5dp"
             />
             <Button
-                android:id="@+id/btn_my_appointment"
+                android:id="@+id/btn_my_appointments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

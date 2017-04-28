@@ -34,6 +34,8 @@
         <activity android:name=".Provider.ScheduleActivity" />
         <activity android:name=".Patient.SignUpAsPatient" />
         <activity android:name=".Provider.UploadDocumentSecondActivity" />
+        <activity android:name=".Patient.PatientProfileActivity" />
+        <activity android:name=".Patient.PatientAppointmentsActivity"></activity>
     </application>
 
 </manifest>

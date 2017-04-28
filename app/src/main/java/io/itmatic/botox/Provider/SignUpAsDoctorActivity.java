@@ -37,6 +37,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.RealPathUtil;
 import io.itmatic.botox.Common.Resource;
@@ -342,11 +343,12 @@ public class SignUpAsDoctorActivity extends BaseActivity {
                 dialog.dismiss();
                 int statusCode = response.code();
                 if (statusCode == 200) {
-                    Provider provider = response.body();
+                    ((BotoxApplication)getApplication()).setProvider(response.body());
 
-                    Resource.providerToken = provider.getAccessToken();
+                    //Resource.providerToken = Resource.provider.getAccessToken();
 
-                    addProviderTokenInSharedPreferences(Resource.providerToken);
+                    addProviderTokenInSharedPreferences(((BotoxApplication)getApplication()).getProvider().getAccessToken());
+
 
                     Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

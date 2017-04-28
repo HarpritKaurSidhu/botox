@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
+import io.itmatic.botox.Model.Provider;
 
 /**
  * Created by hardeep on 20/04/17.
@@ -13,7 +14,16 @@ import io.itmatic.botox.Model.Patient;
 
 public class BotoxApplication extends Application {
     private Patient patient;
+    private Provider provider;
     private ArrayList<Education> educations=new ArrayList<>();
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
 
     private Patient getPatient() {
         return patient;

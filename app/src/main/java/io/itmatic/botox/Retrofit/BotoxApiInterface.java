@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
+
 import io.itmatic.botox.Model.Provider;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -15,13 +16,14 @@ import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface BotoxApiInterface {
 
     @Headers("Accept: application/json")
     @Multipart
     @POST("provider/register.json")
-    Call<Provider> registerProvider(@Part("firstName") RequestBody firstName, @Part("lastName") RequestBody lastName, @Part("email") RequestBody email, @Part("password") RequestBody password, @Part("phone") RequestBody phone, @Part("address") RequestBody  address,@Part("zipcode") RequestBody zipcode, @Part("is_driving_licence") RequestBody  isDrivingLicence, @Part("gdcno") RequestBody gdcno, @Part("gmcno") RequestBody  gmcno, @Part("mode_of_transport") RequestBody  modeOfTransport,@Part MultipartBody.Part image );
+    Call<Provider> registerProvider(@Part("firstName") RequestBody firstName, @Part("lastName") RequestBody lastName, @Part("email") RequestBody email, @Part("password") RequestBody password, @Part("phone") RequestBody phone, @Part("address") RequestBody  address, @Part("zipcode") RequestBody zipcode, @Part("is_driving_licence") RequestBody  isDrivingLicence, @Part("gdcno") RequestBody gdcno, @Part("gmcno") RequestBody  gmcno, @Part("mode_of_transport") RequestBody  modeOfTransport, @Part MultipartBody.Part image );
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -37,6 +39,12 @@ public interface BotoxApiInterface {
     @FormUrlEncoded
     @POST("user/login.json")
     Call<Patient> loginPatient(@Field("email") String email, @Field("password") String password);
+
+    @GET("provider/profile.json")
+    Call<Provider> providerProfile(@Query("token") String token);
+
+    @GET("user/profile.json")
+    Call<Patient> patientProfile(@Query("token") String token);
 
     @GET("provider/all/qualification/list.json")
     Call<ArrayList<Education>> qualificationList();

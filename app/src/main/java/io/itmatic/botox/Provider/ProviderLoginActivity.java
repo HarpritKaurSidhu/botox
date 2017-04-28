@@ -20,6 +20,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.Resource;
 import io.itmatic.botox.ForgotPasswordActivity;
@@ -111,11 +112,11 @@ public class ProviderLoginActivity extends BaseActivity {
                 dialog.dismiss();
                 int statusCode = response.code();
                 if (statusCode==200) {
-                    Resource.provider = response.body();
+                    ((BotoxApplication)getApplication()).setProvider(response.body());
 
-                    Resource.providerToken = Resource.provider.getAccessToken();
+                    //Resource.providerToken = Resource.provider.getAccessToken();
 
-                    addProviderTokenInSharedPreferences(Resource.providerToken);
+                    addProviderTokenInSharedPreferences(((BotoxApplication)getApplication()).getProvider().getAccessToken());
 
                     Intent intent = new Intent(ProviderLoginActivity.this, ProviderProfileActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

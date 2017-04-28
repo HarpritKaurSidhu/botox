@@ -1,5 +1,6 @@
 package io.itmatic.botox.Provider;
 
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 
 
@@ -10,19 +11,27 @@ import android.support.v7.widget.Toolbar;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.Common.BaseActivity;
+import io.itmatic.botox.Model.WorkingTime;
 import io.itmatic.botox.R;
 
-public class ScheduleActivity extends AppCompatActivity {
+public class ScheduleActivity extends BaseActivity {
     Calendar calendar;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -82,6 +91,9 @@ public class ScheduleActivity extends AppCompatActivity {
     TextView textViewSetTimeFromSun;
     @BindView(R.id.txt_set_time_to_sun)
     TextView getTextViewSetTimeToSun;
+    @BindView(R.id.btn_submit)
+    Button buttonSumbit;
+    ArrayList<WorkingTime> workingTimes=new ArrayList<>();
 
 
 
@@ -94,6 +106,14 @@ public class ScheduleActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.schedule));
+        if(workingTimes.size()==0)
+        {
+            for(int i=0;i<7;i++)
+            {
+                WorkingTime workingTime=new WorkingTime();
+                workingTimes.add(workingTime);
+            }
+        }
 
 
         switchMon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -120,19 +140,48 @@ public class ScheduleActivity extends AppCompatActivity {
             }
         });
 
+
+        buttonSumbit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                JSONArray jsonArray=new JSONArray();
+
+                if(workingTimes.size()==0)
+                {
+                    buildDialog(R.style.DialogTheme,getResources().getString(R.string.select_you_working_time));
+                }else {
+                    for(int i=0;i<workingTimes.size();i++)
+                    {
+                        JSONObject time=new JSONObject();
+                        try {
+                            time.put("from",workingTimes.get(i).getFromTime());
+                            time.put("to",workingTimes.get(i).getToTime());
+                            jsonArray.put(i,time);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    jsonArray.toString();
+
+                }
+            }
+        });
+
         textViewSetTimeFromMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromMon);
+                setTime(textViewSetTimeFromMon,1,"from");
 
 
             }
         }); getTextViewSetTimeToMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToMon);
+                setTime(getTextViewSetTimeToMon,1,"to");
             }
         });
 
@@ -154,13 +203,13 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromTue);
+                setTime(textViewSetTimeFromTue,2,"from");
 
             }
         }); getTextViewSetTimeToTue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToTue);
+                setTime(getTextViewSetTimeToTue,2,"to");
             }
         });
 
@@ -182,14 +231,14 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromWed);
+                setTime(textViewSetTimeFromWed,3,"from");
 
             }
         });
         getTextViewSetTimeToWed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToWed);
+                setTime(getTextViewSetTimeToWed,3,"to");
             }
         });
 
@@ -212,14 +261,14 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromThu);
+                setTime(textViewSetTimeFromThu,4,"from");
 
             }
         });
         getTextViewSetTimeToThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToThu);
+                setTime(getTextViewSetTimeToThu,4,"to");
             }
         });
 
@@ -242,14 +291,14 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromFri);
+                setTime(textViewSetTimeFromFri,5,"from");
 
             }
         });
         getTextViewSetTimeToFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToFri);
+                setTime(getTextViewSetTimeToFri,5,"to");
             }
         });
 
@@ -272,14 +321,14 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromSat);
+                setTime(textViewSetTimeFromSat,6,"from");
 
             }
         });
         getTextViewSetTimeToSat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToSat);
+                setTime(getTextViewSetTimeToSat,6,"to");
             }
         });
 
@@ -301,14 +350,14 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromSun);
+                setTime(textViewSetTimeFromSun,0,"from");
 
             }
         });
         getTextViewSetTimeToSun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToSun);
+                setTime(getTextViewSetTimeToSun,0,"to");
             }
         });
 
@@ -328,7 +377,7 @@ public class ScheduleActivity extends AppCompatActivity {
         return onOptionsItemSelected(item);
     }
 
-    private void setTime(final TextView textView) {
+    private void setTime(final TextView textView,final int day,final String fromTo) {
 
         Calendar currentTime = Calendar.getInstance();
         int hour = currentTime.get(Calendar.HOUR_OF_DAY);
@@ -337,6 +386,50 @@ public class ScheduleActivity extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 String time24="AM";
+
+                WorkingTime workingTime=workingTimes.get(day);
+                if(workingTime!=null)
+                {
+                    if(fromTo.equals("from"))
+                    {
+                        workingTime.setFromTime(selectedHour+":"+selectedMinute);
+                    }else if(fromTo.equals("to"))
+                    {
+                        workingTime.setToTime(selectedHour+":"+selectedMinute);
+                    }
+                }else
+                {
+                    workingTime=new WorkingTime();
+                    if(fromTo.equals("from"))
+                    {
+                        workingTime.setFromTime(selectedHour+":"+selectedMinute);
+                    }else if(fromTo.equals("to"))
+                    {
+                        workingTime.setToTime(selectedHour+":"+selectedMinute);
+                    }
+
+                }
+                workingTimes.add(day,workingTime);
+
+               /* String weekDay="";
+               switch (day)
+               {
+                   case 0:  weekDay = "sunday";
+                       break;
+                   case 1:  weekDay="monday";
+                       break;
+                   case 2:  weekDay="tuesday";
+                       break;
+                   case 3: weekDay="wednesday";
+                       break;
+                   case 4: weekDay="thursday";
+                       break;
+                   case 5: weekDay="friday";
+                       break;
+                   case 6: weekDay="saturday";
+                       break;
+
+               }*/
 
                 if(selectedHour>12)
                 {
