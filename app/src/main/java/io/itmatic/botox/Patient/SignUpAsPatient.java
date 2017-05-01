@@ -44,6 +44,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Common.RealPathUtil;
 import io.itmatic.botox.Common.Resource;
@@ -366,15 +367,15 @@ public class SignUpAsPatient extends BaseActivity {
                 if (statusCode == 200) {
                     Patient patient = response.body();
 
-                    Resource.patientToken = patient.getAccessToken();
+                    ((BotoxApplication)getApplication()).setPatient(patient);
 
-                    addProviderTokenInSharedPreferences(Resource.patientToken);
+                    addPatientTokenInSharedPreferences(patient.getAccessToken());
 
-                /*    Intent intent = new Intent(SignUpAsDoctorActivity.this, QualificationsActivity.class);
+                    Intent intent = new Intent(SignUpAsPatient.this, PatientAppointmentsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                    finish();*/
+                    finish();
 
                 } else {
 

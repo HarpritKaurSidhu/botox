@@ -5,6 +5,8 @@
     <string name="botox_App">Botox App</string>
     <string name="i_am_provider">I\'m provider</string>
     <string name="provider">Provider</string>
+    <string name="provider_name">provider_name</string>
+    <string name="patient_appointments">Patient Appointments</string>
     <string name="register">Register</string>
     <string name="schedule">Schedule</string>
     <string name="log_in">Log in</string>
@@ -113,4 +115,10 @@
     <string name="new_appointment">New Appointment</string>
     <string name="old_appointment">Old Appointment</string>
     <string name="choose_area">What do you want to treat?</string>
-</resources>
+    <string name="area_value">$0</string>
+    <string name="additional_setting">Additional settings</string>
+    <string name="faq">FAQ</string>
+    <string name="notifications">Notifications</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="patient_profile">Profile</string></resources>

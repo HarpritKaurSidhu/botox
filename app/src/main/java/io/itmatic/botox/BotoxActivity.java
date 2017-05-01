@@ -13,6 +13,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Patient.LoginAsPatientActivity;
+import io.itmatic.botox.Patient.SignUpAsPatient;
 import io.itmatic.botox.Provider.MyAppointmentActivity;
 import io.itmatic.botox.Provider.ProviderLoginActivity;
 
@@ -45,6 +46,9 @@ public class BotoxActivity extends AppCompatActivity {
         buttonMyAppoinments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+               /* Intent intent = new Intent(BotoxActivity.this, SignUpAsPatient.class);
+                startActivity(intent);*/
                 if (preferences.contains("patient_token")) {
                     Intent intent = new Intent(BotoxActivity.this, MyAppointmentActivity.class);
                     startActivity(intent);

@@ -1,7 +1,9 @@
 package io.itmatic.botox.Retrofit;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import io.itmatic.botox.Model.Area;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
 
@@ -40,8 +42,18 @@ public interface BotoxApiInterface {
     @POST("user/login.json")
     Call<Patient> loginPatient(@Field("email") String email, @Field("password") String password);
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("near/by/provider.json")
+    Call<List<Provider>> setPostCode(@Field("post_code") String postcode, @Field("token") String token);
+
+
     @GET("provider/profile.json")
     Call<Provider> providerProfile(@Query("token") String token);
+
+    @GET("area/all.json")
+    Call<List<Area>> getPatientArea(@Query("token") String token);
+
 
     @GET("user/profile.json")
     Call<Patient> patientProfile(@Query("token") String token);
@@ -54,6 +66,11 @@ public interface BotoxApiInterface {
     @FormUrlEncoded
     @POST("provider/education.json")
     Call<Provider> setQualification(@Field("token") String token,@Field("education") String education);
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST(" provider/work/conditions.json")
+    Call<Provider> setWorkingTime(@Field("token") String token,@Field("schedule") String schedule);
 
     @Headers("Accept: application/json")
     @Multipart

@@ -15,6 +15,7 @@ public class Provider {
     private String accessToken;
     private boolean isDrivingLicence;
     private String gdcno;
+    private String dob;
     private String gmcno;
     private String fullName;
     private String image_url;
@@ -134,5 +135,11 @@ public class Provider {
         this.gmcno = gmcno;
     }
 
+    public String getDob() {
+        return dob;
+    }
 
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
 }

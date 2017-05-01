@@ -1,14 +1,11 @@
 package io.itmatic.botox.Provider;
 
-import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
-
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,14 +19,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Common.BaseActivity;
-import io.itmatic.botox.Model.WorkingTime;
+import io.itmatic.botox.Model.Provider;
 import io.itmatic.botox.R;
+import io.itmatic.botox.Retrofit.Helper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ScheduleActivity extends BaseActivity {
     Calendar calendar;
@@ -93,8 +96,7 @@ public class ScheduleActivity extends BaseActivity {
     TextView getTextViewSetTimeToSun;
     @BindView(R.id.btn_submit)
     Button buttonSumbit;
-    ArrayList<WorkingTime> workingTimes=new ArrayList<>();
-
+    //  ArrayList<WorkingTime> workingTimes=new ArrayList<>();
 
 
     @Override
@@ -106,14 +108,13 @@ public class ScheduleActivity extends BaseActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.schedule));
-        if(workingTimes.size()==0)
+      /*  if(workingTimes.size()==0)
         {
             for(int i=0;i<7;i++)
             {
-                WorkingTime workingTime=new WorkingTime();
-                workingTimes.add(workingTime);
+                workingTimes.add(i,null);
             }
-        }
+        }*/
 
 
         switchMon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -145,27 +146,119 @@ public class ScheduleActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                JSONArray jsonArray=new JSONArray();
+                JSONArray jsonArray = new JSONArray();
 
-                if(workingTimes.size()==0)
-                {
-                    buildDialog(R.style.DialogTheme,getResources().getString(R.string.select_you_working_time));
-                }else {
-                    for(int i=0;i<workingTimes.size();i++)
-                    {
-                        JSONObject time=new JSONObject();
-                        try {
-                            time.put("from",workingTimes.get(i).getFromTime());
-                            time.put("to",workingTimes.get(i).getToTime());
-                            jsonArray.put(i,time);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                String fromMon = timeFormatChange(textViewSetTimeFromMon.getText().toString());
+                String toMon = timeFormatChange(textViewSetTimeFromMon.getText().toString());
+                if (fromMon != null && !fromMon.equals("") && toMon != null && !toMon.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromMon);
+
+                        time.put("to", toMon);
+                        time.put("day", 1);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-
-                    jsonArray.toString();
-
                 }
+                String fromTue = timeFormatChange(textViewSetTimeFromTue.getText().toString());
+                String toTue = timeFormatChange(textViewSetTimeFromTue.getText().toString());
+                if (fromTue != null && !fromTue.equals("") && toTue != null && !toTue.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromTue);
+
+                        time.put("to", toTue);
+                        time.put("day", 2);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                String fromWed = timeFormatChange(textViewSetTimeFromWed.getText().toString());
+                String toWed = timeFormatChange(textViewSetTimeFromWed.getText().toString());
+                if (fromWed != null && !fromWed.equals("") && toWed != null && !toWed.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromWed);
+
+                        time.put("to", toWed);
+                        time.put("day", 3);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                String fromThu = timeFormatChange(textViewSetTimeFromThu.getText().toString());
+                String toThu = timeFormatChange(textViewSetTimeFromThu.getText().toString());
+                if (fromThu != null && !fromThu.equals("") && toThu != null && !toThu.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromThu);
+
+                        time.put("to", toThu);
+                        time.put("day", 4);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                String fromFri = timeFormatChange(textViewSetTimeFromFri.getText().toString());
+                String toFri = timeFormatChange(textViewSetTimeFromFri.getText().toString());
+                if (fromFri != null && !fromFri.equals("") && toFri != null && !toFri.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromFri);
+
+                        time.put("to", toFri);
+                        time.put("day", 5);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                String fromSat = timeFormatChange(textViewSetTimeFromSat.getText().toString());
+                String toSat = timeFormatChange(textViewSetTimeFromSat.getText().toString());
+                if (fromSat != null && !fromSat.equals("") && toSat != null && !toSat.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromSat);
+
+                        time.put("to", toSat);
+                        time.put("day", 6);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                String fromSun = timeFormatChange(textViewSetTimeFromSun.getText().toString());
+                String toSun = timeFormatChange(textViewSetTimeFromSun.getText().toString());
+
+                if (fromSun != null && !fromSun.equals("") && toSun != null && !toSun.equals("")) {
+                    JSONObject time = new JSONObject();
+                    try {
+                        time.put("from", fromSun);
+
+                        time.put("to", toSun);
+                        time.put("day", 0);
+
+                        jsonArray.put(time);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                jsonArray.toString();
+                setWorkingTime(jsonArray.toString());
+
+
             }
         });
 
@@ -174,14 +267,15 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromMon,1,"from");
+                setTime(textViewSetTimeFromMon, 1, "from");
 
 
             }
-        }); getTextViewSetTimeToMon.setOnClickListener(new View.OnClickListener() {
+        });
+        getTextViewSetTimeToMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToMon,1,"to");
+                setTime(getTextViewSetTimeToMon, 1, "to");
             }
         });
 
@@ -203,13 +297,14 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromTue,2,"from");
+                setTime(textViewSetTimeFromTue, 2, "from");
 
             }
-        }); getTextViewSetTimeToTue.setOnClickListener(new View.OnClickListener() {
+        });
+        getTextViewSetTimeToTue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToTue,2,"to");
+                setTime(getTextViewSetTimeToTue, 2, "to");
             }
         });
 
@@ -231,17 +326,16 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromWed,3,"from");
+                setTime(textViewSetTimeFromWed, 3, "from");
 
             }
         });
         getTextViewSetTimeToWed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToWed,3,"to");
+                setTime(getTextViewSetTimeToWed, 3, "to");
             }
         });
-
 
 
         switchThu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -261,17 +355,16 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromThu,4,"from");
+                setTime(textViewSetTimeFromThu, 4, "from");
 
             }
         });
         getTextViewSetTimeToThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToThu,4,"to");
+                setTime(getTextViewSetTimeToThu, 4, "to");
             }
         });
-
 
 
         switchFri.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -291,17 +384,16 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromFri,5,"from");
+                setTime(textViewSetTimeFromFri, 5, "from");
 
             }
         });
         getTextViewSetTimeToFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToFri,5,"to");
+                setTime(getTextViewSetTimeToFri, 5, "to");
             }
         });
-
 
 
         switchSat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -321,14 +413,14 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromSat,6,"from");
+                setTime(textViewSetTimeFromSat, 6, "from");
 
             }
         });
         getTextViewSetTimeToSat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToSat,6,"to");
+                setTime(getTextViewSetTimeToSat, 6, "to");
             }
         });
 
@@ -350,18 +442,16 @@ public class ScheduleActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                setTime(textViewSetTimeFromSun,0,"from");
+                setTime(textViewSetTimeFromSun, 0, "from");
 
             }
         });
         getTextViewSetTimeToSun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime(getTextViewSetTimeToSun,0,"to");
+                setTime(getTextViewSetTimeToSun, 0, "to");
             }
         });
-
-
 
 
     }
@@ -377,7 +467,7 @@ public class ScheduleActivity extends BaseActivity {
         return onOptionsItemSelected(item);
     }
 
-    private void setTime(final TextView textView,final int day,final String fromTo) {
+    private void setTime(final TextView textView, final int day, final String fromTo) {
 
         Calendar currentTime = Calendar.getInstance();
         int hour = currentTime.get(Calendar.HOUR_OF_DAY);
@@ -385,72 +475,87 @@ public class ScheduleActivity extends BaseActivity {
         TimePickerDialog mTimePicker = new TimePickerDialog(ScheduleActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                String time24="AM";
+                String time24 = "AM";
 
-                WorkingTime workingTime=workingTimes.get(day);
-                if(workingTime!=null)
-                {
-                    if(fromTo.equals("from"))
-                    {
-                        workingTime.setFromTime(selectedHour+":"+selectedMinute);
-                    }else if(fromTo.equals("to"))
-                    {
-                        workingTime.setToTime(selectedHour+":"+selectedMinute);
-                    }
-                }else
-                {
-                    workingTime=new WorkingTime();
-                    if(fromTo.equals("from"))
-                    {
-                        workingTime.setFromTime(selectedHour+":"+selectedMinute);
-                    }else if(fromTo.equals("to"))
-                    {
-                        workingTime.setToTime(selectedHour+":"+selectedMinute);
-                    }
 
+                if (selectedHour > 12) {
+                    time24 = "PM";
+                    selectedHour = selectedHour - 12;
+                } else if (selectedHour == 12) {
+                    time24 = "PM";
                 }
-                workingTimes.add(day,workingTime);
-
-               /* String weekDay="";
-               switch (day)
-               {
-                   case 0:  weekDay = "sunday";
-                       break;
-                   case 1:  weekDay="monday";
-                       break;
-                   case 2:  weekDay="tuesday";
-                       break;
-                   case 3: weekDay="wednesday";
-                       break;
-                   case 4: weekDay="thursday";
-                       break;
-                   case 5: weekDay="friday";
-                       break;
-                   case 6: weekDay="saturday";
-                       break;
-
-               }*/
-
-                if(selectedHour>12)
-                {
-                    time24="PM";
-                    selectedHour=selectedHour-12;
-                }else if(selectedHour==12 )
-                {
-                    time24="PM";
-                }
-                if(selectedMinute<10)
-                {
-                    textView.setText( selectedHour + ":" +"0"+ selectedMinute+time24);
-                }else
-                {
-                    textView.setText( selectedHour + ":" + selectedMinute+time24);
+                if (selectedMinute < 10) {
+                    textView.setText(selectedHour + ":" + "0" + selectedMinute + " " + time24);
+                } else {
+                    textView.setText(selectedHour + ":" + selectedMinute + " " + time24);
                 }
 
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");
         mTimePicker.show();
+    }
+
+    public String timeFormatChange(String time) {
+        SimpleDateFormat date12Format = new SimpleDateFormat("hh:mm a");
+
+        SimpleDateFormat date24Format = new SimpleDateFormat("HH:mm");
+
+        String changedTime = null;
+        try {
+            changedTime = date24Format.format(date12Format.parse(time));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return changedTime;
+    }
+
+
+    private void setWorkingTime(String schedule) {
+        final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
+        dialog.show();
+
+
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        String token = preferences.getString("provider_token", "");
+        Call<Provider> call = Helper.getBotoxApiService().setWorkingTime(token, schedule);
+        call.enqueue(new Callback<Provider>() {
+
+
+            @Override
+            public void onResponse(Call<Provider> call, Response<Provider> response) {
+                dialog.dismiss();
+                int statusCode = response.code();
+                if (statusCode == 200) {
+
+                    finish();
+
+                } else {
+                    JSONObject error;
+                    String message = "";
+                    try {
+                        error = new JSONObject(response.errorBody().string());
+                        message = error.getString("message");
+
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    showError(message);
+
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Provider> call, Throwable t) {
+                dialog.dismiss();
+            }
+
+
+        });
     }
 
 

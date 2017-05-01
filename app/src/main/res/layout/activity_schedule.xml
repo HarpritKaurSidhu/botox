@@ -165,7 +165,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
 
@@ -187,14 +187,14 @@
                                     android:background="@color/White"
                                     android:padding="10dp"
                                     android:layout_weight="1"
-                                    android:text="@string/to" />
+                                    android:hint="@string/to" />
                                 <TextView
                                     android:id="@+id/txt_set_time_to_mon"
                                     android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -283,7 +283,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
@@ -311,7 +311,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -400,7 +400,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
@@ -428,7 +428,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/set_time"/>
+                                    android:hint="@string/set_time"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -516,7 +516,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                             <LinearLayout
@@ -544,7 +544,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
@@ -634,7 +634,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                             <LinearLayout
@@ -662,7 +662,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
@@ -752,7 +752,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                             <LinearLayout
@@ -780,7 +780,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
@@ -870,7 +870,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
                             <LinearLayout
@@ -898,7 +898,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="@string/set_time"/>
+                                        android:hint="@string/set_time"/>
                                 </LinearLayout>
                             </LinearLayout>
 

@@ -83,6 +83,14 @@ public class ProviderProfileActivity extends BaseActivity {
             }
         });
 
+        buttonMyPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ProviderProfileActivity.this,ProviderPayment.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

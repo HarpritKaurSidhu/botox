@@ -12,7 +12,7 @@ public class Helper {
     public static BotoxApiInterface getBotoxApiService() {
         Retrofit retrofit = new Retrofit.Builder()
 
-                .baseUrl("http://192.168.8.20:8080/api/v1/")
+                .baseUrl("http://botox.itmatic.io/web/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
