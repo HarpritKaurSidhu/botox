@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/choose_area"
+            android:text="@string/what_do_you_want_to_treat"
             android:textColor="@color/Black"
             android:textSize="17sp" />
     </LinearLayout>

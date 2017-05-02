@@ -6,14 +6,37 @@
     android:orientation="vertical"
     tools:context=".Provider.SignUpAsDoctorActivity">
     <LinearLayout
+        android:id="@+id/lout_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:layout_alignParentBottom="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp">
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/Black"
+                android:text="@string/submit"
+                android:textColor="@color/White" />
+        </LinearLayout>
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lout_submit"
+    android:orientation="vertical">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:layout_above="@+id/sc_view"
             android:layout_height="wrap_content"
             >
             <TextView
@@ -26,10 +49,12 @@
         </android.support.v7.widget.Toolbar>
 
 
+
         <ScrollView
             android:id="@+id/sc_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lout_submit">
 
 
             <LinearLayout
@@ -81,10 +106,13 @@
                             android:drawablePadding="10dp"
                             android:text="@string/name" />
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/edt_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@color/White"
+                            android:textSize="15sp"
                             android:gravity="end"
                             android:text="@string/katrine" />
                     </LinearLayout>
@@ -111,12 +139,15 @@
                             android:drawablePadding="10dp"
                             android:text="@string/address" />
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/edt_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="end"
+                            android:textSize="15sp"
                             android:maxLines="1"
+                            android:background="@color/White"
                             android:text="@string/address_home" />
                     </LinearLayout>
                 </LinearLayout>
@@ -142,10 +173,13 @@
                             android:drawablePadding="10dp"
                             android:text="@string/phone_number" />
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/edt_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@color/White"
+                            android:textSize="15sp"
                             android:gravity="end"
                             android:text="@string/phone_no" />
                     </LinearLayout>
@@ -174,12 +208,14 @@
                             android:drawablePadding="10dp"
                             android:text="@string/email" />
 
-                        <TextView
-                            android:id="@+id/txt_set_time_from"
+                        <EditText
+                            android:id="@+id/edt_email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="end"
+                            android:background="@color/White"
+                            android:textSize="15sp"
                             android:maxLines="1"
                             android:text="@string/email_address" />
                     </LinearLayout>
@@ -376,25 +412,6 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lout_submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp">
-            <Button
-                android:id="@+id/btn_submit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/Black"
-                android:text="@string/submit"
-                android:textColor="@color/White" />
-        </LinearLayout>
-    </LinearLayout>
+
 </RelativeLayout>

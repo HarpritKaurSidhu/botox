@@ -37,7 +37,8 @@
         <activity android:name=".Patient.PatientProfileActivity" />
         <activity android:name=".Patient.PatientAppointmentsActivity" />
         <activity android:name=".Provider.ProviderPayment" />
-        <activity android:name=".Patient.ChooseAreaActivity"></activity>
+        <activity android:name=".Patient.ChooseAreaActivity" />
+        <activity android:name=".Patient.PriceActivity"></activity>
     </application>
 
 </manifest>

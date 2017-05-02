@@ -1,10 +1,12 @@
 package io.itmatic.botox.Patient;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -44,6 +46,8 @@ public class ChooseAreaActivity extends BaseActivity {
     TextView textViewRightCheek;
     @BindView(R.id.txt_price)
     TextView textViewPrice;
+    @BindView(R.id.btn_submit)
+    Button buttonSubmit;
     List<Area> areas;
     private float price;
 
@@ -172,6 +176,15 @@ public class ChooseAreaActivity extends BaseActivity {
         });
 
 
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ((BotoxApplication) getApplication()).setAreas(areas);
+                Intent intent=new Intent(ChooseAreaActivity.this,PriceActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

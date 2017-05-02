@@ -3,7 +3,9 @@ package io.itmatic.botox;
 import android.app.Application;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import io.itmatic.botox.Model.Area;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
 import io.itmatic.botox.Model.Provider;
@@ -15,6 +17,7 @@ import io.itmatic.botox.Model.Provider;
 public class BotoxApplication extends Application {
     private Patient patient;
     private Provider provider;
+    private List<Area> areas;
     private ArrayList<Education> educations=new ArrayList<>();
 
     public Provider getProvider() {
@@ -25,7 +28,7 @@ public class BotoxApplication extends Application {
         this.provider = provider;
     }
 
-    private Patient getPatient() {
+    public Patient getPatient() {
         return patient;
     }
 
@@ -43,5 +46,13 @@ public class BotoxApplication extends Application {
 
     public void setEducations(ArrayList<Education> educations) {
         this.educations = educations;
+    }
+
+    public List<Area> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<Area> areas) {
+        this.areas = areas;
     }
 }

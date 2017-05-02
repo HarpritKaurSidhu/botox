@@ -114,11 +114,15 @@
     <string name="appointment_date">Appointmnet date</string>
     <string name="new_appointment">New Appointment</string>
     <string name="old_appointment">Old Appointment</string>
-    <string name="choose_area">What do you want to treat?</string>
+    <string name="what_do_you_want_to_treat">What do you want to treat?</string>
+    <string name="choose_area">Choose Area</string>
     <string name="area_value">$0</string>
     <string name="additional_setting">Additional settings</string>
     <string name="faq">FAQ</string>
     <string name="notifications">Notifications</string>
     <string name="customer_support">Customer Support</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="patient_profile">Profile</string></resources>
+    <string name="patient_profile">Profile</string>
+    <string name="price">Price</string>
+    <string name="total">Total</string>
+</resources>

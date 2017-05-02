@@ -23,8 +23,8 @@ public class BotoxActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.txt_provider)
     TextView textViewProvider;
-    @BindView(R.id.txt_login)
-    TextView textViewLogin;
+    @BindView(R.id.txt_patient)
+    TextView textViewPatient;
     @BindView(R.id.btn_my_appointments)
     Button buttonMyAppoinments;
     @BindView(R.id.btn_book_an_appointment)
@@ -82,6 +82,16 @@ public class BotoxActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
+
+            }
+        });
+
+        textViewPatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(BotoxActivity.this,LoginAsPatientActivity.class);
+                startActivity(intent);
 
             }
         });

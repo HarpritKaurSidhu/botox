@@ -20,12 +20,14 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.BotoxActivity;
 import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
 import io.itmatic.botox.Model.Patient;
+import io.itmatic.botox.Splash;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,7 +65,10 @@ public class LoginAsPatientActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                checkValidity();
+                /*Intent intent=new Intent(LoginAsPatientActivity.this,PatientProfileActivity.class);
+                startActivity(intent);
+*/
+               checkValidity();
                 if (mAwesomeValidation.validate()) {
                     loginPatient();
                 }
@@ -111,6 +116,11 @@ public class LoginAsPatientActivity extends BaseActivity {
                     ((BotoxApplication)getApplication()).setPatient(response.body());
 
                     addPatientTokenInSharedPreferences(((BotoxApplication)getApplication()).getPatientToken());
+                    Intent intent = new Intent(LoginAsPatientActivity.this,PatientProfileActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
 
                 } else {
                     JSONObject error;
