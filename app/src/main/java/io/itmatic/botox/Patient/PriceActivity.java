@@ -1,5 +1,6 @@
 package io.itmatic.botox.Patient;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class PriceActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.txt_total)
     TextView textViewTotal;
+    @BindView(R.id.btn_confirm)
+    Button buttonConfirm;
     @BindView(R.id.lout_price)
     LinearLayout loutPrice;
     @Override
@@ -32,6 +35,10 @@ public class PriceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_price);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getResources().getString(R.string.price));
         List<Area> areas = ((BotoxApplication) getApplication()).getAreas();
         float total = 0;
         for (int i = 0; i < areas.size(); i++) {
@@ -54,6 +61,15 @@ public class PriceActivity extends AppCompatActivity {
         textViewTotal.setText("Total:"+" "+"$"+total);
         textViewTotal.setTextSize(25);
         textViewTotal.setTextColor(Color.BLACK);
+
+        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(PriceActivity.this,AppointmentTime.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

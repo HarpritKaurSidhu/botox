@@ -20,8 +20,16 @@ public class Provider {
     private String fullName;
     private String image_url;
     private String modeOfTransport;
+    private int ratingBar;
 
 
+    public int getRatingBar() {
+        return ratingBar;
+    }
+
+    public void setRatingBar(int ratingBar) {
+        this.ratingBar = ratingBar;
+    }
 
     public String getEmail() {
         return email;

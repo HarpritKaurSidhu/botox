@@ -33,5 +33,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/Black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/White"
+        android:text="Confirm"
         android:id="@+id/btn_confirm" />
 </LinearLayout>

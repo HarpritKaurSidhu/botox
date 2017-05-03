@@ -38,7 +38,9 @@
         <activity android:name=".Patient.PatientAppointmentsActivity" />
         <activity android:name=".Provider.ProviderPayment" />
         <activity android:name=".Patient.ChooseAreaActivity" />
-        <activity android:name=".Patient.PriceActivity"></activity>
+        <activity android:name=".Patient.PriceActivity" />
+        <activity android:name=".Patient.AppointmentTime" />
+        <activity android:name=".Patient.BookAnAppointmentActivity"></activity>
     </application>
 
 </manifest>
