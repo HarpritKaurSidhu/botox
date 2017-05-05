@@ -18,6 +18,10 @@ public class BotoxApplication extends Application {
     private Patient patient;
     private Provider provider;
     private List<Area> areas;
+    private String postCode;
+    public static Provider selectedProvider;
+
+    private List<Provider> AvailableProviders;
     private ArrayList<Education> educations=new ArrayList<>();
 
     public Provider getProvider() {
@@ -54,5 +58,21 @@ public class BotoxApplication extends Application {
 
     public void setAreas(List<Area> areas) {
         this.areas = areas;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public List<Provider> getAvailableProviders() {
+        return AvailableProviders;
+    }
+
+    public void setAvailableProviders(List<Provider> availableProviders) {
+        AvailableProviders = availableProviders;
     }
 }

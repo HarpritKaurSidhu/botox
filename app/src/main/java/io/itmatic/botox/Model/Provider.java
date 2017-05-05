@@ -1,5 +1,8 @@
 package io.itmatic.botox.Model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /**
  * Created by Manoj on 4/12/2017.
  */
@@ -16,20 +19,13 @@ public class Provider {
     private boolean isDrivingLicence;
     private String gdcno;
     private String dob;
+    private int averageRating;
     private String gmcno;
     private String fullName;
-    private String image_url;
+    private String imageUrl;
     private String modeOfTransport;
-    private int ratingBar;
+    private JSONObject info;
 
-
-    public int getRatingBar() {
-        return ratingBar;
-    }
-
-    public void setRatingBar(int ratingBar) {
-        this.ratingBar = ratingBar;
-    }
 
     public String getEmail() {
         return email;
@@ -41,6 +37,14 @@ public class Provider {
 
     public String getPassword() {
         return password;
+    }
+
+    public JSONObject getInfo() {
+        return info;
+    }
+
+    public void setInfo(JSONObject info) {
+        this.info = info;
     }
 
     public void setPassword(String password) {
@@ -111,12 +115,12 @@ public class Provider {
         this.fullName = fullName;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getModeOfTransport() {
@@ -149,5 +153,13 @@ public class Provider {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public int getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(int averageRating) {
+        this.averageRating = averageRating;
     }
 }

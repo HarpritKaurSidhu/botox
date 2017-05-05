@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,10 +13,7 @@ import java.io.IOException;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Model.Patient;
 import io.itmatic.botox.Model.Provider;
-import io.itmatic.botox.Provider.MyAppointmentActivity;
-import io.itmatic.botox.Provider.ProviderProfileActivity;
-import io.itmatic.botox.Provider.QualificationsActivity;
-import io.itmatic.botox.Provider.UploadDocumentFirstActivity;
+import io.itmatic.botox.Provider.ProviderProfileUpdateActivity;
 import io.itmatic.botox.Retrofit.Helper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,7 +72,7 @@ public class Splash extends BaseActivity {
                 if (statusCode == 200) {
 
                     ((BotoxApplication)getApplication()).setProvider(response.body());
-                    Intent intent = new Intent(Splash.this,ProviderProfileActivity.class);
+                    Intent intent = new Intent(Splash.this,ProviderProfileUpdateActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

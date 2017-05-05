@@ -57,7 +57,16 @@ public class PostcodeActivity extends BaseActivity {
 
                 checkValidity();
                 if (mAwesomeValidation.validate()) {
-                    setPostCode();
+                  //  setPostCode();
+                    ((BotoxApplication) getApplication()).setPostCode(editTextPostCode.getText().toString());
+                    // ((BotoxApplication)getApplication()).setPatient(response.body());
+
+                    //addPatientTokenInSharedPreferences(((BotoxApplication)getApplication()).getPatientToken());
+                    Intent intent = new Intent(PostcodeActivity.this, ChooseAreaActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -99,6 +108,7 @@ public class PostcodeActivity extends BaseActivity {
                 dialog.dismiss();
                 int statusCode = response.code();
                 if (statusCode == 200) {
+                    ((BotoxApplication) getApplication()).setPostCode(editTextPostCode.getText().toString());
                    // ((BotoxApplication)getApplication()).setPatient(response.body());
 
                     //addPatientTokenInSharedPreferences(((BotoxApplication)getApplication()).getPatientToken());

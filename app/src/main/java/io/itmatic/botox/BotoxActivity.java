@@ -1,5 +1,6 @@
 package io.itmatic.botox;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -54,6 +55,8 @@ public class BotoxActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
+                    String token=preferences.getString("patient_token","");
+                    ((BotoxApplication) getApplication()).getPatient().setAccessToken(token);
                     Intent intent = new Intent(BotoxActivity.this, LoginAsPatientActivity.class);
                     startActivity(intent);
                 }
@@ -66,8 +69,19 @@ public class BotoxActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+
                 Intent intent = new Intent(BotoxActivity.this, PostcodeActivity.class);
                 startActivity(intent);
+
+               /* if(preferences.contains("patient_token")) {
+                    Intent intent = new Intent(BotoxActivity.this, PostcodeActivity.class);
+                    startActivity(intent);
+                }else
+                {
+                    Intent intent = new Intent(BotoxActivity.this,LoginAsPatientActivity.class);
+                    startActivity(intent);
+                }*/
 
 
             }

@@ -105,6 +105,8 @@
     <string name="friday">Friday</string>
     <string name="working_time">Working time</string>
     <string name="saturday">Saturday</string>
+    <string name="no_provider_available">No Provider Available</string>
+    <string name="choose_another_date">Choose Another Date</string>
     <string name="sunday">Sunday</string>
     <string name="date_of_birth">Date of birth</string>
     <string name="notes_to_clinician">Note to clinician</string>
@@ -128,4 +130,11 @@
     <string name="price">Price</string>
     <string name="total">Total</string>
     <string name="confirm">Confirm</string>
+    <string name="license_checked">License Checked</string>
+    <string name="patient_month">Patient/Month</string>
+    <string name="all_patients">All Patients</string>
+    <string name="qualifications">Qualifications</string>
+    <string name="consultation">Consultation</string>
+    <string name="provider_profile">Provider Profile</string>
+    <string name="license_unchecked">License Unchecked</string>
 </resources>

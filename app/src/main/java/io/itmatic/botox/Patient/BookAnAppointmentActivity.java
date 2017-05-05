@@ -16,9 +16,11 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.Adapter.BookProviderAdapter;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Model.Provider;
 import io.itmatic.botox.R;
+import io.itmatic.botox.Retrofit.BotoxApiInterface;
 
 public class BookAnAppointmentActivity extends BaseActivity {
 
@@ -31,13 +33,9 @@ public class BookAnAppointmentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_an_appointment);
         ButterKnife.bind(this);
-        ArrayList<Provider> providers = new ArrayList<>();
+        ArrayList<Provider> providers = (ArrayList<Provider>) ((BotoxApplication) getApplication()).getAvailableProviders();
 
-        for (int i = 0; i < 5; i++) {
-            Provider provider = new Provider();
-            provider.setFullName("name" + " " + i);
-            providers.add(provider);
-        }
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -39,6 +39,10 @@ public interface BotoxApiInterface {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
+    @POST("near/by/provider.json")
+    Call<List<Provider>> getAvailableProvider(@Field("post_code") String postcode,@Field("date") String date,@Field("time") String time);
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
     @POST("user/login.json")
     Call<Patient> loginPatient(@Field("email") String email, @Field("password") String password);
 
@@ -52,7 +56,7 @@ public interface BotoxApiInterface {
     Call<Provider> providerProfile(@Query("token") String token);
 
     @GET("area/all.json")
-    Call<List<Area>> getPatientArea(@Query("token") String token);
+    Call<List<Area>> getPatientArea();
 
 
     @GET("user/profile.json")

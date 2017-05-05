@@ -22,7 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
-import io.itmatic.botox.Common.Resource;
 import io.itmatic.botox.ForgotPasswordActivity;
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
@@ -118,7 +117,7 @@ public class ProviderLoginActivity extends BaseActivity {
 
                     addProviderTokenInSharedPreferences(((BotoxApplication)getApplication()).getProvider().getAccessToken());
 
-                    Intent intent = new Intent(ProviderLoginActivity.this, ProviderProfileActivity.class);
+                    Intent intent = new Intent(ProviderLoginActivity.this, ProviderProfileUpdateActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

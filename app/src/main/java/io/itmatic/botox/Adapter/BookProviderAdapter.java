@@ -1,11 +1,13 @@
 package io.itmatic.botox.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -13,7 +15,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Model.Provider;
+import io.itmatic.botox.Provider.ProviderProfileActivity;
 import io.itmatic.botox.R;
 
 
@@ -33,23 +37,20 @@ public class BookProviderAdapter extends RecyclerView.Adapter<BookProviderAdapte
         return provider_list.size();
     }
 
-     /* View.OnClickListener getClickListener(final int position) {
-            return new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // ((MainActivity) getActivity()).replaceFragment(new MapViewFragment());
-
-                    if(.isChecked())
-                    {
-                        education_list.get(position).setSelectCourse(true);
-                    }else {
-                        education_list.get(position).setSelectCourse(false);
-                    }
+    View.OnClickListener getClickListener(final int position) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BotoxApplication.selectedProvider=provider_list.get(position);
+                Intent intent=new Intent(context, ProviderProfileActivity.class);
+                context.startActivity(intent);
 
 
-                }
-            };
-        }*/
+
+
+            }
+        };
+    }
 
 
     @Override
@@ -57,8 +58,9 @@ public class BookProviderAdapter extends RecyclerView.Adapter<BookProviderAdapte
         Provider provider = provider_list.get(i);
 
         contactViewHolder.textViewProviderName.setText(provider.getFullName());
-        contactViewHolder.ratingBar.setRating(provider.getRatingBar());
-        Glide.with(context).load(provider.getImage_url()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
+        contactViewHolder.ratingBar.setRating(provider.getAverageRating());
+        contactViewHolder.linearLayout.setOnClickListener(getClickListener(i));
+        Glide.with(context).load(provider.getImageUrl()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
 
 
            /* contactViewHolder.textViewQualification.setText(.getTitle());
@@ -101,6 +103,7 @@ public class BookProviderAdapter extends RecyclerView.Adapter<BookProviderAdapte
         TextView textViewProviderName;
         RatingBar ratingBar;
         ImageView imageViewUserImage;
+        LinearLayout linearLayout;
 
         public ContactViewHolder(View v) {
             super(v);
@@ -108,6 +111,7 @@ public class BookProviderAdapter extends RecyclerView.Adapter<BookProviderAdapte
             textViewProviderName=(TextView) v.findViewById(R.id.txt_provider_name);
             ratingBar=(RatingBar) v.findViewById(R.id.ratingbar);
             imageViewUserImage=(ImageView) v.findViewById(R.id.img_user_image);
+            linearLayout=(LinearLayout) v.findViewById(R.id.lout_provider);
 
         }
     }

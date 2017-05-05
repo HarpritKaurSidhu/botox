@@ -1,21 +1,41 @@
 package io.itmatic.botox.Patient;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
+import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
+import io.itmatic.botox.Model.Provider;
+import io.itmatic.botox.PostcodeActivity;
 import io.itmatic.botox.R;
+import io.itmatic.botox.Retrofit.Helper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AppointmentTime extends BaseActivity {
 
@@ -241,7 +261,7 @@ public class AppointmentTime extends BaseActivity {
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.MONTH, -1);
 
-        HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(this, R.id.calendarView)
+        final HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(this, R.id.calendarView)
                 .startDate(startDate.getTime())
                 .endDate(endDate.getTime())
                 .textColor(Color.BLACK, Color.BLUE)    // Text color for none selected Dates, Text color for selected Date.
@@ -249,290 +269,415 @@ public class AppointmentTime extends BaseActivity {
                 .selectorColor(Color.RED)
                 .build();
 
+        //  Date date=horizontalCalendar.getSelectedDate();
+
 
         lout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime1.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                String time24Hours=timeFormatChange(time);
+                getProviders(date,time24Hours);
             }
         });
         lout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String time=textViewTime2.getText().toString();
-                getProviders(time);
+                String time=textViewTime1.getText().toString();
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String time=textViewTime3.getText().toString();
-                getProviders(time);
-            }
+                String time=textViewTime1.getText().toString();
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);     }
         });
         lout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime4.getText().toString();
-                getProviders(time);
-            }
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);     }
         });
+
         lout5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime5.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime6.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         }); lout7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime7.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime8.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime9.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime10.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime11.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime12.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime13.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime14.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime15.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime16.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime17.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime18.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime19.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime20.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime21.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime22.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime23.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime24.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime25.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout26.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime26.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout27.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime27.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout28.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime28.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout29.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime29.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime30.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime31.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime32.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         }); lout33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime33.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime34.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout35.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime35.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout36.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime36.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout37.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime37.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout38.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime38.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout39.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime39.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout40.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime40.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout41.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime41.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
 
         });
@@ -540,35 +685,50 @@ public class AppointmentTime extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String time=textViewTime42.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout43.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime43.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout44.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime44.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout45.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime45.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout46.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime46.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
 
@@ -576,14 +736,20 @@ public class AppointmentTime extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String time=textViewTime47.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
         lout48.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String time=textViewTime48.getText().toString();
-                getProviders(time);
+                Date formatDate=horizontalCalendar.getSelectedDate();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String date=df.format(formatDate);
+                getProviders(date,time);
             }
         });
 
@@ -593,11 +759,105 @@ public class AppointmentTime extends BaseActivity {
 
 
 
-    private void getProviders(String time){
-        Intent intent=new Intent(AppointmentTime.this,BookAnAppointmentActivity.class);
-        startActivity(intent);
+    private void getProviders(String date,String time){
+        String postCode=((BotoxApplication) getApplication()).getPostCode();
+        final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
+        dialog.show();
+
+
+       // String token=((BotoxApplication)getApplication()).getPatientToken();
+        Call<List<Provider>> call = Helper.getBotoxApiService().getAvailableProvider(postCode,date,time);
+        call.enqueue(new Callback<List<Provider>>() {
+
+
+            @Override
+            public void onResponse(Call<List<Provider>> call, Response<List<Provider>> response) {
+                dialog.dismiss();
+                int statusCode = response.code();
+                ((BotoxApplication) getApplication()).setAvailableProviders(response.body());
+                if (statusCode == 200) {
+                    if(((BotoxApplication) getApplication()).getAvailableProviders().size()==0)
+                    {
+                        showDialogForEmptyProviders();
+                    }
+                    else
+                    {
+                        Intent intent=new Intent(AppointmentTime.this,BookAnAppointmentActivity.class);
+                        startActivity(intent);
+                    }
+                } else {
+                    JSONObject error;
+                    String message = "";
+                    try {
+                        error = new JSONObject(response.errorBody().string());
+                        message = error.getString("message");
+
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    showError(message);
+
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Provider>> call, Throwable t) {
+
+                dialog.dismiss();
+            }
+
+
+        });
+
 
     }
+
+    public String timeFormatChange(String time) {
+        SimpleDateFormat date12Format = new SimpleDateFormat("hh:mm a");
+
+        SimpleDateFormat date24Format = new SimpleDateFormat("HH:mm");
+
+        String changedTime = null;
+        try {
+            changedTime = date24Format.format(date12Format.parse(time));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return changedTime;
+    }
+
+
+    private void showDialogForEmptyProviders()
+    {
+
+
+
+
+        final Dialog dialog = new Dialog(AppointmentTime.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.empty_providers_list_msg_dialog);
+        dialog.show();
+
+        Button buttonChoose=(Button) dialog.findViewById(R.id.btn_choose_another);
+
+        buttonChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+
 
 
 }

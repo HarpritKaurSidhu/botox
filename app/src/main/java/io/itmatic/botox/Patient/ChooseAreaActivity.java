@@ -1,7 +1,6 @@
 package io.itmatic.botox.Patient;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -9,13 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,8 +19,6 @@ import butterknife.ButterKnife;
 import io.itmatic.botox.BotoxApplication;
 import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Model.Area;
-import io.itmatic.botox.Model.Provider;
-import io.itmatic.botox.Provider.ProviderProfileActivity;
 import io.itmatic.botox.R;
 import io.itmatic.botox.Retrofit.Helper;
 import retrofit2.Call;
@@ -206,8 +200,8 @@ public class ChooseAreaActivity extends BaseActivity {
 
     private void getPatientArea()
     {
-        String token=((BotoxApplication)getApplication()).getPatientToken();
-        Call<List<Area>> call = Helper.getBotoxApiService().getPatientArea(token);
+       // String token=((BotoxApplication)getApplication()).getPatientToken();
+        Call<List<Area>> call = Helper.getBotoxApiService().getPatientArea();
         call.enqueue(new Callback<List<Area>>() {
 
 

@@ -57,7 +57,7 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.Contac
 
         contactViewHolder.textViewProviderName.setText(provider.getFullName());
         contactViewHolder.textViewDate.setText(provider.getDob());
-        Glide.with(context).load(provider.getImage_url()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
+        Glide.with(context).load(provider.getImageUrl()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
 
 
            /* contactViewHolder.textViewQualification.setText(.getTitle());

@@ -88,7 +88,7 @@ public class WorkingConditionsActivity extends BaseActivity {
                     public void onClick(View view) {
                         dialog.dismiss();
 
-                        Intent intent = new Intent(WorkingConditionsActivity.this, ProviderProfileActivity.class);
+                        Intent intent = new Intent(WorkingConditionsActivity.this, ProviderProfileUpdateActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);

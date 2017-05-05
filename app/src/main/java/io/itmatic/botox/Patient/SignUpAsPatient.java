@@ -371,7 +371,7 @@ public class SignUpAsPatient extends BaseActivity {
 
                     addPatientTokenInSharedPreferences(patient.getAccessToken());
 
-                    Intent intent = new Intent(SignUpAsPatient.this, PatientAppointmentsActivity.class);
+                    Intent intent = new Intent(SignUpAsPatient.this, MedicalHistoryActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
