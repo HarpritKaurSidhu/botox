@@ -50,7 +50,7 @@ public class PriceActivity extends AppCompatActivity {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             textView.setLayoutParams(layoutParams);
-            layoutParams.setMargins(20, 0, 20, 20);
+            layoutParams.setMargins(50, 0, 20, 20);
             textView.setTextColor(Color.BLACK);
             textView.setTextSize(17);
             total = total + areas.get(i).getPrice();

@@ -24,7 +24,9 @@ public class Provider {
     private String fullName;
     private String imageUrl;
     private String modeOfTransport;
-    private JSONObject info;
+
+    private Info info;
+
 
 
     public String getEmail() {
@@ -39,11 +41,11 @@ public class Provider {
         return password;
     }
 
-    public JSONObject getInfo() {
+    public Info getInfo() {
         return info;
     }
 
-    public void setInfo(JSONObject info) {
+    public void setInfo(Info info) {
         this.info = info;
     }
 

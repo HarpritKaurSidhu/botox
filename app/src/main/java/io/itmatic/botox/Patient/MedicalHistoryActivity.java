@@ -3,9 +3,10 @@ package io.itmatic.botox.Patient;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.R;
 
-public class MedicalHistoryActivity extends AppCompatActivity {
+public class MedicalHistoryActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

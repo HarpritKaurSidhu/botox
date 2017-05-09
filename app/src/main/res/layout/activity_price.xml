@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total"
+            android:layout_marginLeft="25dp"
             android:id="@+id/txt_total"/>
     </LinearLayout>
     <Button

@@ -67,12 +67,8 @@ public class ProviderProfileActivity extends AppCompatActivity {
             textViewChecked.setVisibility(View.GONE);
         }
 
-        String qualification= null;
-        try {
-            qualification = BotoxApplication.selectedProvider.getInfo().getString("qualification");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        String qualification = BotoxApplication.selectedProvider.getInfo().getQualification();
+
 
         // String  qualification=BotoxApplication.selectedProvider.getQualification();
 
