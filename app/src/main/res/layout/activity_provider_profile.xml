@@ -7,6 +7,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Toolbarbackarrowcolor"
         android:id="@+id/toolbar">
 
     </android.support.v7.widget.Toolbar>

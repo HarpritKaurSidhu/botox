@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context="io.itmatic.botox.Patient.ConfirmBookingActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/White"
+        android:background="@color/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
+       />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+       >
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_marginTop="30dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/treatment_area"
+               android:layout_marginLeft="30dp"
+               android:textColor="@color/button"
+               android:textSize="20sp"/>
+               <TextView
+                   android:id="@+id/txt_area_no"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="4"
+                   android:textColor="@color/White"/>
+           </LinearLayout>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/treatment"
+               android:layout_marginTop="20dp"
+               android:layout_marginLeft="30dp"
+               android:textColor="@color/button"
+               android:textSize="20sp"/>
+       </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lout_areas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

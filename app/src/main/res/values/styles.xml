@@ -7,10 +7,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="Toolbarbackarrowcolor" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/White</item>
+    </style>
     <style name="DialogTheme">
         <item name="android:windowEnterAnimation">@anim/slide_left</item>
         <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+    <style name="WhiteCheck">
+        <item name="colorAccent">#ffffff</item>
     </style>
 
 </resources>

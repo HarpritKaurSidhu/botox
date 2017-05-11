@@ -19,10 +19,16 @@
     <string name="select_image">Select Image</string>
     <string name="takepicture">Take Picture</string>
     <string name="opengallery">Open Gallery</string>
+    <string name="medical_history">Medical History</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="bds">BDS</string>
     <string name="other">Other</string>
     <string name="next">Next</string>
+    <string name="give_the_answer">Please Answer to all questions</string>
     <string name="address">Address</string>
+    <string name="all_field_are_mandatory">All fields are mandatory</string>
     <string name="model_of_transport">Model of Transport</string>
     <string name="driving_licence">Driving Licence</string>
     <string name="gdcno">GDCNO</string>
@@ -32,7 +38,7 @@
     <string name="photo_in">Photo IN</string>
     <string name="crb_check">CRB Check</string>
     <string name="qualification_certificate">Qualification Certificate</string>
-    <string name="postcode">Postcode</string>
+    <string name="enter_your_postcode_here">Enter your postcode here</string>
     <string name="first_name">First Name</string>
     <string name="phone_number">Phone</string>
     <string name="zipcode">Zipcode</string>
@@ -105,7 +111,9 @@
     <string name="friday">Friday</string>
     <string name="working_time">Working time</string>
     <string name="saturday">Saturday</string>
-    <string name="no_provider_available">No Provider Available</string>
+    <string name="treatment_area">Treatment Areas:</string>
+    <string name="treatment">Treatment:</string>
+    <string name="no_clinician_available">No Clinician Available</string>
     <string name="choose_another_date">Choose Another Date</string>
     <string name="sunday">Sunday</string>
     <string name="date_of_birth">Date of birth</string>
@@ -137,4 +145,5 @@
     <string name="consultation">Consultation</string>
     <string name="provider_profile">Provider Profile</string>
     <string name="license_unchecked">License Unchecked</string>
+    <string name="find_your_location">Find your location</string>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
     tools:context=".PostcodeActivity">
@@ -10,59 +11,76 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+       android:titleTextColor="@color/White"
+        android:background="@color/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         android:padding="10dp"
         android:orientation="vertical">
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/location"
+                android:layout_gravity="end"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:drawable="@drawable/ic_location_on_blue_grey_300_24dp"
+                android:text="@string/find_your_location"
+                android:textSize="10sp"
+                android:textColor="@color/White"/>
+        </LinearLayout>
+        <LinearLayout
             android:orientation="vertical"
-            android:background="@color/gray"
             android:layout_width="match_parent"
             android:layout_marginTop="30dp"
-            android:gravity="center"
             android:layout_centerInParent="true"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="@color/White">
+                android:layout_gravity="center"
+                android:gravity="center">
                 <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:id="@+id/edt_postcode"
-                    android:padding="10dp"
                     android:inputType="text"
-                    android:hint="@string/postcode"
-                    android:background="@color/White"
-                    android:drawablePadding="15dp"
-                    android:textCursorDrawable="@drawable/cursor"
-                    android:drawableLeft="@drawable/ic_email"
-                    />
-                </LinearLayout>
-            </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@color/Black"
-            android:layout_width="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/Black">
-               <Button
-                   android:id="@+id/btn_next"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/Black"
-                   android:text="@string/next"
-                   android:textColor="@color/White"/>
-            </LinearLayout>
+                    android:hint="@string/enter_your_postcode_here"
+                    android:textColorHint="@color/White"
 
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:drawableRight="@drawable/ic_email_white_24dp"
+                    />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/round_blue"
+                android:text="@string/next"
+                android:textAlignment="center"
+                android:textColor="@color/Black"/>
         </LinearLayout>
-               </RelativeLayout>
+
+    </RelativeLayout>
 </LinearLayout>

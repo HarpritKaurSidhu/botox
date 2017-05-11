@@ -759,7 +759,7 @@ public class AppointmentTime extends BaseActivity {
 
 
 
-    private void getProviders(String date,String time){
+    private void getProviders(final String date,final String time){
         String postCode=((BotoxApplication) getApplication()).getPostCode();
         final ProgressDialog dialog = ShowConstantProgressNOTCAN(this, "", getResources().getString(R.string.processing));
         dialog.show();
@@ -782,6 +782,8 @@ public class AppointmentTime extends BaseActivity {
                     }
                     else
                     {
+                        ((BotoxApplication) getApplication()).setTime(time);
+                        ((BotoxApplication) getApplication()).setDate(date);
                         Intent intent=new Intent(AppointmentTime.this,BookAnAppointmentActivity.class);
                         startActivity(intent);
                     }

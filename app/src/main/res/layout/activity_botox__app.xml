@@ -3,103 +3,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/mainscreen"
     tools:context=".BotoxActivity">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:titleTextColor="@color/White"
+        android:background="@color/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
         android:id="@+id/toolbar"/>
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
-     -->   <LinearLayout
-    android:layout_centerInParent="true"
-            android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:padding="10dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:layout_margin="1dp"
-            android:orientation="vertical"
-            android:padding="20dp"
-           >
-        <Button
-            android:id="@+id/btn_book_an_appointment"
-            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_perm_identity_white_24dp"
+            android:text="User Name"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textColor="@color/White"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Black"
-            android:text="@string/book_an_appointment"
-            android:textColor="@color/White"
-            android:padding="5dp"
-            />
+
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true">
             <Button
-                android:id="@+id/btn_my_appointments"
-                android:layout_width="match_parent"
+                android:id="@+id/btn_book_an_appointment"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="5dp"
-                android:background="@color/Black"
-                android:text="@string/my_appointment"
+                android:layout_margin="1dp"
+                android:background="@drawable/round_transparent"
+                android:layout_gravity="center"
+                android:text="@string/book_an_appointment"
+                android:textAlignment="center"
                 android:textColor="@color/White"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true">
+            <Button
+                android:id="@+id/btn_my_appoinments"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/round_transparent"
+                android:layout_gravity="center"
+                android:text="@string/my_appointments"
+                android:textAlignment="center"
+                android:textColor="@color/White"/>
+        </LinearLayout>
+    </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="2"
         android:orientation="horizontal"
-        android:background="@color/gray"
         android:layout_alignParentBottom="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:background="@color/White"
             >
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.95"
-            android:orientation="vertical"
-           >
-                <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                   android:text="@string/i_am_provider"
-                    android:id="@+id/txt_provider"
-                android:textSize="15dp"
-                    android:padding="17sp"
-                android:textColor="@color/Black"/>
-                </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.01"
-                android:background="@color/gray">
-
-            </LinearLayout>
-               <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="0.95">
-                   <TextView
-                       android:id="@+id/txt_patient"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/i_am_provider"
+                    android:id="@+id/txt_provider"
                     android:textSize="15dp"
-                       android:padding="17sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                    android:textColor="@color/Black"
-                android:text="@string/login_as_patient"/>
-               </LinearLayout>
+                    android:padding="17sp"
+                    android:textColor="@color/White"/>
+            </LinearLayout>
+            <!--  <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="0.01"
+                  android:background="@color/White">
+
+              </LinearLayout>-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.95">
+                <TextView
+                    android:id="@+id/txt_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:padding="17sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/White"
+                    android:text="@string/login_as_patient"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

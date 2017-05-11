@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -41,9 +45,18 @@ public class PriceActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.price));
         List<Area> areas = ((BotoxApplication) getApplication()).getAreas();
         float total = 0;
+        JSONArray jsonArray=new JSONArray();
         for (int i = 0; i < areas.size(); i++) {
             if (areas.get(i).isSelected())
             {
+                JSONObject jsonObject=new JSONObject();
+                try {
+                    jsonObject.put("id",areas.get(i).getId());
+                    jsonArray.put(jsonObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
                 TextView textView = new TextView(this);
             textView.setText("Area:" + i + " " + "$" + areas.get(i).getPrice());
             // LinearLayout layout=new LinearLayout(this);
@@ -57,6 +70,8 @@ public class PriceActivity extends AppCompatActivity {
             loutPrice.addView(textView);
         }
     }
+
+        ((BotoxApplication) getApplication()).setSelectedArea(jsonArray.toString());
 
         textViewTotal.setText("Total:"+" "+"$"+total);
         textViewTotal.setTextSize(25);

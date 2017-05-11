@@ -9,6 +9,7 @@ import io.itmatic.botox.Model.Area;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
 import io.itmatic.botox.Model.Provider;
+import io.itmatic.botox.Model.Question;
 
 /**
  * Created by hardeep on 20/04/17.
@@ -18,6 +19,10 @@ public class BotoxApplication extends Application {
     private Patient patient;
     private Provider provider;
     private List<Area> areas;
+    private String selectedArea;
+    private String time;
+    private String date;
+
     private String postCode;
     public static Provider selectedProvider;
 
@@ -74,5 +79,29 @@ public class BotoxApplication extends Application {
 
     public void setAvailableProviders(List<Provider> availableProviders) {
         AvailableProviders = availableProviders;
+    }
+
+    public String getSelectedArea() {
+        return selectedArea;
+    }
+
+    public void setSelectedArea(String selectedArea) {
+        this.selectedArea = selectedArea;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#300fCA</color>
+    <color name="colorPrimaryDark">#1b1e2a</color>
     <color name="White">#ffffff</color>
+    <color name="button">#5b6877</color>
+    <color name="toolbar">#222634</color>
     <color name="DarkBlack">#01020e</color>
+    <string name="status_bar">#1b1e2a</string>
 <color name="colorAccent">#123fff</color>
+    <color name="opacity_color">#05ffffff</color>
     <color name="gray">#f4edf0</color>
     <color name="Black">#111112</color>
+
 </resources>

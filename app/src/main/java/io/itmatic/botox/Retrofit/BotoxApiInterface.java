@@ -8,6 +8,7 @@ import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
 
 import io.itmatic.botox.Model.Provider;
+import io.itmatic.botox.Model.Question;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -39,6 +40,11 @@ public interface BotoxApiInterface {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
+    @POST("appointments/create.json")
+    Call<Patient> createAppointment(@Field("provider_id") int id, @Field("date") String date,@Field("time") String time,@Field("area") String area,@Field("medical_history") String medicalHistory,@Field("token") String token);
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
     @POST("near/by/provider.json")
     Call<List<Provider>> getAvailableProvider(@Field("post_code") String postcode,@Field("date") String date,@Field("time") String time);
     @Headers("Accept: application/json")
@@ -65,6 +71,8 @@ public interface BotoxApiInterface {
     @GET("provider/all/qualification/list.json")
     Call<ArrayList<Education>> qualificationList();
 
+    @GET("medical-history/questions.json")
+    Call<ArrayList<Question>> questionList(@Query("token") String token);
 
     @Headers("Accept: application/json")
     @FormUrlEncoded

@@ -7,7 +7,7 @@ import org.json.JSONObject;
  * Created by Manoj on 4/12/2017.
  */
 public class Provider {
-
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -163,5 +163,13 @@ public class Provider {
 
     public void setAverageRating(int averageRating) {
         this.averageRating = averageRating;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
