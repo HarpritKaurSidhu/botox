@@ -43,7 +43,8 @@
         <activity android:name=".Patient.BookAnAppointmentActivity" />
         <activity android:name=".Provider.ProviderProfileActivity" />
         <activity android:name=".Patient.MedicalHistoryActivity" />
-        <activity android:name=".Patient.ConfirmBookingActivity"></activity>
+        <activity android:name=".Patient.ConfirmBookingActivity" />
+        <activity android:name=".Patient.PaymentDetailsActivity"></activity>
     </application>
 
 </manifest>

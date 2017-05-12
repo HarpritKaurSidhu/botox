@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     android:background="@drawable/background"
     tools:context="io.itmatic.botox.Patient.ConfirmBookingActivity">
 
@@ -20,6 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:orientation="vertical"
 
        >
@@ -44,7 +45,9 @@
                    android:id="@+id/txt_area_no"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="4"
+                   android:textSize="20sp"
+
+                   android:layout_marginLeft="5dp"
                    android:textColor="@color/White"/>
            </LinearLayout>
            <TextView
@@ -68,10 +71,103 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+
+                android:textColor="@color/button"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+
+                android:textColor="@color/White"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time"
+
+                    android:textColor="@color/button"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp"
+
+                    android:textColor="@color/White"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clinician_name"
+
+                    android:textColor="@color/button"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/txt_clinician_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp"
+
+                    android:textColor="@color/White"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
 
 
 
 
     </LinearLayout>
 
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_blue"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/round_gray"
+            android:layout_gravity="center"
+            android:text="@string/confirm"
+            android:textAlignment="center"
+            android:textColor="@color/White"/>
+    </LinearLayout>
+
+</RelativeLayout>

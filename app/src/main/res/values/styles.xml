@@ -15,7 +15,17 @@
         <item name="android:windowExitAnimation">@anim/slide_right</item>
     </style>
     <style name="WhiteCheck">
-        <item name="colorAccent">#ffffff</item>
+        <item name="colorAccent">@color/White</item>
+
+    </style>
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">@color/White</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="colorControlNormal">@color/White</item>
+        <item name="colorControlActivated">@color/White</item>
+        <item name="colorAccent">@android:color/white</item>
     </style>
 
 </resources>

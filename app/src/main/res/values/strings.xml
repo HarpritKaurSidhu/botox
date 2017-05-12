@@ -136,7 +136,7 @@
     <string name="appointment_time">Appointment Time</string>
     <string name="patient_profile">Profile</string>
     <string name="price">Price</string>
-    <string name="total">Total</string>
+    <string name="total_price">Total Price</string>
     <string name="confirm">Confirm</string>
     <string name="license_checked">License Checked</string>
     <string name="patient_month">Patient/Month</string>
@@ -146,4 +146,20 @@
     <string name="provider_profile">Provider Profile</string>
     <string name="license_unchecked">License Unchecked</string>
     <string name="find_your_location">Find your location</string>
+    <string name="login_with_email">Log in with email</string>
+    <string name="patient_login">Patient Login</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
+    <string name="clinician_name">Clinician Name:</string>
+
+    <string name="cardinfo">Card Info</string>
+    <string name="name_of_card">Name Of Card</string>
+    <string name="card_number">Card Number</string>
+    <string name="ccv_number">CCV Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="billing_postcode">Billing Postcode</string>
+    <string name="scan_card">Scan Card</string>
+    <string name="scan_card_by_camera">Scan Card Via The Camera</string>
+    <string name="pay">Pay</string>
+    <string name="payment_detail">Payment Details</string>
 </resources>

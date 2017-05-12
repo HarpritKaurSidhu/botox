@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="io.itmatic.botox.Patient.PaymentDetailsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/White"
+        android:background="@color/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cardinfo"
+                android:paddingLeft="40dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/White"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/White"
+                android:drawableRight="@drawable/ic_keyboard_arrow_right_white_18dp"
+                android:textColorHint="@color/button"
+                android:background="@color/opacity_color"
+                android:hint="@string/name_of_card"
+                android:paddingRight="10dp"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/card_number"
+                android:textColor="@color/White"
+                android:drawableRight="@drawable/ic_keyboard_arrow_right_white_18dp"
+                android:textColorHint="@color/button"
+                android:background="@color/opacity_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ccv_number"
+                android:textColor="@color/White"
+                android:drawableRight="@drawable/ic_keyboard_arrow_right_white_18dp"
+                android:textColorHint="@color/button"
+                android:background="@color/opacity_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/expiry_date"
+                android:textColor="@color/White"
+                android:drawableRight="@drawable/ic_keyboard_arrow_right_white_18dp"
+                android:textColorHint="@color/button"
+                android:background="@color/opacity_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/billing_postcode"
+                android:textColor="@color/White"
+                android:drawableRight="@drawable/ic_keyboard_arrow_right_white_18dp"
+                android:textColorHint="@color/button"
+                android:background="@color/opacity_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/White"
+
+               android:text="@string/scan_card"
+                android:paddingLeft="40dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/billing_postcode"
+                android:textColor="@color/White"
+                android:textColorHint="@color/button"
+                android:drawableRight="@drawable/ic_camera_enhance_white_24dp"
+                android:background="@color/opacity_color"
+                android:paddingLeft="60dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_blue"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/round_gray"
+            android:layout_gravity="center"
+            android:text="@string/pay"
+            android:textAlignment="center"
+            android:textColor="@color/White"/>
+    </LinearLayout>
+
+</RelativeLayout>
