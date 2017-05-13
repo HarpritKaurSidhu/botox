@@ -26,7 +26,7 @@
     <string name="bds">BDS</string>
     <string name="other">Other</string>
     <string name="next">Next</string>
-    <string name="give_the_answer">Please Answer to all questions</string>
+
     <string name="address">Address</string>
     <string name="all_field_are_mandatory">All fields are mandatory</string>
     <string name="model_of_transport">Model of Transport</string>
@@ -151,7 +151,7 @@
     <string name="date">Date:</string>
     <string name="time">Time:</string>
     <string name="clinician_name">Clinician Name:</string>
-
+    <string name="give_the_answer">Please Answer to all questions</string>
     <string name="cardinfo">Card Info</string>
     <string name="name_of_card">Name Of Card</string>
     <string name="card_number">Card Number</string>
@@ -162,4 +162,13 @@
     <string name="scan_card_by_camera">Scan Card Via The Camera</string>
     <string name="pay">Pay</string>
     <string name="payment_detail">Payment Details</string>
+    <string name="please_take_a_portrait_photo">Please take a portrait photograph of your face</string>
+    <string name="keep_your_face">Keep your face as straight as possible, avoid tilting face.</string>
+    <string name="do_not_smile_in_picture">Do not smile in picture</string>
+    <string name="go_to_camera">GO TO CAMERA</string>
+    <string name="are_you_a">Are you a:</string>
+    <string name="doctor">Doctor</string>
+    <string name="dentist">Dentist</string>
+    <string name="nurse">Nurse</string>
+    <string name="pharmacist">Pharmacist</string>
 </resources>

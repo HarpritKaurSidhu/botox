@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".Provider.SignUpAsDoctorActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar"
+        android:id="@+id/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
+        app:titleTextColor="@color/White">
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,9 +57,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="20dp"
                             android:padding="5dp"
-                            android:text="UPLOAD IMAGE" />
+                            android:text="UPLOAD IMAGE"
+                            android:textColor="@color/White"/>
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -60,55 +73,79 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/gray"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_margin="1dp">
 
                             <EditText
                                 android:id="@+id/edt_first_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
                                 android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
-                                android:drawablePadding="10dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/first_name"
                                 android:inputType="textPersonName"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_margin="1dp">
 
                             <EditText
                                 android:id="@+id/edt_last_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
                                 android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
-                                android:drawablePadding="15dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/last_name"
                                 android:inputType="textPersonName"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -116,27 +153,49 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
                                 android:drawableLeft="@drawable/ic_email_blue_grey_300_24dp"
-                                android:drawablePadding="15dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/email"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -144,28 +203,50 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_phone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
-                                android:drawablePadding="10dp"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
+                                android:drawableLeft="@drawable/ic_call_blue_grey_300_24dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/phone_number"
                                 android:inputType="number"
                                 android:maxLength="10"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -173,27 +254,49 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_zipcode"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
                                 android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_grey_300_24dp"
-                                android:drawablePadding="10dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/zipcode"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -201,26 +304,48 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
                                 android:drawableLeft="@drawable/ic_lock_blue_grey_300_24dp"
-                                android:drawablePadding="15dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/password"
                                 android:inputType="textPassword"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -228,27 +353,49 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
-                                android:drawableRight="@drawable/ic_location_on_blue_grey_300_24dp"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
+                                android:drawableLeft="@drawable/ic_location_on_blue_grey_300_24dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/address"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -256,34 +403,321 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_mode_of_transport"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
+                                android:drawableLeft="@drawable/ic_directions_car_blue_grey_300_24dp"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/model_of_transport"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/White"
+                            android:text="@string/are_you_a"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:paddingBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/doctor"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="end"
+                                android:gravity="end">
+
+                                <CheckBox
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/White"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.2"
+                                android:padding="0.5dp"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_weight="0.8"
+                                android:background="@color/button"
+                                android:gravity="end"
+                                android:padding="0.5dp"></LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="20dp"
+                            android:paddingBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/dentist"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="end"
+                                android:gravity="end">
+
+                                <CheckBox
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/White"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.2"
+                                android:padding="0.5dp"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_weight="0.8"
+                                android:background="@color/button"
+                                android:gravity="end"
+                                android:padding="0.5dp"></LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="20dp"
+                            android:paddingBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/nurse"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="end"
+                                android:gravity="end">
+
+                                <CheckBox
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/White"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.2"
+                                android:padding="0.5dp"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_weight="0.8"
+                                android:background="@color/button"
+                                android:gravity="end"
+                                android:padding="0.5dp"></LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="20dp"
+                            android:paddingBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/pharmacist"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="end"
+                                android:gravity="end">
+
+                                <CheckBox
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/White"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -297,6 +731,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="@string/driving_licence"
+                                android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
 
@@ -309,33 +744,35 @@
                             <Switch
                                 android:id="@+id/sw_driving_licence"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/White"/>
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="270dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_gdcno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/gdcno"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -343,26 +780,49 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/edt_gmcno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/White"
-                                android:drawablePadding="15dp"
+                                android:background="@android:color/transparent"
+                                android:backgroundTint="@color/button"
+                                android:drawablePadding="40dp"
                                 android:hint="@string/gmcno"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:padding="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/White"
+                                android:textColorHint="@color/button"
                                 android:textCursorDrawable="@drawable/cursor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -370,24 +830,43 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/gray"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="1dp"
-                            android:background="@color/White">
+                            android:layout_weight="0.2"
+                            android:padding="0.5dp"></LinearLayout>
 
-                            <Button
-                                android:id="@+id/btn_next"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/Black"
-                                android:text="@string/next"
-                                android:textColor="@color/White" />
-                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="0.8"
+                            android:background="@color/button"
+                            android:gravity="end"
+                            android:padding="0.5dp"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/round_blue">
+
+                        <Button
+                            android:id="@+id/btn_next"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="1dp"
+                            android:background="@drawable/round_gray"
+                            android:text="@string/next"
+                            android:textAlignment="center"
+                            android:textColor="@color/White" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -421,10 +900,5 @@
                 android:visibility="gone" />
         </RelativeLayout>
     </RelativeLayout>
-    <!-- <android.support.v7.widget.Toolbar
-         android:id="@+id/toolbar"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">
 
-     </android.support.v7.widget.Toolbar>-->
 </LinearLayout>

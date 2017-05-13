@@ -34,8 +34,7 @@ public class WorkingConditionsActivity extends BaseActivity {
     TextView textViewFrom;
     @BindView(R.id.txt_set_time_to)
     TextView textViewTo;
-    @BindView(R.id.edt_distance)
-    EditText editTextDistance;
+
     @BindView(R.id.cb_confirmation_one)
     CheckBox cbWorkInUk;
     @BindView(R.id.cb_confirmation_two)
