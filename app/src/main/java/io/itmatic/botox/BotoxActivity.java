@@ -93,7 +93,7 @@ public class BotoxActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(BotoxActivity.this,TakePhotograph.class);
+                Intent intent = new Intent(BotoxActivity.this,ChatActivity.class);
                 startActivity(intent);
 
 

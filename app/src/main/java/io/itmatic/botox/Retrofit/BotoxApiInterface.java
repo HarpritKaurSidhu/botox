@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.itmatic.botox.Model.Area;
+import io.itmatic.botox.Model.Chat;
 import io.itmatic.botox.Model.Education;
 import io.itmatic.botox.Model.Patient;
 
@@ -47,6 +48,8 @@ public interface BotoxApiInterface {
     @FormUrlEncoded
     @POST("near/by/provider.json")
     Call<List<Provider>> getAvailableProvider(@Field("post_code") String postcode,@Field("date") String date,@Field("time") String time);
+
+
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("user/login.json")
@@ -58,8 +61,18 @@ public interface BotoxApiInterface {
     Call<List<Provider>> setPostCode(@Field("post_code") String postcode, @Field("token") String token);
 
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("chat/add.json")
+    Call<Chat> sendPatientMessage(@Field("id") int id, @Field("recipient") int rid,@Field("message") String  message);
+
+
     @GET("provider/profile.json")
     Call<Provider> providerProfile(@Query("token") String token);
+
+
+    @GET("chat/user.json")
+    Call<ArrayList<Chat>> getMessage(@Query("id") int id, @Query("recipient") int  recipient );
 
     @GET("area/all.json")
     Call<List<Area>> getPatientArea();
@@ -81,7 +94,7 @@ public interface BotoxApiInterface {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @POST(" provider/work/conditions.json")
+    @POST("provider/work/conditions.json")
     Call<Provider> setWorkingTime(@Field("token") String token,@Field("schedule") String schedule);
 
     @Headers("Accept: application/json")

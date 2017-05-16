@@ -45,7 +45,8 @@
         <activity android:name=".Patient.MedicalHistoryActivity" />
         <activity android:name=".Patient.ConfirmBookingActivity" />
         <activity android:name=".Patient.PaymentDetailsActivity" />
-        <activity android:name=".Patient.TakePhotograph"></activity>
+        <activity android:name=".Patient.TakePhotograph" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
