@@ -171,4 +171,6 @@
     <string name="dentist">Dentist</string>
     <string name="nurse">Nurse</string>
     <string name="pharmacist">Pharmacist</string>
+    <string name="appointment_date">Date</string>
+    <string name="patient_appointment_time">Time</string>
 </resources>

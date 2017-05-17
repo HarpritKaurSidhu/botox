@@ -18,19 +18,19 @@ import io.itmatic.botox.R;
 
 public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactViewHolder> {
 
-        private List<Patient> patient_list;
-        private Context context;
+    private List<Patient> patient_list;
+    private Context context;
 
 
-        public PatientAdapter(Context context, List<Patient> contactList) {
-            this.patient_list = contactList;
-            this.context=context;
-        }
+    public PatientAdapter(Context context, List<Patient> contactList) {
+        this.patient_list = contactList;
+        this.context=context;
+    }
 
-        @Override
-        public int getItemCount() {
-            return patient_list.size();
-        }
+    @Override
+    public int getItemCount() {
+        return patient_list.size();
+    }
 
      /* View.OnClickListener getClickListener(final int position) {
             return new View.OnClickListener() {
@@ -51,13 +51,13 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactV
         }*/
 
 
-        @Override
-        public void onBindViewHolder(ContactViewHolder contactViewHolder,final int i) {
-            Patient patient = patient_list.get(i);
+    @Override
+    public void onBindViewHolder(ContactViewHolder contactViewHolder,final int i) {
+        Patient patient = patient_list.get(i);
 
-            contactViewHolder.textViewPatientName.setText(patient.getFullName());
-            contactViewHolder.textViewDate.setText(patient.getDob());
-            Glide.with(context).load(patient.getImageUrl()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
+        contactViewHolder.textViewPatientName.setText(patient.getFullName());
+        contactViewHolder.textViewDate.setText(patient.getDob());
+        Glide.with(context).load(patient.getImageUrl()).placeholder(R.drawable.ic_dummy_user).dontAnimate().into(contactViewHolder.imageViewUserImage);
 
 
            /* contactViewHolder.textViewQualification.setText(.getTitle());
@@ -79,36 +79,36 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ContactV
 
 */
 
-            //set a category name on largeplayer
+        //set a category name on largeplayer
 
 
 
 
 
-
-        }
-
-        @Override
-        public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.patient_item_layout, viewGroup, false);
-
-            return new ContactViewHolder(itemView);
-        }
-
-        public  class ContactViewHolder extends RecyclerView.ViewHolder {
-
-            TextView textViewPatientName;
-            TextView textViewDate;
-            ImageView imageViewUserImage;
-
-            public ContactViewHolder(View v) {
-                super(v);
-
-                   textViewPatientName=(TextView) v.findViewById(R.id.txt_patient_name);
-                   textViewDate=(TextView) v.findViewById(R.id.txt_date);
-                   imageViewUserImage=(ImageView) v.findViewById(R.id.img_user_image);
-
-            }
-        }
 
     }
+
+    @Override
+    public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.patient_item_layout, viewGroup, false);
+
+        return new ContactViewHolder(itemView);
+    }
+
+    public  class ContactViewHolder extends RecyclerView.ViewHolder {
+
+        TextView textViewPatientName;
+        TextView textViewDate;
+        ImageView imageViewUserImage;
+
+        public ContactViewHolder(View v) {
+            super(v);
+
+            textViewPatientName=(TextView) v.findViewById(R.id.txt_patient_name);
+            textViewDate=(TextView) v.findViewById(R.id.txt_date);
+            imageViewUserImage=(ImageView) v.findViewById(R.id.img_user_image);
+
+        }
+    }
+
+}

@@ -124,7 +124,7 @@ public class ChatActivity extends BaseActivity {
 
                    chatMessages=response.body();
 
-                    adapter=new ChatAdapter(chatMessages);
+                    adapter=new ChatAdapter(getApplicationContext(),chatMessages);
                     recyclerView.setAdapter(adapter);
 
                 } else {
@@ -175,7 +175,7 @@ public class ChatActivity extends BaseActivity {
 
                     Chat chat=response.body();
                        chatMessages.add(chat);
-                    adapter=new ChatAdapter(chatMessages);
+                    adapter=new ChatAdapter(getApplicationContext(),chatMessages);
                     recyclerView.setAdapter(adapter);
 
                 } else {

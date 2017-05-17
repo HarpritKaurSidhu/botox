@@ -1,21 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".Provider.ScheduleActivity">
 
     <android.support.v7.widget.Toolbar
-        android:background="@color/toolbar"
         android:id="@+id/toolbar"
-        app:theme="@style/Toolbarbackarrowcolor"
-        app:titleTextColor="@color/White"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:background="@color/toolbar"
+        app:theme="@style/Toolbarbackarrowcolor"
+        app:titleTextColor="@color/White" />
+    -
+
     <LinearLayout
         android:id="@+id/lout_submit"
         android:layout_width="match_parent"
@@ -25,10 +26,12 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical">
+        -
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"
@@ -39,30 +42,31 @@
                 android:text="@string/submit"
                 android:textColor="@color/White" />
         </LinearLayout>
-
     </LinearLayout>
+    -
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/lout_submit">
+        android:layout_above="@+id/lout_submit"
+        android:layout_below="@+id/toolbar">
+        -
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
+            android:layout_height="match_parent">
+            -
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                -
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -77,13 +81,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp">
+                    android:background="@color/opacity_color"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/opacity_color">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -95,12 +99,13 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/monday"
                                 android:layout_marginLeft="20dp"
                                 android:padding="20dp"
+                                android:text="@string/monday"
                                 android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -110,11 +115,12 @@
 
                             <Switch
                                 android:id="@+id/sw_mon"
-                                android:padding="20dp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
+                    -
 
                     <LinearLayout
                         android:id="@+id/lout_mon"
@@ -122,12 +128,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -136,33 +144,37 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:layout_weight="1"
                                     android:layout_marginLeft="30dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/from"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_from_mon"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
-                                    android:textColor="@color/White"
-                                    android:text="@string/set_time"/>
+                                    android:gravity="end"
+                                    android:text="@string/set_time"
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
-                            android:layout_width="300dp"
+                            android:layout_width="330dp"
                             android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -171,41 +183,45 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_to_mon"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
-
                         </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="300dp"
-                        android:layout_height="1dp"
-                        android:background="@color/button"
-                        android:layout_gravity="end">
-                    </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                    </LinearLayout>
                 </LinearLayout>
+                -
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="@color/opacity_color"
                     android:orientation="vertical">
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/opacity_color">
+                        android:layout_height="wrap_content">
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -217,12 +233,13 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/tuesday"
                                 android:layout_marginLeft="20dp"
                                 android:padding="20dp"
+                                android:text="@string/tuesday"
                                 android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -233,21 +250,26 @@
                             <Switch
                                 android:id="@+id/sw_tue"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
+                    -
+
                     <LinearLayout
                         android:id="@+id/lout_tue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -256,31 +278,37 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/from"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_from_tue"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
-                            android:layout_width="300dp"
+                            android:layout_width="330dp"
                             android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -289,40 +317,45 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_to_tue"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="1dp"
-                    android:background="@color/button"
-                    android:layout_gravity="end">
-                </LinearLayout>
+                -
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="@color/opacity_color"
                     android:orientation="vertical">
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/opacity_color">
+                        android:layout_height="wrap_content">
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -334,12 +367,13 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/wednesday"
                                 android:layout_marginLeft="20dp"
                                 android:padding="20dp"
+                                android:text="@string/wednesday"
                                 android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -350,9 +384,11 @@
                             <Switch
                                 android:id="@+id/sw_wed"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
+                    -
 
                     <LinearLayout
                         android:id="@+id/lout_wed"
@@ -360,87 +396,99 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/from"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_from_wed"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
-                            android:layout_width="300dp"
+                            android:layout_width="330dp"
                             android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_to_wed"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="300dp"
-                        android:layout_height="1dp"
-                        android:background="@color/button"
-                        android:layout_gravity="end">
-                    </LinearLayout>
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@color/opacity_color"
                         android:orientation="vertical">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/opacity_color">
+                            android:layout_height="wrap_content">
+                            -
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -452,12 +500,13 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:text="@string/thursday"
                                     android:layout_marginLeft="20dp"
                                     android:padding="20dp"
+                                    android:text="@string/thursday"
                                     android:textColor="@color/White"
                                     android:textSize="17sp" />
                             </LinearLayout>
+                            -
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -468,9 +517,11 @@
                                 <Switch
                                     android:id="@+id/sw_thu"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:padding="20dp" />
                             </LinearLayout>
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:id="@+id/lout_thu"
@@ -478,47 +529,14 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:visibility="gone">
+                            -
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="20dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    >
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:padding="10dp"
-                                        android:layout_weight="1"
-                                        android:text="@string/from"
-                                        android:textColor="@color/White"/>
-                                    <TextView
-
-                                        android:gravity="end"
-                                        android:id="@+id/txt_set_time_from_thu"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="@color/White"
-                                        android:text="@string/set_time"/>
-                                </LinearLayout>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="300dp"
-                                android:layout_height="1dp"
-                                android:background="@color/button"
-                                android:layout_gravity="end">
-                            </LinearLayout>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="20dp"
                                 android:orientation="horizontal">
+                                -
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -527,40 +545,84 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:padding="10dp"
+                                        android:layout_marginLeft="30dp"
                                         android:layout_weight="1"
-                                        android:text="@string/to"
-                                        android:textColor="@color/White"/>
+                                        android:padding="10dp"
+                                        android:text="@string/from"
+                                        android:textColor="@color/White" />
+
                                     <TextView
+                                        android:id="@+id/txt_set_time_from_thu"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_weight="1"
                                         android:gravity="end"
+                                        android:text="@string/set_time"
+                                        android:textColor="@color/White" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="330dp"
+                                android:layout_height="1dp"
+                                android:layout_gravity="end"
+                                android:background="@color/button" />
+                            -
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal">
+                                -
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_weight="1"
+                                        android:padding="10dp"
+                                        android:text="@string/to"
+                                        android:textColor="@color/White" />
+
+                                    <TextView
                                         android:id="@+id/txt_set_time_to_thu"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginRight="20dp"
                                         android:layout_weight="1"
+                                        android:gravity="end"
                                         android:text="@string/set_time"
-                                        android:textColor="@color/White"/>
+                                        android:textColor="@color/White" />
                                 </LinearLayout>
                             </LinearLayout>
-                        </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="330dp"
+                                android:layout_height="1dp"
+                                android:layout_gravity="end"
+                                android:background="@color/button" />
+                        </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="300dp"
-                        android:layout_height="1dp"
-                        android:background="@color/button"
-                        android:layout_gravity="end">
-                    </LinearLayout>
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@color/opacity_color"
                         android:orientation="vertical">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/opacity_color">
+                            android:layout_height="wrap_content">
+                            -
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -572,12 +634,13 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:text="@string/friday"
                                     android:layout_marginLeft="20dp"
                                     android:padding="20dp"
+                                    android:text="@string/friday"
                                     android:textColor="@color/White"
                                     android:textSize="17sp" />
                             </LinearLayout>
+                            -
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -588,10 +651,12 @@
                                 <Switch
                                     android:id="@+id/sw_fri"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:padding="20dp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+                    -
 
                     <LinearLayout
                         android:id="@+id/lout_fri"
@@ -599,46 +664,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/from"
-                                    android:textColor="@color/White"/>
-                                <TextView
-                                    android:id="@+id/txt_set_time_from_fri"
-                                    android:gravity="end"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="300dp"
-                            android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -647,39 +680,83 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
-                                    android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:padding="10dp"
+                                    android:text="@string/from"
+                                    android:textColor="@color/White" />
+
                                 <TextView
-                                    android:id="@+id/txt_set_time_to_fri"
-                                    android:gravity="end"
+                                    android:id="@+id/txt_set_time_from_fri"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
-                                    android:textColor="@color/White"
-                                    android:text="@string/set_time"/>
+                                    android:gravity="end"
+                                    android:text="@string/set_time"
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            -
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    android:text="@string/to"
+                                    android:textColor="@color/White" />
+
+                                <TextView
+                                    android:id="@+id/txt_set_time_to_fri"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/set_time"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="1dp"
-                    android:background="@color/button"
-                    android:layout_gravity="end">
-                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="@color/opacity_color"
                     android:orientation="vertical">
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/opacity_color">
+                        android:layout_height="wrap_content">
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -691,12 +768,13 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/saturday"
                                 android:layout_marginLeft="20dp"
                                 android:padding="20dp"
+                                android:text="@string/saturday"
                                 android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -707,11 +785,11 @@
                             <Switch
                                 android:id="@+id/sw_sat"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
-
-
+                    -
 
                     <LinearLayout
                         android:id="@+id/lout_sat"
@@ -719,46 +797,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/from"
-                                    android:textColor="@color/White"/>
-                                <TextView
-                                    android:id="@+id/txt_set_time_from_sat"
-                                    android:gravity="end"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/White"
-                                    android:text="@string/set_time"/>
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="300dp"
-                            android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -767,40 +813,84 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
-                                    android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:padding="10dp"
+                                    android:text="@string/from"
+                                    android:textColor="@color/White" />
+
                                 <TextView
-                                    android:id="@+id/txt_set_time_to_sat"
-                                    android:gravity="end"
+                                    android:id="@+id/txt_set_time_from_sat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
-                                    android:textColor="@color/White"
-                                    android:text="@string/set_time"/>
+                                    android:gravity="end"
+                                    android:text="@string/set_time"
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            -
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    android:text="@string/to"
+                                    android:textColor="@color/White" />
+
+                                <TextView
+                                    android:id="@+id/txt_set_time_to_sat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/set_time"
+                                    android:textColor="@color/White" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
                     </LinearLayout>
-
                 </LinearLayout>
+                -
 
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="1dp"
-                    android:background="@color/button"
-                    android:layout_gravity="end">
-                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="@color/opacity_color"
                     android:orientation="vertical">
+                    -
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/opacity_color">
+                        android:layout_height="wrap_content">
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -812,12 +902,13 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/sunday"
                                 android:layout_marginLeft="20dp"
                                 android:padding="20dp"
+                                android:text="@string/sunday"
                                 android:textColor="@color/White"
                                 android:textSize="17sp" />
                         </LinearLayout>
+                        -
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -828,96 +919,99 @@
                             <Switch
                                 android:id="@+id/sw_sun"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    -
 
                     <LinearLayout
                         android:id="@+id/lout_sun"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
+                        -
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
 
                                 <TextView
-
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/from"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_from_sun"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
-                            android:layout_width="300dp"
+                            android:layout_width="330dp"
                             android:layout_height="1dp"
-                            android:background="@color/button"
-                            android:layout_gravity="end">
-                        </LinearLayout>
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
+                        -
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:orientation="horizontal">
+                            -
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_weight="1"
+                                    android:padding="10dp"
                                     android:text="@string/to"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
+
                                 <TextView
                                     android:id="@+id/txt_set_time_to_sun"
-                                    android:gravity="end"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
                                     android:layout_weight="1"
+                                    android:gravity="end"
                                     android:text="@string/set_time"
-                                    android:textColor="@color/White"/>
+                                    android:textColor="@color/White" />
                             </LinearLayout>
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="330dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="end"
+                            android:background="@color/button" />
                     </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="1dp"
-                    android:background="@color/button"
-                    android:layout_gravity="end">
-                </LinearLayout>
             </LinearLayout>
-
         </RelativeLayout>
-
     </ScrollView>
-
-
 </RelativeLayout>

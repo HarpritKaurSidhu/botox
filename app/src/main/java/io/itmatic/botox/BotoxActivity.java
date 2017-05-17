@@ -13,13 +13,14 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.itmatic.botox.Common.BaseActivity;
 import io.itmatic.botox.Patient.LoginAsPatientActivity;
 import io.itmatic.botox.Patient.SignUpAsPatient;
 import io.itmatic.botox.Patient.TakePhotograph;
 import io.itmatic.botox.Provider.MyAppointmentActivity;
 import io.itmatic.botox.Provider.ProviderLoginActivity;
 
-public class BotoxActivity extends AppCompatActivity {
+public class BotoxActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
